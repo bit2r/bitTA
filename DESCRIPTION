@@ -1,0 +1,27 @@
+Package: bitTA
+Type: Package
+Title: Tools for Text Analytics
+Version: 1.1.0.9000
+Date: 2022-05-17
+Description: Tools that support "Natural Language Processing" for text analytics.
+License: Apache License (== 2.0)
+Encoding: UTF-8
+Depends: R (>= 2.13.0)
+Imports: 
+  cli,
+  dplyr,   
+  KoNLP (>= 0.76.9),   
+  parallel,
+  purrr, 
+  RMeCab (>= 1.07), 
+  shiny, 
+  stringr,
+  tibble
+Suggests:
+  glue
+Authors@R: c(
+  person("Choonghyun", "Ryu",, "choonghyun.ryu@gmail.com", role = c("aut", "cre"))
+  )  
+Maintainer: Choonghyun Ryu <choonghyun.ryu@gmail.com>   
+LazyData: true
+RoxygenNote: 7.1.2

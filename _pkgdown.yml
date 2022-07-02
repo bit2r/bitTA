@@ -1,0 +1,9 @@
+pandoc: '2.8'
+pkgdown: 2.0.2
+pkgdown_sha: ~
+
+title: bitTA
+
+template:
+  params:
+    bootswatch: cerulean

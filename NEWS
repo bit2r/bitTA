@@ -1,0 +1,32 @@
+CHANGES IN R VERSION 1.1.0:
+  MAJOR CHANGES:
+    * 형태소분석기를 이용한 토크나이저 함수에서 복수개의 문서에 대해서 복수개의
+      벡터를 갖는 리스트 객체로 반환
+      - morpho_hann()
+      - morpho_mecab()
+
+  MINOR CHANGES:
+    * morpho_mecab() type 인수의 기능 확장
+        - "noun" : 일반명사(NNG)만 토큰화
+        - "noun2" : 모든 명사를 토큰화
+
+
+
+CHANGES IN R VERSION 1.0.0:
+  NEW FEATURES:
+    * 문자열을 분리하는 함수인 split_text() 추가
+    * 네이버 카페 게시물 스크래핑 샘플 데이터인 buzz 데이터셋 추가
+
+  MAJOR CHANGES:
+    * 함수이름을 카멜 표기법(Camel Case)에서 스네이크 표기법(Snake Case)으로 변경
+        - from getMeta()      to get_meta()
+        - from getMeta()      to get_meta()
+        - from getMorpHann()  to morpho_hann()
+        - from getMorpMecab() to morpho_mecab()
+        - from getMorpWise()  to morpho_wise()
+        - from changeStr()    to replace_text()
+        - from concatStr()    to concat_text()
+        - from eraseStr()     to remove_text()
+        - from filterStr()    to filter_text()
+        - from docQuality()   to doc_quality()
+        - from getSpacing()   to get_spacing()
