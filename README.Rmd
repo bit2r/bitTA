@@ -21,6 +21,13 @@ knitr::opts_chunk$set(
 
 ## Usage bitTA
 
+### 설치하기
+
+```{r, eval= FALSE}
+remotes::install_github("bit2r/bitTA")
+```
+
+
 ### 한글 자동 띄어쓰기
 
 한글 문장을 띄어쓰기 규칙에 맞게 자동으로 띄어쓰기 보정

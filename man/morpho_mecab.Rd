@@ -57,11 +57,9 @@ morpho_mecab("아버지가 방에 들어가신다.", type = "morpheme")
 morpho_mecab("아버지가 방에 들어가신다.", type = "verb")
 
 dic_path <- system.file("dic", package = "bitTA")
-dic_file <- glue::glue("{dic_path}/HPUSS.dic")
+dic_file <- glue::glue("{dic_path}/buzz_dic.dic")
 
-str <- "2019년 11월 임플란트 시술하였습니다. 간편가입 종신보험 또는
-        간편경영인정기보험을 가입하려고 합니다. 타사지급이력으로 청약서
-        발행이 안됩니다. 가입이 안되는건가요?"
+str <- "신혼부부나 주말부부는 놀이공원 자유이용권을 즐겨 구매합니다."
 morpho_mecab(str)
 morpho_mecab(str, dic = dic_file)
 
