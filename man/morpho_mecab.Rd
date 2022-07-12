@@ -67,9 +67,6 @@ morpho_mecab(c("무궁화꽃이 피었습니다.", "나는 어제 올갱이국�
 morpho_mecab(c("무궁화꽃이 피었습니다.", "나는 어제 올갱이국밥을 먹었다."), indiv = FALSE)
 }
 }
-\seealso{
-\code{\link{morpho_hann}}
-}
 \author{
 유충현
 Maintainer: 유충현 <choonghyun.ryu@gmail.com>

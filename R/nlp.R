@@ -664,7 +664,6 @@ remove_text <- function(
 #' 원소로 갖는 list 객체.
 #' @author 유충현
 #' Maintainer: 유충현 <choonghyun.ryu@gmail.com>
-#' @seealso \code{\link{morpho_hann}}
 #' @examples
 #' \dontrun{
 #' ## Mecab 형태소 분석
@@ -728,76 +727,6 @@ morpho_mecab <- function(x, type = c("morpheme", "noun", "noun2", "verb", "adj")
 
   tokens
 }
-
-#' Hannnanum 형태소 분석기 기반 토큰화
-#' @description KoNLP 패키지 내부에 포함된 한나눔 형태소 분석기의 호출
-#' @param x character. 형태소 분석에 사용할 document.
-#' @param type 형태소 분석의 결과 유형.모든 품사, 명사, 동사 및 형용사와 같은
-#'  토큰화 결과 유형을 지정.
-#'  "morpheme", "noun", "noun2", "verb", "adj"중에서 선택. 기본값은 "noun"로
-#'  명사만 추출함.
-#' @param indiv logical. 복수개의 문서일 때 개별 문서를 리스트로 반환할 지를 선택함.
-#' TRUE이면 개별 리스트로 반환하고, FALSE이면 하나의 문자 벡터로 반환함.
-#' 기본값은 TRUE
-#' @return Hannnanum 형태소 분석기 결과 구조의 character 벡터.
-#' @author 유충현
-#' Maintainer: 유충현 <choonghyun.ryu@gmail.com>
-#' @seealso \code{\link{morpho_mecab}}
-#' @examples
-#' \dontrun{
-#' ## Hannnanum 형태소 분석
-#' morpho_hann("아버지가 방에 들어가신다.")
-#' morpho_hann("아버지가 방에 들어가신다.", type = "verb")
-#'
-#' morpho_hann(c("무궁화꽃이 피었습니다.", "나는 어제 올갱이국밥을 먹었다."))
-#' morpho_hann(c("무궁화꽃이 피었습니다.", "나는 어제 올갱이국밥을 먹었다."), indiv = FALSE)
-#' }
-#' @export
-#' @import dplyr
-#' @importFrom KoNLP SimplePos22
-morpho_hann <- function(x, type = c("morpheme", "noun", "noun2", "verb", "adj")[2],
-                        indiv = TRUE) {
-  options(java.parameters = "-Xmx8g" )
-
-  library(KoNLP)
-
-  tokens <- x %>%
-    seq() %>%
-    purrr::map(
-      function(i) {
-        token <- KoNLP::SimplePos22(x[i]) %>%
-          sapply(stringr::str_split, pattern = "\\+") %>%
-          unlist() %>%
-          sapply(stringr::str_split, pattern = "/") %>%
-          unlist()
-
-        result <- token[as.logical(seq(token) %% 2)]
-        names(result) <- token[!as.logical(seq(token) %% 2)]
-
-        if (type != "morpheme") {
-          if (type %in% c("noun", "noun2")) pattern <- "^N"
-          if (type == "verb") pattern <- "^PV"
-          if (type == "adj") pattern <- "^PA"
-
-          idx <- stringr::str_detect(names(result), pattern)
-          result <- result[idx]
-        }
-
-        result
-      }
-    )
-
-  if (!indiv) {
-    tokens <- unlist(tokens)
-  }
-
-  if (length(tokens) == 1) {
-    tokens <- unlist(tokens)
-  }
-
-  tokens
-}
-
 
 #' 한글 자동 띄어쓰기
 #' @description 한글 문장을 띄어쓰기 규칙에 맞게 자동으로 띄어쓰기 보정.

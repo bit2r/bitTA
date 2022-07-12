@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">bitTA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0.9001</span>
       </span>
     </div>
 
@@ -69,14 +69,20 @@
 <h2 id="usage-bitta">Usage bitTA<a class="anchor" aria-label="anchor" href="#usage-bitta"></a>
 </h2>
 <div class="section level3">
+<h3 id="설치하기">설치하기<a class="anchor" aria-label="anchor" href="#%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0"></a>
+</h3>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"bit2r/bitTA"</span><span class="op">)</span></code></pre></div>
+</div>
+<div class="section level3">
 <h3 id="한글-자동-띄어쓰기">한글 자동 띄어쓰기<a class="anchor" aria-label="anchor" href="#%ED%95%9C%EA%B8%80-%EC%9E%90%EB%8F%99-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0"></a>
 </h3>
 <p>한글 문장을 띄어쓰기 규칙에 맞게 자동으로 띄어쓰기 보정</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">bitTA</span><span class="op">)</span>
 
 <span class="fu"><a href="reference/get_spacing.html">get_spacing</a></span><span class="op">(</span><span class="st">"최근음성인식정확도가높아짐에따라많은음성데이터가Text로변환되고분석되기시작했는데,이를위해잘동작하는띄어쓰기엔진은거의필수적인게되어버렸다"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "최근 음성 인식 정확도가 높아 짐에 따라 많은 음성 데이터가 Text로 변환되고 분석되기 시작했는데, 이를 위해 잘 동작하는 띄어쓰기 엔진은 거의 필수적인 게 되어 버렸다"</span>
+<span class="co">#&gt; [1] "최근 음성 인식 정확도가 높아 짐에 따라 많은 음성 데이터가 T ex t로 변환되고 분석되기 시작했는데, 이를 위해 잘 동작하는 띄어쓰기 엔진은 거의 필수적인 게 되어 버렸다"</span>
 <span class="va">str</span> <span class="op">&lt;-</span> <span class="st">"글쓰기에서맞춤법과띄어쓰기를올바르게하는것은좋은글이될수있는요건중하나이다.하지만요즘학생들은부족한어문규정지식으로인해맞춤법과띄어쓰기에서많은오류를범하기도한다.본연구는그중띄어쓰기가글을인식하는데중요한역할을하는것으로판단하여,대학생들이띄어쓰기에대해서어느정도정확하게인식하고있는지,실제오류실태는어떠한지에대해살펴서그오류를개선할수있는교육방안을마련할필요가있다고판단하였다."</span>
 <span class="fu"><a href="reference/get_spacing.html">get_spacing</a></span><span class="op">(</span><span class="va">str</span><span class="op">)</span>
 <span class="co">#&gt; [1] "글쓰기에서 맞춤법과 띄어쓰기를 올바르게 하는 것은 좋은 글이 될 수 있는 요건 중 하나이다. 하지만 요즘 학생들은 부족한 어문 규정 지식으로 인해 맞춤법과 띄어쓰기에서 많은 오류를 범하기도 한다. 본 연구는 그중 띄어쓰기가 글을 인식하는 데 중요한 역할을 하는 것으로 판단하여, 대학생들이 띄어쓰기에 대해서 어느 정도 정확하게 인식하고 있는지, 실제 오류 실태는 어떠한지에 대해 살펴서 그 오류를 개선할 수 있는 교육 방안을 마련할 필요가 있다고 판단하였다."</span></code></pre></div>
@@ -88,7 +94,7 @@
 <h4 id="mecab-형태소-분석기">Mecab 형태소 분석기<a class="anchor" aria-label="anchor" href="#mecab-%ED%98%95%ED%83%9C%EC%86%8C-%EB%B6%84%EC%84%9D%EA%B8%B0"></a>
 </h4>
 <p>Mecab 형태소 분석기를 호출하여 형태소 분석을 수행</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span><span class="op">)</span>
 <span class="co">#&gt;      NNG      NNG </span>
 <span class="co">#&gt; "아버지"     "방"</span>
@@ -96,20 +102,6 @@
 <span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span>, type <span class="op">=</span> <span class="st">"verb"</span><span class="op">)</span>
 <span class="co">#&gt;       VV </span>
 <span class="co">#&gt; "들어가"</span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="hannnanum-형태소-분석기">Hannnanum 형태소 분석기<a class="anchor" aria-label="anchor" href="#hannnanum-%ED%98%95%ED%83%9C%EC%86%8C-%EB%B6%84%EC%84%9D%EA%B8%B0"></a>
-</h4>
-<p>KoNLP 패키지 내부에 포함된 한나눔 형태소 분석기의 호출</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/morpho_hann.html">morpho_hann</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span><span class="op">)</span>
-<span class="co">#&gt; Checking user defined dictionary!</span>
-<span class="co">#&gt;       NC       NC </span>
-<span class="co">#&gt; "아버지"     "방"</span>
-
-<span class="fu"><a href="reference/morpho_hann.html">morpho_hann</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span>, type <span class="op">=</span> <span class="st">"verb"</span><span class="op">)</span>
-<span class="co">#&gt;   PV </span>
-<span class="co">#&gt; "들"</span></code></pre></div>
 </div>
 </div>
 </div>
