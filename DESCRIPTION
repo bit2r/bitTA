@@ -18,6 +18,8 @@ Imports:
   tibble
 Suggests:
   glue
+SystemRequirements:
+  mecab-ko (https://bitbucket.org/eunjeon/mecab-ko/src/master/) and mecab-ko-dic (https://bitbucket.org/eunjeon/mecab-ko-dic/src/master/)
 Authors@R: c(
   person("Choonghyun", "Ryu",, "choonghyun.ryu@gmail.com", role = c("aut", "cre"))
   )  
