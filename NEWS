@@ -1,8 +1,15 @@
 CHANGES IN R VERSION 1.1.0:
   MAJOR CHANGES:
+    * 은전한닢 형태소분석기(mecab-ko)와 사전(mecab-ko-dic)을 사용자 환경에 
+      설치하는 함수 추가 (Linix, Mac. TO-DO Windows)
+      - install_mecab_ko()
+        
+        
+        
+CHANGES IN R VERSION 1.1.0:
+  MAJOR CHANGES:
     * 형태소분석기를 이용한 토크나이저 함수에서 복수개의 문서에 대해서 복수개의
       벡터를 갖는 리스트 객체로 반환
-      - morpho_hann()
       - morpho_mecab()
 
   MINOR CHANGES:
