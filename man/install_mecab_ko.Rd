@@ -4,7 +4,7 @@
 \alias{install_mecab_ko}
 \title{은전한닢 형태소분석기와 사전 설치}
 \usage{
-install_mecab_ko(x)
+install_mecab_ko(mecabLocation = "c:/mecab")
 }
 \description{
 은전한닢 형태소분석기인 mecab-ko와 은전한닢 형태소분석기 사전인 

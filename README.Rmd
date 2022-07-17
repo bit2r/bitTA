@@ -17,15 +17,37 @@ knitr::opts_chunk$set(
 
 ## Overview
 
-`bitTA`은 자연어 처리(Natural Language Processing), 텍스트 분석 모델 및 텍스트 분석을 위한 시각화와 도구 모음.
+`bitTA`은 텍스트 데이터의 품질을 보정하고, 자연어 처리(Natural Language Processing) 및 형태소분석, 감성분을 지원하는 도구의 모음입니다.
 
-## Usage bitTA
+## Install bitTA
 
-### 설치하기
+bitTA을 설차하기 위해서는 다음의 두 리소스를 사전에 설치해야 합니다.
 
+* 은전한닢 형태소분석기 시스템과 사전
+  - mecab-ko 혹은 mecab-ko-msvc
+  - mecab-ko-dic
+* RMeCab 패키지   
+  - R에서 mecab-ko 연동을 위한 R 패키지
+
+### mecab-ko와 mecab-ko-dic 설치하기
+
+`bitTA`는 형태소 분석에서, [은전한닢 프로젝트](http://eunjeon.blogspot.com/2013/02/blog-post.html)에서 제공하는 오픈소스 **한국어 형태소 분석기인 [mecab-ko](https://bitbucket.org/eunjeon/mecab-ko/)**와 **한국어 사전인 [mecab-ko-dic](https://bitbucket.org/eunjeon/mecab-ko-dic/)**을 사용합니다.   
+
+`bitTA`를 사용하기 위해서는 mecab-ko와 mecab-ko-dic를 설치해야 합니다.
+
+#### Linux와 Mac에서 관리자 계정으로 설치하기
+
+
+### bitTA 패키지 설치하기
+
+Github 리파지토리에서 배포하는 패키지를 다음과 같이 설치합니다.
+ 
 ```{r, eval= FALSE}
 remotes::install_github("bit2r/bitTA")
 ```
+
+
+
 
 
 ### 한글 자동 띄어쓰기

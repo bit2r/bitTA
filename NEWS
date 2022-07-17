@@ -1,8 +1,9 @@
 CHANGES IN R VERSION 1.1.0:
   MAJOR CHANGES:
     * 은전한닢 형태소분석기(mecab-ko)와 사전(mecab-ko-dic)을 사용자 환경에 
-      설치하는 함수 추가 (Linix, Mac. TO-DO Windows)
+      설치하는 함수 추가 (thanks to @stacklee, #5)
       - install_mecab_ko()
+      - Linix, Mac 환경 구현, TO-DO Windows)
         
         
         
