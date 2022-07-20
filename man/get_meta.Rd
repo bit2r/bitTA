@@ -3,7 +3,7 @@
 \name{get_meta}
 \alias{get_meta}
 \alias{set_meta}
-\title{텍스트 데이터 전처리를 위한 메타정보 등록 및 조회}
+\title{Meta information processing for text data preprocessing}
 \usage{
 get_meta(id = c("filter", "replace", "remove", "concat", "split"))
 

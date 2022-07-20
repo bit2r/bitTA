@@ -2,7 +2,7 @@
 % Please edit documentation in R/shiny.R
 \name{doc_quality}
 \alias{doc_quality}
-\title{텍스트 데이터  품질 보정 작업기 호출}
+\title{Text Data Quality Correction Worker}
 \usage{
 doc_quality()
 }

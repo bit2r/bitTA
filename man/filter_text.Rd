@@ -2,7 +2,7 @@
 % Please edit documentation in R/nlp.R
 \name{filter_text}
 \alias{filter_text}
-\title{텍스트 데이터의 문자열 매치 데이터 필터링}
+\title{Filter data based on string matches of text data}
 \usage{
 filter_text(
   doc,

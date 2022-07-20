@@ -1,4 +1,4 @@
-#' Mecab 형태소 분석기 기반 토큰화
+#' part-of-speech tagger based on mecab-ko morphology analyzer
 #' @description Mecab 형태소 분석기 기반 형태소분석/품사 태깅을 통한 토큰화
 #' @param x character. 형태소 분석에 사용할 document.
 #' @param type character. 형태소 분석의 결과 유형.모든 품사, 명사, 동사 및 형용사와 같은
@@ -52,6 +52,10 @@
 #' 
 morpho_mecab <- function(x, type = c("morpheme", "noun", "noun2", "verb", "adj")[2],
                          indiv = TRUE, user_dic = NULL) {
+  if (is_windows()) {
+    x <- iconv(x, "cp949", "utf-8")
+  }
+  
   if (is.null(user_dic)) {
     morpheme <- RcppMeCab::posParallel(x)
   } else {
@@ -103,7 +107,7 @@ morpho_mecab <- function(x, type = c("morpheme", "noun", "noun2", "verb", "adj")
   tokens
 }
 
-#' 한글 자동 띄어쓰기
+#' Korean automatic spacing
 #' @description 한글 문장을 띄어쓰기 규칙에 맞게 자동으로 띄어쓰기 보정.
 #' @param x character. 띄어쓰기 보정에 사용할 document.
 #' @param user_dic mecab-ko 형태소 분석기의 사용자 정의 사전 파일.

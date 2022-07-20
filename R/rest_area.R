@@ -1,4 +1,4 @@
-#' 고속도로 휴계소 관련 버즈
+#' Highway rest area related buzz
 #'
 #' @description
 #' 네이버와 다음 카페와 블로그의 고속도로 휴계소 키워드로 수집한 텍스트 데이터임

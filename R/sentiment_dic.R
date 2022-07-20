@@ -1,4 +1,4 @@
-#' 군산대학교(KNU) 한국어 감성사전
+#' KNU Korean Sentiment Dictionary
 #' 
 #' @description 
 #' 2018년도 군산대학교 소프트웨어융합공학과 Data Intelligence Lab에서 개발한 

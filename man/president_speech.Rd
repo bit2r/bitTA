@@ -3,7 +3,7 @@
 \docType{data}
 \name{president_speech}
 \alias{president_speech}
-\title{대통령의 연설문}
+\title{President's Speech}
 \format{
 6개의 변수와 2,408개의 관측치로 구성된 티블(tibble) 객체.:
 \describe{

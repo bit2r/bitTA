@@ -1,3 +1,24 @@
+#' KOSAC(Korean Sentiment Analysis Corpus) Sentiment Analysis
+#' @description 한국어 감정분석 코퍼스를 활용하여 문서의 감성분석 결과를 반환
+#' @param doc	character. KOSAC를 이용해서 감성분석을 수행할 문자열 벡터
+#' @param n	integer. n-gram 토큰화 계수
+#' @param agg	logical. 집계 여부. TRUE이면 집계 결과만  반환하며, FALSE이면 문자열벡터도 함께 반환
+#' @return data.frame 감성분석 결과를 담은 data.frame
+#' \itemize{
+#'   \item complex: numeric. 복합
+#'   \item negative: numeric. 부정
+#'   \item positive: numeric. 긍정
+#'   \item neutral: numeric. 중립
+#'   \item none: numeric. 해당없음
+#'   \item vote: character. 감성 투표 결과. "POS", "NEG"
+#'   \item polarity: numeric. 극성
+#'   \item subjectivity: numeric. 주관성 (부정+긍정의 합)
+#'   \item doc: character. 문서의 내용
+#' }
+#' @examples
+#' \dontrun{
+#' get_opinion(buzz$CONTENT[1])
+#' }
 #' @import dplyr
 #' @importFrom stringr str_which str_detect
 #' @importFrom purrr map_df
@@ -23,7 +44,7 @@ get_opinion <- function(doc, n = 1, agg = TRUE) {
   
   get_polarity <- function(x, n = 1) {
     data.frame(ngram = get_ngram(x, n = n), stringsAsFactors = FALSE) %>%
-      dplyr::left_join(polarity) %>%
+      dplyr::left_join(polarity, by = "ngram") %>%
       dplyr::filter(!is.na(freq)) %>%
       dplyr::filter(!stringr::str_detect(ngram, "^/J")) %>%
       dplyr::filter(!stringr::str_detect(ngram, "^/ETM")) %>%

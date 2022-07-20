@@ -3,7 +3,7 @@
 \docType{data}
 \name{sentiment_dic}
 \alias{sentiment_dic}
-\title{군산대학교(KNU) 한국어 감성사전}
+\title{KNU Korean Sentiment Dictionary}
 \format{
 4개의 변수와 14,844개의 관측치로 구성된 데이터 프레임.:
 \describe{

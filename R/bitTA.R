@@ -1,4 +1,4 @@
-#' TA 기능의 비트알 3rd party 패키지
+#' 3rd party package of Bit2R with TA function
 #' @docType package
 #' @description 자연어 처리(Natural Language Processing), 텍스트 분석 모델 및
 #' 텍스트 분석을 위한 시각화와 도구 모음.

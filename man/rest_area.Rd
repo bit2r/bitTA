@@ -3,7 +3,7 @@
 \docType{data}
 \name{rest_area}
 \alias{rest_area}
-\title{고속도로 휴계소 관련 버즈}
+\title{Highway rest area related buzz}
 \format{
 5개의 변수와 26,168개의 관측치로 구성된 티블(tibble) 객체.:
 \describe{

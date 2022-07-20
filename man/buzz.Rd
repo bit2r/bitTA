@@ -3,7 +3,7 @@
 \docType{data}
 \name{buzz}
 \alias{buzz}
-\title{네이버 카페 게시물 스크래핑 데이터}
+\title{Naver Cafe Post Scraping Data}
 \format{
 13개의 변수와 1,000개의 관측치로 구성된 데이터 프레임.:
 \describe{

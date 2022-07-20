@@ -1,4 +1,4 @@
-#' 텍스트 데이터  품질 보정 작업기 호출
+#' Text Data Quality Correction Worker
 #'
 #' @description 정규표현식 기반의 텍스트 데이터  품질 보정 작업을 위한 Shiny 앱 호출
 #' @return 없음

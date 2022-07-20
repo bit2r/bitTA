@@ -2,7 +2,7 @@
 % Please edit documentation in R/install_mecab.R
 \name{install_mecab_ko}
 \alias{install_mecab_ko}
-\title{은전한닢 형태소분석기와 사전 설치}
+\title{Installation of Eunjeonhan morpheme analyzer and dic}
 \usage{
 install_mecab_ko(mecabLocation = "c:/mecab")
 }

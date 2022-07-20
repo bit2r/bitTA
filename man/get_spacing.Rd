@@ -2,7 +2,7 @@
 % Please edit documentation in R/morphology.R
 \name{get_spacing}
 \alias{get_spacing}
-\title{한글 자동 띄어쓰기}
+\title{Korean automatic spacing}
 \usage{
 get_spacing(x, user_dic = NULL)
 }

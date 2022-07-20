@@ -1,4 +1,4 @@
-#' KOSAC(Korean Sentiment Analysis Corpus) 감성사전
+#' KOSAC(Korean Sentiment Analysis Corpus) sentiment dictionary
 #'
 #' @description
 #' 서울대학교 언어학과에서 세종 구문분석 코퍼스로부터 선별한 332개 신문기사의
@@ -21,6 +21,8 @@
 #' @keywords datasets
 #' @name polarity
 #' @usage data(polarity)
+#' @source 
+#' Korean Sentiment Analysis Corpus homepage. http://word.snu.ac.kr/kosac/index.php
 #' @examples
 #' \dontrun{
 #' data(polarity)

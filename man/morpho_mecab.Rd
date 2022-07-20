@@ -2,7 +2,7 @@
 % Please edit documentation in R/morphology.R
 \name{morpho_mecab}
 \alias{morpho_mecab}
-\title{Mecab 형태소 분석기 기반 토큰화}
+\title{part-of-speech tagger based on mecab-ko morphology analyzer}
 \usage{
 morpho_mecab(
   x,

@@ -1,4 +1,4 @@
-#' 텍스트 데이터 전처리를 위한 메타정보 등록 및 조회
+#' Meta information processing for text data preprocessing
 #' @description 텍스트 데이터의 전처리 과정인 패턴 일치되는 데이터 삭제, 문자열
 #' 대체, 불필요 문자열 제거, 문자열 연결 등을 수행하기 위한 메타 정보를 등록하고
 #' 조회한다.
@@ -72,7 +72,7 @@ set_meta <-function(id = c("filter", "replace", "remove", "concat", "split"),
 }
 
 
-#' 텍스트 데이터의 문자열 매치 데이터 필터링
+#' Filter data based on string matches of text data
 #' @description 텍스트 데이터의 전처리 과정 중 패턴 일치되는 문자열이 있는
 #' 데이터를 취하거나 제거한다.
 #' @param doc character. 문자열 필터링을 수행할 문자열 벡터
@@ -197,7 +197,7 @@ filter_text <- function(
 }
 
 
-#' 텍스트 데이터의 문자열 대체/제거/결합/분리
+#' Replace/remove/join/separate strings in text data
 #' @description 텍스트 데이터의 전처리 과정 중 패턴 일치되는 문자열에 대해서
 #' 다른 문자열로 대체하거나 제거, 혹은 결합한다.
 #' @param doc character. 문자열 대체/제거/결합/분리를 수행할 문자열 벡터

@@ -5,7 +5,7 @@
 \alias{concat_text}
 \alias{split_text}
 \alias{remove_text}
-\title{텍스트 데이터의 문자열 대체/제거/결합/분리}
+\title{Replace/remove/join/separate strings in text data}
 \usage{
 replace_text(
   doc,

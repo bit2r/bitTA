@@ -1,4 +1,4 @@
-#' 네이버 카페 게시물 스크래핑 데이터
+#' Naver Cafe Post Scraping Data
 #' 
 #' @description 
 #' 네이버 카페의 게시판에 올라온 포스트를 맞벌이, 워킹맘 등의 몇몇 키워드로 스크랩핑한 데이터

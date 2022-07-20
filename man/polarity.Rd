@@ -3,7 +3,7 @@
 \docType{data}
 \name{polarity}
 \alias{polarity}
-\title{KOSAC(Korean Sentiment Analysis Corpus) 감성사전}
+\title{KOSAC(Korean Sentiment Analysis Corpus) sentiment dictionary}
 \format{
 9개의 변수와 15,736개의 관측치로 구성된 데이터 프레임.:
 \describe{
@@ -18,6 +18,9 @@
   \item{max.prop}{numeric. max 항목 확률}
   \item{type}{factor. 구분. "kosac"}
 }
+}
+\source{
+Korean Sentiment Analysis Corpus homepage. http://word.snu.ac.kr/kosac/index.php
 }
 \usage{
 data(polarity)
