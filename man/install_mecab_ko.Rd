@@ -18,7 +18,3 @@ Linux와 Mac은 소스를 가져다 컴파일하며, Windows는 바이너리를 
 install_mecab_ko()
 }
 }
-\author{
-유충현
-Maintainer: 유충현 <choonghyun.ryu@gmail.com>
-}

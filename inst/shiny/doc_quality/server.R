@@ -18,7 +18,7 @@ getCoCollocate <- function(x, node, span = 2) {
     filter_asta <- grep("\\*", x[, "Term"], invert = TRUE)
     x <- x[filter_asta, ]
 
-    # asterisk
+    # tag
     filter_tag <- grep("^E", x[, "Term"], invert = TRUE)
     x[filter_tag, ]
   }
@@ -36,14 +36,8 @@ getCoCollocate <- function(x, node, span = 2) {
   coll
 }
 
-getNGram <- function(x, N = 3, pos = c("NNG", "NNB", "NNP")) {
-  fname <- "tmp.txt"
-  cat(x, file = fname)
-
-  ngm <- Ngram(filename = fname, N = N, type = 1, pos = pos)
-
-  ngm[order(ngm$Freq, decreasing = TRUE), ]
-}
+node <- "통일"
+span <- 2 
 
 docs <- N <- idx <- NULL
 
@@ -506,7 +500,7 @@ shinyServer(function(input, output, session) {
                     label = "",
                     value = sprintf("%d/%d/%d", 1, n, N))
 
-    ngm <- getNGram(curr_doc, N = input$N)
+    ngm <- get_ngram(curr_doc, n = input$N, type = "table")
 
     curr_doc <- gsub(sprintf("(%s)", input$pattern4),
                      "<font color=\"#FF0000\"><b>\\1</b></font>\\2",
@@ -531,7 +525,7 @@ shinyServer(function(input, output, session) {
 
     curr_doc <- docs[idx[next_idx]]
 
-    ngm <- getNGram(curr_doc, N = input$N)
+    ngm <- get_ngram(curr_doc, n = input$N, type = "table")
 
     curr_doc <- gsub(sprintf("(%s)", input$pattern4),
                      "<font color=\"#FF0000\"><b>\\1</b></font>\\2",
@@ -560,7 +554,7 @@ shinyServer(function(input, output, session) {
 
     curr_doc <- docs[idx[prev_idx]]
 
-    ngm <- getNGram(curr_doc, N = input$N)
+    ngm <- get_ngram(curr_doc, n = input$N, type = "table")
 
     updateTextInput(session, "cnt4",
                     label = "",
@@ -587,7 +581,7 @@ shinyServer(function(input, output, session) {
     curr_idx <- as.integer(strsplit(input$cnt4, "/")[[1]][1])
     curr_doc <- docs[idx[curr_idx]]
 
-    ngm <- getNGram(curr_doc, N = input$N)
+    ngm <- get_ngram(curr_doc, n = input$N, type = "table")
 
     output$ntable <-  renderDataTable({
       ngm

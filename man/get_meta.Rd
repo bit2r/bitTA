@@ -50,7 +50,3 @@ get_meta("filter")
 #set_meta("filter", fname, fileEncoding = "utf8", append = TRUE)
 }
 }
-\author{
-유충현
-Maintainer: 유충현 <choonghyun.ryu@gmail.com>
-}

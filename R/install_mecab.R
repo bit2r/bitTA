@@ -34,8 +34,6 @@ is_mecab_installed <- function() {
 #' @description 은전한닢 형태소분석기인 mecab-ko와 은전한닢 형태소분석기 사전인 
 #' mecab-ko-dic을 사용자 환경에 설치한다.
 #' @details Linux와 Mac은 소스를 가져다 컴파일하며, Windows는 바이너리를 가져다 복사한다.
-#' @author 유충현
-#' Maintainer: 유충현 <choonghyun.ryu@gmail.com>
 #' @examples
 #' \dontrun{
 #' install_mecab_ko()

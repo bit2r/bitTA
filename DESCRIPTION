@@ -10,8 +10,10 @@ Depends: R (>= 2.13.0)
 Imports: 
   cli,
   dplyr,
+  ngram,
   parallel,
   purrr, 
+  RcppMeCab,  
   RMeCab (>= 1.07), 
   rstudioapi,
   shiny, 

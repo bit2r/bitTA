@@ -138,7 +138,3 @@ doc_content_after <- remove_text(doc_content, chunk = 500, mc.cores = 8)
 }
 
 }
-\author{
-유충현
-Maintainer: 유충현 <choonghyun.ryu@gmail.com>
-}

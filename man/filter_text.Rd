@@ -55,7 +55,3 @@ length(doc_content_after)
 }
 
 }
-\author{
-유충현
-Maintainer: 유충현 <choonghyun.ryu@gmail.com>
-}
