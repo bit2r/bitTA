@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bitTA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.2.0.9001</span>
       </span>
     </div>
 
@@ -25,6 +25,19 @@
       <ul class="nav navbar-nav"><li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/Install_mecab.html">Install mecab-ko</a>
+    </li>
+    <li>
+      <a href="../articles/Introduce.html">Introduce bitTA</a>
+    </li>
+  </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"></ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -44,31 +57,43 @@
       </tr></tbody><tbody><tr><td>
           <p><code><a href="bitTA-package.html">bitTA-package</a></code> </p>
         </td>
-        <td><p>TA 기능의 비트알 3rd party 패키지</p></td>
+        <td><p>3rd party package of Bit2R with TA function</p></td>
       </tr><tr><td>
           <p><code><a href="buzz.html">buzz</a></code> </p>
         </td>
-        <td><p>네이버 카페 게시물 스크래핑 데이터</p></td>
+        <td><p>Naver Cafe Post Scraping Data</p></td>
       </tr><tr><td>
           <p><code><a href="doc_quality.html">doc_quality()</a></code> </p>
         </td>
-        <td><p>텍스트 데이터  품질 보정 작업기 호출</p></td>
+        <td><p>Text Data Quality Correction Worker</p></td>
       </tr><tr><td>
           <p><code><a href="filter_text.html">filter_text()</a></code> </p>
         </td>
-        <td><p>텍스트 데이터의 문자열 매치 데이터 필터링</p></td>
+        <td><p>Filter data based on string matches of text data</p></td>
       </tr><tr><td>
           <p><code><a href="get_meta.html">get_meta()</a></code> <code><a href="get_meta.html">set_meta()</a></code> </p>
         </td>
-        <td><p>텍스트 데이터 전처리를 위한 메타정보 등록 및 조회</p></td>
+        <td><p>Meta information processing for text data preprocessing</p></td>
+      </tr><tr><td>
+          <p><code><a href="get_ngram.html">get_ngram()</a></code> </p>
+        </td>
+        <td><p>n-gram Tokenization</p></td>
+      </tr><tr><td>
+          <p><code><a href="get_opinion.html">get_opinion()</a></code> </p>
+        </td>
+        <td><p>KOSAC(Korean Sentiment Analysis Corpus) Sentiment Analysis</p></td>
       </tr><tr><td>
           <p><code><a href="get_spacing.html">get_spacing()</a></code> </p>
         </td>
-        <td><p>한글 자동 띄어쓰기</p></td>
+        <td><p>Korean automatic spacing</p></td>
+      </tr><tr><td>
+          <p><code><a href="install_mecab_ko.html">install_mecab_ko()</a></code> </p>
+        </td>
+        <td><p>Installation of Eunjeonhan morpheme analyzer and dic</p></td>
       </tr><tr><td>
           <p><code><a href="morpho_mecab.html">morpho_mecab()</a></code> </p>
         </td>
-        <td><p>Mecab 형태소 분석기 기반 토큰화</p></td>
+        <td><p>part-of-speech tagger based on mecab-ko morphology analyzer</p></td>
       </tr><tr><td>
           <p><code><a href="movie_ratings_train.html">movie_ratings_train</a></code> <code><a href="movie_ratings_train.html">movie_ratings_test</a></code> </p>
         </td>
@@ -76,23 +101,23 @@
       </tr><tr><td>
           <p><code><a href="polarity.html">polarity</a></code> </p>
         </td>
-        <td><p>KOSAC(Korean Sentiment Analysis Corpus) 감성사전</p></td>
+        <td><p>KOSAC(Korean Sentiment Analysis Corpus) sentiment dictionary</p></td>
       </tr><tr><td>
           <p><code><a href="president_speech.html">president_speech</a></code> </p>
         </td>
-        <td><p>대통령의 연설문</p></td>
+        <td><p>President's Speech</p></td>
       </tr><tr><td>
           <p><code><a href="replace_text.html">replace_text()</a></code> <code><a href="replace_text.html">concat_text()</a></code> <code><a href="replace_text.html">split_text()</a></code> <code><a href="replace_text.html">remove_text()</a></code> </p>
         </td>
-        <td><p>텍스트 데이터의 문자열 대체/제거/결합/분리</p></td>
+        <td><p>Replace/remove/join/separate strings in text data</p></td>
       </tr><tr><td>
           <p><code><a href="rest_area.html">rest_area</a></code> </p>
         </td>
-        <td><p>고속도로 휴계소 관련 버즈</p></td>
+        <td><p>Highway rest area related buzz</p></td>
       </tr><tr><td>
           <p><code><a href="sentiment_dic.html">sentiment_dic</a></code> </p>
         </td>
-        <td><p>군산대학교(KNU) 한국어 감성사전</p></td>
+        <td><p>KNU Korean Sentiment Dictionary</p></td>
       </tr></tbody></table></div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
