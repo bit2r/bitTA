@@ -1,0 +1,87 @@
+---
+title: "Introduce bitTA"
+author: "Choonghyun Ryu"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduce bitTA}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r environment, echo = FALSE, message = FALSE, warning=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "", out.width = "600px", dpi = 70)
+options(tibble.print_min = 4L, tibble.print_max = 4L)
+```
+
+## bitTA
+
+bitTA는 텍스트 데이터의 자연어 처리(NLP, Natural Language Processing), 텍스트 분석 모델 및 텍스트 분석을 위한 시각화와 도구 모음입니다.
+
+### 기능
+
+#### 텍스트 데이터 전처리 기능
+
+* 정규표현식 기반의 텍스트 데이터 조작으로 데이터를 정제함
+  + 문서 단위의 전처리
+    +  문서 필터링 (Filter Documents)
+  + 텍스트 단위의 전처리
+      + 텍스트 대체 (Replace Texts)
+      + 텍스트 연결 (Concatenate Texts)
+      + 텍스트 분리 (Split Texts)
+      + 텍스트 제거 (Remove Texts)
+* 띄어쓰기 보정    
+* 토큰화 
+  + N-Grams 토큰화 (Extracting N-Grams)
+  + 품사 기반의 토큰화
+
+#### 텍스트 데이터 품질 진단 기능
+
+텍스트 데이터를 탐색하여, 분석의 실마리를 찾거나 정제하는 기능의  Shiny 앱 제공
+
+* 데이터 탐색
+  + 패턴 검색
+* 데이터 정제
+  + 패턴 검색 및 치환
+* 키워드 검색과 맥락 파악
+  + N-Grams 토큰화 (Extracting N-Grams)
+  + 품사 기반의 토큰화 (Extracting Nouns)
+* 키워드 검색과 공동발현 분석
+  + Collocation Analysis
+        
+#### 형태소분석 기능
+
+* mecab-ko 인터페이스
+  + 품사 태깅
+  + 품사 기반의 토큰화
+  
+#### 감성분석
+
+* KOSAC(Korean Sentiment Analysis Corpus) 기반의 감성분석
+  + 긍정/부정 극성 도출
+      + Positive/Negative
+  + 감성확률 도출
+      + 복합 (Complex)
+      + 부정 (Negative)
+      + 긍정 (Positive)
+      + 중립 (Neutral)
+      + 해당없음 (None)
+  + 주관성(subjectivity) 도출  
+      
+## 특장점
+
+bitTA는 토이(Toy) 데이터가 아닌 대용량 텍스트 데이터 처리를 목적으로 개발되었으며, 다음과 같은 특장점이 있습니다.
+
+* 빠른 속도
+  + 속도가 빠르고 성능이 좋은 mecab-ko를 형태소분석기로 채택
+  + 병렬처리 프로세싱 구현
+* 텍스트 탐색기와 룰 기반의 데이터 전처리
+  + Shiny 앱으로 텍스트 데이터를 탐색하여 정제 룰을 반견하고,
+  + 정제룰을 메타 파일에 등록하여,
+  + 룰 기반의 데이터 전처리 수행
+* 실무에 적용할 수 있는 사례중심의 매뉴얼 제공
+  + TO-DO
+  
+  
+    
+    

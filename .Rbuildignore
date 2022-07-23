@@ -3,3 +3,5 @@
 docs
 README.md
 README.Rmd
+^doc$
+^Meta$

@@ -20,7 +20,9 @@ Imports:
   stringr,
   tibble
 Suggests:
-  glue
+    glue,
+    knitr,
+    rmarkdown
 SystemRequirements:
   mecab-ko (https://bitbucket.org/eunjeon/mecab-ko/src/master/) and mecab-ko-dic (https://bitbucket.org/eunjeon/mecab-ko-dic/src/master/)
 Authors@R: c(
@@ -29,3 +31,4 @@ Authors@R: c(
 Maintainer: Choonghyun Ryu <choonghyun.ryu@gmail.com>   
 LazyData: true
 RoxygenNote: 7.1.2
+VignetteBuilder: knitr

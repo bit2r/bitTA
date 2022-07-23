@@ -1,0 +1,69 @@
+---
+title: "Install mecab-ko"
+author: "Choonghyun Ryu"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Install mecab-ko}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r environment, echo = FALSE, message = FALSE, warning=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "", out.width = "600px", dpi = 70)
+options(tibble.print_min = 4L, tibble.print_max = 4L)
+```
+
+## 은전한닢 형태소분석기
+
+은전한닢 [형태소분석기(mecab-ko)](https://bitbucket.org/eunjeon/mecab-ko/src/master/)는 오픈소스 일본어 형태소분석기인 [MeCab(메카브)](https://taku910.github.io/mecab/)를 한글의 특성을 반영하여 포팅한 오픈소스입니다.
+
+은전한닢은 국립국어원의 21세기 세종계획 말뭉치(Corpus)로 모델을 학습하였습니다.
+
+### 은전한닢 형태소분석기 장점
+
+어찌보면 MeCab의 장점이겠습니다.[^1]
+
+* 사전, 코퍼스 독립적 범용 디자인
+* 조건부 확률 필드 (CRF)를 기반으로 한 높은 분석 정확도
+* 속도가 빠름
+    + 사전 추출 알고리즘/데이터 구조에는 고속 TRIE 구조인 Double-Array 채택
+    + C++로 개발
+* 다양한 스크립트 언어 바인딩 
+    + perl/ruby/python/java/C#
+
+[^1]: https://taku910.github.io/mecab/ 발췌
+
+## 은전한닢 형태소분석기 설치
+
+### Linix와 Mac 운영체제
+은전한닢 형태소분석기인 mecab-ko와 한글사전인 mecab-ko-dic을 설치해야하는데, Linux와 Mac 운영체제에서의 은전한닢 형태소분석시의 설치는 그리 어렵지 않습니다.
+
+[mecab-ko-dic](https://bitbucket.org/eunjeon/mecab-ko-dic/src/master/) 페이지에 설치 방법이 잘 가이드되어 있어, 기술하는 방법으로 소스를 컴파일하여 설치하면 됩니다. 
+
+### Windows 운영체제
+Windows 운영체제에서의 mecab-ko와 mecab-ko-dic을 설치하는 것은 쉽지 않았습니다. 그러나 형태소분석기와 사전을 Windows 환경에서 컴파일한 바이너리 버전을 다음 사이트에서 다운로드 받아 "c:\mecab" 디렉토리에 설치하면 됩니다.
+
+* [mecab-ko-msvc](https://github.com/Pusnow/mecab-ko-msvc)
+* [mecab-ko-dic-msvc](https://github.com/Pusnow/mecab-ko-dic-msvc)
+
+### bitTA 패키지를 이용한 설치
+
+Linix와 Mac, Windows 운영체제와 무관하게 bitTA 패키지의 install_mecab_ko() 함수는 은전한닢 형태소분석기와 한글사전을 설치해줍니다. 그러므로 은전한닢 형태소분석기를 설치하지 않은 상태라면, install_mecab_ko() 함수를 사용하는 것을 추천합니다.
+
+다음과 같이 설치합니다.
+
+```{r, eval=FALSE}
+library(bitTA)
+
+install_mecab_ko()
+```
+
+Windows 환경에서는 "c:\mecab" 디렉토리에 형태소분석기를 설치해야 정상적으로 작동합니다만, 다른 디렉터로리에 설치하려면 다음과 같이 mecabLocation 인수를 사용합니다. 그러나 이 방법은 권장하지 않습니다.
+
+```{r, eval=FALSE}
+install_mecab_ko(mecabLocation = "d:/morpheme/mecab")
+```
+
+
+
