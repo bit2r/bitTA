@@ -28,7 +28,7 @@
 #' @return Mecab 형태소 분석기 결과 구조의 character 벡터 혹은 character 벡터를
 #' 원소로 갖는 list 객체.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ## Mecab 형태소 분석
 #' morpho_mecab("아버지가 방에 들어가신다.")
 #' morpho_mecab("아버지가 방에 들어가신다.", type = "morpheme")
@@ -114,7 +114,7 @@ morpho_mecab <- function(x, type = c("morpheme", "noun", "noun2", "verb", "adj")
 #' 기본값은 NULL로 사용자 사전파일을 지정하지 않음.
 #' @return 띄어쓰기 보정된 character 벡터.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # 한글 자동 띄어쓰기
 #' get_spacing("최근음성인식정확도가높아짐에따라많은음성데이터가Text로변환되고분석되기시작했는데,이를위해잘동작하는띄어쓰기엔진은거의필수적인게되어버렸다")
 #'

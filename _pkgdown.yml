@@ -7,3 +7,37 @@ title: bitTA
 template:
   params:
     bootswatch: cerulean
+
+reference:
+- title: Tools for Text Analytics
+  desc:  Tools that support "Natural Language Processing" for text analytics.
+  contents:
+  - bitTA-package
+- subtitle: 텍스트 데이터 전처리 기능
+  contents:
+  - starts_with("filter")
+  - starts_with("replace")
+  - starts_with("concat")
+  - starts_with("split")
+  - starts_with("remove")
+  - ends_with("spacing")
+  - ends_with("ngram")
+  - ends_with("meta")
+- subtitle: 텍스트 데이터 품질 진단 기능
+  contents:
+  - ends_with("quality")
+- subtitle: 형태소분석 기능
+  contents:
+  - install_mecab_ko
+  - morpho_mecab
+- subtitle: 감성분석 기능
+  contents:
+  - get_opinion
+- subtitle: 텍스트 데이터
+  contents:
+  - buzz
+  - rest_area
+  - president_speech
+  - starts_with("movie_ratings")
+  - polarity
+  - sentiment_dic

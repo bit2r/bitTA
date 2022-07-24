@@ -16,7 +16,7 @@
 #'   \item doc: character. 문서의 내용
 #' }
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' get_opinion(buzz$CONTENT[1])
 #' }
 #' @import dplyr

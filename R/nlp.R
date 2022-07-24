@@ -9,7 +9,7 @@
 #' @param append	logical. 메타 정보의 추가 여부. TRUE이면, 기 등록 메타에 추가한다.
 #' @return data.frame 등록된 메타정보를 담은 data.frame
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' meta_path <- system.file("meta", package = "bitTA")
 #' fname <- glue::glue("{meta_path}/preparation_filter.csv")
 #'
@@ -81,7 +81,7 @@ set_meta <-function(id = c("filter", "replace", "remove", "concat", "split"),
 #' @param verbos logical. 메타의 Rule 당 처리된 건수를 화면에 출력할 지의 여부
 #' @return character. 문자열 필터링이 수행된 문자열 벡터.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ##======================================================
 #' ## 문자열 매치 데이터 필터링
 #' ##======================================================
@@ -206,7 +206,7 @@ filter_text <- function(
 #' @param verbos logical. 메타의 Rule 당 처리된 건수를 화면에 출력할 지의 여부
 #' @return character. 문자열 대체/제거/결합이 수행된 문자열 벡터.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ##======================================================
 #' ## 문자열 대체
 #' ##======================================================
@@ -313,7 +313,7 @@ replace_text <- function(
 
 #' @rdname replace_text
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ##======================================================
 #' ## 문자열 결합
 #' ##======================================================
@@ -420,7 +420,7 @@ concat_text <- function(
 
 #' @rdname replace_text
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ##======================================================
 #' ## 문자열 분리
 #' ##======================================================
@@ -525,7 +525,7 @@ split_text <- function(
 
 #' @rdname replace_text
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ##======================================================
 #' ## 문자열 제거
 #' ##======================================================

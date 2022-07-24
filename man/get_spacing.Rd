@@ -19,7 +19,7 @@ get_spacing(x, user_dic = NULL)
 한글 문장을 띄어쓰기 규칙에 맞게 자동으로 띄어쓰기 보정.
 }
 \examples{
-\dontrun{
+\donttest{
 # 한글 자동 띄어쓰기
 get_spacing("최근음성인식정확도가높아짐에따라많은음성데이터가Text로변환되고분석되기시작했는데,이를위해잘동작하는띄어쓰기엔진은거의필수적인게되어버렸다")
 

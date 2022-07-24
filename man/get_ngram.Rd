@@ -42,7 +42,7 @@ n-gram 집계 정보를 담은 데이터 프레임 변수는 다음과 같음.:
 }
 
 \examples{
-\dontrun{
+\donttest{
 str <- "신혼부부나 주말부부는 놀이공원 자유이용권을 즐겨 구매합니다."
 
 # bi-gram

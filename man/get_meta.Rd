@@ -35,7 +35,7 @@ data.frame 등록된 메타정보를 담은 data.frame
 조회한다.
 }
 \examples{
-\dontrun{
+\donttest{
 meta_path <- system.file("meta", package = "bitTA")
 fname <- glue::glue("{meta_path}/preparation_filter.csv")
 

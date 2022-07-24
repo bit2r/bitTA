@@ -17,7 +17,7 @@
 #' \item prop : n-gram 토큰의 상대도수. numeric.
 #' }
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' str <- "신혼부부나 주말부부는 놀이공원 자유이용권을 즐겨 구매합니다."
 #' 
 #' # bi-gram

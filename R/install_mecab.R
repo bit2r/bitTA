@@ -36,7 +36,7 @@ is_mecab_installed <- function() {
 #' @details Linux와 Mac은 소스를 가져다 컴파일하며, Windows는 바이너리를 가져다 복사한다.
 #' @examples
 #' \dontrun{
-#' install_mecab_ko()
+#' # install_mecab_ko()
 #' }
 #' @export
 #' @importFrom glue glue

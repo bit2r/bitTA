@@ -50,7 +50,7 @@ NIADic이 포팅되어 들어 있음. 그러나, "/usr/local/lib/mecab/dic/mecab
 NIADic이 포함되어 있지 않음. 이것은 bitTA 패키지에서는 참조하지 않음.
 }
 \examples{
-\dontrun{
+\donttest{
 ## Mecab 형태소 분석
 morpho_mecab("아버지가 방에 들어가신다.")
 morpho_mecab("아버지가 방에 들어가신다.", type = "morpheme")

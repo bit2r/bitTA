@@ -31,7 +31,7 @@ data.frame 감성분석 결과를 담은 data.frame
 한국어 감정분석 코퍼스를 활용하여 문서의 감성분석 결과를 반환
 }
 \examples{
-\dontrun{
+\donttest{
 get_opinion(buzz$CONTENT[1])
 }
 }

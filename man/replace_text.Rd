@@ -52,7 +52,7 @@ character. 문자열 대체/제거/결합이 수행된 문자열 벡터.
 다른 문자열로 대체하거나 제거, 혹은 결합한다.
 }
 \examples{
-\dontrun{
+\donttest{
 ##======================================================
 ## 문자열 대체
 ##======================================================
@@ -73,7 +73,7 @@ doc_content_after <- replace_text(doc_content, verbos = FALSE, chunk = 200)
 # 문자열 대체, chunk = 500, mc.cores = 8
 doc_content_after <- replace_text(doc_content, chunk = 500, mc.cores = 8)
 }
-\dontrun{
+\donttest{
 ##======================================================
 ## 문자열 결합
 ##======================================================
@@ -94,7 +94,7 @@ doc_content_after <- concat_text(doc_content, verbos = FALSE, chunk = 200)
 ## chunk = 500, mc.cores = 8
 doc_content_after <- concat_text(doc_content, chunk = 500, mc.cores = 8)
 }
-\dontrun{
+\donttest{
 ##======================================================
 ## 문자열 분리
 ##======================================================
@@ -115,7 +115,7 @@ doc_content_after <- split_text(doc_content, verbos = FALSE, chunk = 200)
 # 문자열 분리, chunk = 500, mc.cores = 8
 doc_content_after <- split_text(doc_content, chunk = 500, mc.cores = 8)
 }
-\dontrun{
+\donttest{
 ##======================================================
 ## 문자열 제거
 ##======================================================
