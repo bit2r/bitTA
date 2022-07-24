@@ -1151,6 +1151,47 @@ SN
 <p><img src="images/wordcloud2.jpg" width="80%" style="display: block; margin: auto;"></p>
 </div>
 </div>
+<div class="section level2">
+<h2 id="사용자-정의-사전-사용하기">사용자 정의 사전 사용하기<a class="anchor" aria-label="anchor" href="#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A0%95%EC%9D%98-%EC%82%AC%EC%A0%84-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0"></a>
+</h2>
+<p>형태소 분석기의 사전은 우리가 이야기하고, 글로 적는 모든 사례의
+언어를 포함하지 못합니다. 일종의 샘플링 데이터입니다. 그러므로 품사
+태깅의 오류가 반드시 따라오게 됩니다. 특히 과학, 예술, 의료 등과 같은
+전문 영역에서는 그 빈도가 높아집니다. 이 경우에는 오분류하는 품사를
+보정하기 위해서 시스템 사전을 개선하던가 사용자 사전을 추가하게
+됩니다.</p>
+<div class="section level3">
+<h3 id="사용자-사전을-이용한-품사-토큰화">사용자 사전을 이용한 품사 토큰화<a class="anchor" aria-label="anchor" href="#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%82%AC%EC%A0%84%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%92%88%EC%82%AC-%ED%86%A0%ED%81%B0%ED%99%94"></a>
+</h3>
+<p>다음 문서의 일반명사 추출 결과를 보면 성능이 썩 좋지 않습니다. 많은
+복합명사가 쪼개졌습니다.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>str <span class="ot">&lt;-</span> <span class="st">"신혼부부나 주말부부는 놀이공원 자유이용권을 즐겨 구매합니다."</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">morpho_mecab</span>(str)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>       NNG        NNG        NNG        NNG        NNG        NNG        NNG </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"신혼"</span>     <span class="st">"부부"</span>     <span class="st">"주말"</span>     <span class="st">"부부"</span> <span class="st">"놀이공원"</span>     <span class="st">"자유"</span>     <span class="st">"이용"</span> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>       NNG </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"구매"</span> </span></code></pre></div>
+<p>bitTA 패키지에 포함된 샘플 사용자 정의 사전을 적용하기 위해서
+<code>user_dic</code> 인수를 사용하였습니다. 결과를 보면 사용자 정의
+사전을 사용하지 않았던 결과의 오류가 개선되었습니다.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dic_path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"dic"</span>, <span class="at">package =</span> <span class="st">"bitTA"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dic_file <span class="ot">&lt;-</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"{dic_path}/buzz_dic.dic"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">morpho_mecab</span>(str, <span class="at">user_dic =</span> dic_file)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>         NNG          NNG          NNG          NNG          NNG </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"신혼부부"</span>   <span class="st">"주말부부"</span>   <span class="st">"놀이공원"</span> <span class="st">"자유이용권"</span>       <span class="st">"구매"</span> </span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="사용자-사전-정의하기">사용자 사전 정의하기<a class="anchor" aria-label="anchor" href="#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%82%AC%EC%A0%84-%EC%A0%95%EC%9D%98%ED%95%98%EA%B8%B0"></a>
+</h3>
+<p>TO-DO</p>
+</div>
+<div class="section level3">
+<h3 id="사용자-사전-컴파일하기">사용자 사전 컴파일하기<a class="anchor" aria-label="anchor" href="#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%82%AC%EC%A0%84-%EC%BB%B4%ED%8C%8C%EC%9D%BC%ED%95%98%EA%B8%B0"></a>
+</h3>
+<p>TO-DO</p>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

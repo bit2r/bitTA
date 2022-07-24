@@ -7,6 +7,18 @@
     <loc>/LICENSE-text.html</loc>
   </url>
   <url>
+    <loc>/articles/Install_mecab.html</loc>
+  </url>
+  <url>
+    <loc>/articles/Introduce.html</loc>
+  </url>
+  <url>
+    <loc>/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>/articles/morphology.html</loc>
+  </url>
+  <url>
     <loc>/authors.html</loc>
   </url>
   <url>
@@ -28,10 +40,19 @@
     <loc>/reference/get_meta.html</loc>
   </url>
   <url>
+    <loc>/reference/get_ngram.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_opinion.html</loc>
+  </url>
+  <url>
     <loc>/reference/get_spacing.html</loc>
   </url>
   <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/install_mecab_ko.html</loc>
   </url>
   <url>
     <loc>/reference/morpho_hann.html</loc>
