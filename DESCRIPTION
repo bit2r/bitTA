@@ -13,16 +13,16 @@ Imports:
   ngram,
   parallel,
   purrr, 
-  RcppMeCab,  
-  RMeCab (>= 1.07), 
   rstudioapi,
   shiny, 
   stringr,
   tibble
 Suggests:
-    glue,
-    knitr,
-    rmarkdown
+  glue,
+  knitr,
+  RcppMeCab,  
+  RMeCab (>= 1.07), 
+  rmarkdown
 SystemRequirements:
   mecab-ko (https://bitbucket.org/eunjeon/mecab-ko/src/master/) and mecab-ko-dic (https://bitbucket.org/eunjeon/mecab-ko-dic/src/master/)
 Authors@R: c(

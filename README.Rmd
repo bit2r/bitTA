@@ -21,21 +21,26 @@ knitr::opts_chunk$set(
 
 ## Install bitTA
 
+### Pre-install Resources
+
 bitTA을 설차하기 위해서는 다음의 두 리소스를 사전에 설치해야 합니다.
 
 * 은전한닢 형태소분석기 시스템과 사전
   - mecab-ko 혹은 mecab-ko-msvc
   - mecab-ko-dic
-* RMeCab 패키지   
+* RcppMeCab 패키지   
   - R에서 mecab-ko 연동을 위한 R 패키지
 
-### mecab-ko와 mecab-ko-dic 설치하기
+은전한닢 형태소분석기 시스템과 사전은 bitTA 패키지의 비네트인 [Install mecab-ko
+](https://r2bit.com/bitTA/articles/Install_mecab.html)에 설명되어 있습니다. 
 
-`bitTA`는 형태소 분석에서, [은전한닢 프로젝트](http://eunjeon.blogspot.com/2013/02/blog-post.html)에서 제공하는 오픈소스 **한국어 형태소 분석기인 [mecab-ko](https://bitbucket.org/eunjeon/mecab-ko/)**와 **한국어 사전인 [mecab-ko-dic](https://bitbucket.org/eunjeon/mecab-ko-dic/)**을 사용합니다.   
+사전에 설치해야 하는 리소스는 다음의 순서와 방법대로 설치하는 것을 추천합니다.
 
-`bitTA`를 사용하기 위해서는 mecab-ko와 mecab-ko-dic를 설치해야 합니다.
+1. RcppMeCab 패키지 설치
 
-#### Linux와 Mac에서 관리자 계정으로 설치하기
+
+
+
 
 
 ### bitTA 패키지 설치하기

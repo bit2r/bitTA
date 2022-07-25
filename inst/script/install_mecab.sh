@@ -7,7 +7,7 @@ INSTALLD='/usr/local/install_resources'
 #---------------------------------------------
 # 은전한닙 형태소분석기 설치
 #---------------------------------------------
-mkdir ${INSTALLD}
+mkdir -p ${INSTALLD}
 cd ${INSTALLD}
 wget https://bitbucket.org/eunjeon/mecab-ko/downloads/mecab-0.996-ko-0.9.2.tar.gz 
 tar xzvf mecab-0.996-ko-0.9.2.tar.gz 

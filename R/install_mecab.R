@@ -12,7 +12,7 @@ is_mac <-function() {
 
 is_mecab_installed <- function() {
   if (is_linux() | is_mac()) {
-    if (system("which mecab") == 0) 
+    if (is.null(suppressWarnings(system("which mecab", intern = TRUE)) %>% attr("status"))) 
       return(TRUE)
     else
       return(FALSE)

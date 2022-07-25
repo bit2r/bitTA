@@ -46,12 +46,21 @@
 #' }
 #' @export
 #' @import dplyr
-#' @importFrom RcppMeCab posParallel
 #' @importFrom purrr map
 #' @importFrom stringr str_detect
 #' 
 morpho_mecab <- function(x, type = c("morpheme", "noun", "noun2", "verb", "adj")[2],
                          indiv = TRUE, user_dic = NULL) {
+  if (!is_mecab_installed()) {
+    stop("To use morpho_mecab(), you need to install mecab-ko and mecab-ko-dic.\nYou can install it with install_mecab_ko().")
+  }
+  
+  packages <- installed.packages()[,1] 
+  
+  if (!is.element("RcppMeCab", packages)) {
+    stop("To use morpho_mecab(), you need to install RcppMeCab package.\nYou can install it with install.packages(\"RcppMeCab\").")
+  }  
+  
   if (is_windows()) {
     x <- iconv(x, "cp949", "utf-8")
   }
