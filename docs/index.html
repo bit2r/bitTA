@@ -80,23 +80,72 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p><code>bitTA</code>은 자연어 처리(Natural Language Processing), 텍스트
-분석 모델 및 텍스트 분석을 위한 시각화와 도구 모음.</p>
+<p><code>bitTA</code>는 텍스트 데이터의 품질을 보정하고,
+<code>자연어 처리(Natural Language Processing)</code> 및
+<code>형태소분석</code>, <code>감성분석</code>을 지원하는 도구의
+모음입니다.</p>
+<p><code>bitTA</code>의 다음 기능은 bitTA 패키지의 비네트인 <a href="https://r2bit.com/bitTA/articles/Introduce.html" class="external-link">Introduce
+bitTA</a>에 소개되어 있습니다.</p>
+<ul>
+<li>텍스트 데이터 전처리 기능</li>
+<li>텍스트 데이터 품질 진단 기능</li>
+<li>형태소분석 기능</li>
+<li>감성분석 기능</li>
+</ul>
 </div>
 <div class="section level2">
-<h2 id="usage-bitta">Usage bitTA<a class="anchor" aria-label="anchor" href="#usage-bitta"></a>
+<h2 id="install-bitta">Install bitTA<a class="anchor" aria-label="anchor" href="#install-bitta"></a>
 </h2>
 <div class="section level3">
-<h3 id="설치하기">설치하기<a class="anchor" aria-label="anchor" href="#%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0"></a>
+<h3 id="bitta-패키지-설치하기">bitTA 패키지 설치하기<a class="anchor" aria-label="anchor" href="#bitta-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0"></a>
 </h3>
+<p>Github 리파지토리에서 배포하는 패키지를 다음과 같이 설치합니다.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"bit2r/bitTA"</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level3">
+<h3 id="관련-리소스-설치하기">관련 리소스 설치하기<a class="anchor" aria-label="anchor" href="#%EA%B4%80%EB%A0%A8-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0"></a>
+</h3>
+<p>bitTA를 사용하기 위해서는 다음의 두 리소스를 설치해야 합니다.</p>
+<ul>
+<li>은전한닢 형태소분석기 시스템과 사전
+<ul>
+<li>mecab-ko 혹은 mecab-ko-msvc</li>
+<li>mecab-ko-dic</li>
+</ul>
+</li>
+<li>RcppMeCab 패키지
+<ul>
+<li>R에서 mecab-ko 연동을 위한 R 패키지</li>
+</ul>
+</li>
+</ul>
+<p>은전한닢 형태소분석기 시스템과 사전은 bitTA 패키지의 비네트인 <a href="https://r2bit.com/bitTA/articles/Install_mecab.html" class="external-link">Install
+mecab-ko</a>에 설명되어 있습니다.</p>
+<p>사전에 설치해야 하는 리소스는 다음의 순서와 방법대로 설치하는 것을
+추천합니다.</p>
+<ol style="list-style-type: decimal">
+<li>은전한닢 형태소분석기 시스템과 사전</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st">"bitTA"</span><span class="op">)</span>
+
+<span class="fu"><a href="reference/install_mecab_ko.html">install_mecab_ko</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>RcppMeCab 패키지 설치</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"RcppMeCab"</span><span class="op">)</span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="bitta-사용하기">bitTA 사용하기<a class="anchor" aria-label="anchor" href="#bitta-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0"></a>
+</h2>
+<div class="section level3">
 <h3 id="한글-자동-띄어쓰기">한글 자동 띄어쓰기<a class="anchor" aria-label="anchor" href="#%ED%95%9C%EA%B8%80-%EC%9E%90%EB%8F%99-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0"></a>
 </h3>
 <p>한글 문장을 띄어쓰기 규칙에 맞게 자동으로 띄어쓰기 보정</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">bitTA</span><span class="op">)</span>
 
 <span class="fu"><a href="reference/get_spacing.html">get_spacing</a></span><span class="op">(</span><span class="st">"최근음성인식정확도가높아짐에따라많은음성데이터가Text로변환되고분석되기시작했는데,이를위해잘동작하는띄어쓰기엔진은거의필수적인게되어버렸다"</span><span class="op">)</span>
@@ -108,14 +157,37 @@
 <div class="section level3">
 <h3 id="형태소-분석">형태소 분석<a class="anchor" aria-label="anchor" href="#%ED%98%95%ED%83%9C%EC%86%8C-%EB%B6%84%EC%84%9D"></a>
 </h3>
+<p>은전한닢 형태소 분석기를 호출하여 형태소 분석을 수행</p>
+<p>형태소분석은 비네트인 <a href="https://r2bit.com/bitTA/articles/morphology.html" class="external-link">Morphological
+Analysis</a>에 설명되어 있습니다.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span><span class="op">)</span>
+<span class="co">#&gt;      NNG      NNG </span>
+<span class="co">#&gt; "아버지"     "방"</span>
+
+<span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span>, type <span class="op">=</span> <span class="st">"morpheme"</span><span class="op">)</span>
+<span class="co">#&gt;      NNG      JKS      NNG      JKB       VV    EP+EF       SF </span>
+<span class="co">#&gt; "아버지"     "가"     "방"     "에" "들어가"   "신다"      "."</span>
+
+<span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span>, type <span class="op">=</span> <span class="st">"verb"</span><span class="op">)</span>
+<span class="co">#&gt;       VV </span>
+<span class="co">#&gt; "들어가"</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="감성-분석">감성 분석<a class="anchor" aria-label="anchor" href="#%EA%B0%90%EC%84%B1-%EB%B6%84%EC%84%9D"></a>
+</h3>
 <div class="section level4">
 <h4 id="mecab-형태소-분석기">Mecab 형태소 분석기<a class="anchor" aria-label="anchor" href="#mecab-%ED%98%95%ED%83%9C%EC%86%8C-%EB%B6%84%EC%84%9D%EA%B8%B0"></a>
 </h4>
 <p>Mecab 형태소 분석기를 호출하여 형태소 분석을 수행</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span><span class="op">)</span>
 <span class="co">#&gt;      NNG      NNG </span>
 <span class="co">#&gt; "아버지"     "방"</span>
+
+<span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span>, type <span class="op">=</span> <span class="st">"morpheme"</span><span class="op">)</span>
+<span class="co">#&gt;      NNG      JKS      NNG      JKB       VV    EP+EF       SF </span>
+<span class="co">#&gt; "아버지"     "가"     "방"     "에" "들어가"   "신다"      "."</span>
 
 <span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span>, type <span class="op">=</span> <span class="st">"verb"</span><span class="op">)</span>
 <span class="co">#&gt;       VV </span>

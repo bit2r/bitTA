@@ -6,7 +6,7 @@
 \usage{
 morpho_mecab(
   x,
-  type = c("morpheme", "noun", "noun2", "verb", "adj")[2],
+  type = c("noun", "noun2", "verb", "adj", "morpheme"),
   indiv = TRUE,
   user_dic = NULL
 )

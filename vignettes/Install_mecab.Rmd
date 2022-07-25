@@ -49,6 +49,14 @@ Windows 운영체제에서의 mecab-ko와 mecab-ko-dic을 설치하는 것은 �
 
 ### bitTA 패키지를 이용한 설치
 
+은전한닢 형태소분석기를 설치하지 않은 상태에서 bitTA 패키지를 로드하면, 다음과 같은 메시지가 출력됩니다.
+
+```{r, eval=FALSE}
+> library(bitTA)
+To use bitTA, you need to install mecab-ko and mecab-ko-dic.
+You can install it with install_mecab_ko().
+```
+
 Linix와 Mac, Windows 운영체제와 무관하게 bitTA 패키지의 install_mecab_ko() 함수는 은전한닢 형태소분석기와 한글사전을 설치해줍니다. 그러므로 은전한닢 형태소분석기를 설치하지 않은 상태라면, install_mecab_ko() 함수를 사용하는 것을 추천합니다.
 
 다음과 같이 설치합니다.
@@ -59,11 +67,47 @@ library(bitTA)
 install_mecab_ko()
 ```
 
+다음은 Winows 운영체제에서의 설치 예시입니다. Winows 운영체제에서는 바이너리 프로그램을 다운로드한 후 정해진 경로에 복사하는 것으로 설치됩니다.
+
+```{r, eval=FALSE}
+> install_mecab_ko()
+Install mecab-ko-msvc...trying URL 'https://github.com/Pusnow/mecab-ko-msvc/releases/download/release-0.9.2-msvc-3/mecab-ko-msvc-x64.zip'
+Content type 'application/octet-stream' length 777244 bytes (759 KB)
+downloaded 759 KB
+
+Install mecab-ko-dic-msvc...trying URL 'https://github.com/Pusnow/mecab-ko-dic-msvc/releases/download/mecab-ko-dic-2.0.3-20170922-msvc/mecab-ko-dic-msvc.zip'
+Content type 'application/octet-stream' length 32531949 bytes (31.0 MB)
+downloaded 31.0 MB
+```
+
 Windows 환경에서는 "c:\mecab" 디렉토리에 형태소분석기를 설치해야 정상적으로 작동합니다만, 다른 디렉터로리에 설치하려면 다음과 같이 mecabLocation 인수를 사용합니다. 그러나 이 방법은 권장하지 않습니다.
 
 ```{r, eval=FALSE}
 install_mecab_ko(mecabLocation = "d:/morpheme/mecab")
 ```
 
+### RcppMeCab 패키지 설치
 
+bitTA에서 형태소분석 기능을 사용하기 위해서는 RcppMeCab 패키지고 설치해야 합니다. 만약에 이 패키지가 설치되어 있지 않다면, 형태소분석기를 호출할 때 다음과 같은 에러가 발생합니다.
+
+```{r, eval=FALSE}
+> morpho_mecab("아버지가 방에 들어가신다.")
+Error in morpho_mecab("아버지가 방에 들어가신다.") : 
+  To use morpho_mecab(), you need to install RcppMeCab package.
+You can install it with install.packages("RcppMeCab").
+```
+
+RcppMeCab은 CRAN에 등록된 패키지므로 다음처럼 간단하게 설치합니다.
+
+```{r, eval=FALSE}
+install.packages("RcppMeCab")
+```
+
+여기까지 설치되었다면 비로소 형태소분석을 수행할 수 있습니다.
+
+```{r}
+library("bitTA")
+
+morpho_mecab("아버지가 방에 들어가신다.", type = "morpheme")
+```
 

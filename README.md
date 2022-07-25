@@ -5,16 +5,61 @@
 
 ## Overview
 
-`bitTA`은 자연어 처리(Natural Language Processing), 텍스트 분석 모델 및
-텍스트 분석을 위한 시각화와 도구 모음.
+`bitTA`는 텍스트 데이터의 품질을 보정하고,
+`자연어 처리(Natural Language Processing)` 및 `형태소분석`, `감성분석`을
+지원하는 도구의 모음입니다.
 
-## Usage bitTA
+`bitTA`의 다음 기능은 bitTA 패키지의 비네트인 [Introduce
+bitTA](https://r2bit.com/bitTA/articles/Introduce.html)에 소개되어
+있습니다.
 
-### 설치하기
+-   텍스트 데이터 전처리 기능
+-   텍스트 데이터 품질 진단 기능
+-   형태소분석 기능
+-   감성분석 기능
+
+## Install bitTA
+
+### bitTA 패키지 설치하기
+
+Github 리파지토리에서 배포하는 패키지를 다음과 같이 설치합니다.
 
 ``` r
 remotes::install_github("bit2r/bitTA")
 ```
+
+### 관련 리소스 설치하기
+
+bitTA를 사용하기 위해서는 다음의 두 리소스를 설치해야 합니다.
+
+-   은전한닢 형태소분석기 시스템과 사전
+    -   mecab-ko 혹은 mecab-ko-msvc
+    -   mecab-ko-dic
+-   RcppMeCab 패키지
+    -   R에서 mecab-ko 연동을 위한 R 패키지
+
+은전한닢 형태소분석기 시스템과 사전은 bitTA 패키지의 비네트인 [Install
+mecab-ko](https://r2bit.com/bitTA/articles/Install_mecab.html)에
+설명되어 있습니다.
+
+사전에 설치해야 하는 리소스는 다음의 순서와 방법대로 설치하는 것을
+추천합니다.
+
+1.  은전한닢 형태소분석기 시스템과 사전
+
+``` r
+library("bitTA")
+
+install_mecab_ko()
+```
+
+2.  RcppMeCab 패키지 설치
+
+``` r
+install.packages("RcppMeCab")
+```
+
+## bitTA 사용하기
 
 ### 한글 자동 띄어쓰기
 
@@ -32,6 +77,28 @@ get_spacing(str)
 
 ### 형태소 분석
 
+은전한닢 형태소 분석기를 호출하여 형태소 분석을 수행
+
+형태소분석은 비네트인 [Morphological
+Analysis](https://r2bit.com/bitTA/articles/morphology.html)에 설명되어
+있습니다.
+
+``` r
+morpho_mecab("아버지가 방에 들어가신다.")
+#>      NNG      NNG 
+#> "아버지"     "방"
+
+morpho_mecab("아버지가 방에 들어가신다.", type = "morpheme")
+#>      NNG      JKS      NNG      JKB       VV    EP+EF       SF 
+#> "아버지"     "가"     "방"     "에" "들어가"   "신다"      "."
+
+morpho_mecab("아버지가 방에 들어가신다.", type = "verb")
+#>       VV 
+#> "들어가"
+```
+
+### 감성 분석
+
 #### Mecab 형태소 분석기
 
 Mecab 형태소 분석기를 호출하여 형태소 분석을 수행
@@ -40,6 +107,10 @@ Mecab 형태소 분석기를 호출하여 형태소 분석을 수행
 morpho_mecab("아버지가 방에 들어가신다.")
 #>      NNG      NNG 
 #> "아버지"     "방"
+
+morpho_mecab("아버지가 방에 들어가신다.", type = "morpheme")
+#>      NNG      JKS      NNG      JKB       VV    EP+EF       SF 
+#> "아버지"     "가"     "방"     "에" "들어가"   "신다"      "."
 
 morpho_mecab("아버지가 방에 들어가신다.", type = "verb")
 #>       VV 
