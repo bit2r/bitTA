@@ -10,7 +10,7 @@ cnames <- vnames[ucnt > 1 & ucnt <= 30]
 cnames <- c("전체", cnames)
 
 shinyUI(
-  navbarPage("TextWorld",
+  navbarPage("Docs Explorer",
              tabPanel("데이터",
                       sidebarPanel(
                         selectInput("dname", "데이터 로드: ", choices=dnames, selected=dnames[1]),
