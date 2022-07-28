@@ -56,7 +56,7 @@ knitr::include_graphics("images/data_tab.jpg")
 
 이러한 작업을 콘솔에서 수행하기에는 여간 성가신 것이 아닙니다. 또한 긴 문장으로 구성된 텍스트는 콘솔에서는 일부만 표현되기도 합니다.
 
-`Text Data Explorer`는 텍스트 데이터를 탐색하고 정제할 수 있는 간단한 기능을 제공합니다.
+`Text Data Explorer`는 텍스트 데이터를 탐색하고 정제할 수 있는 간단한 기능을 제공합니다. 이 기능은 `검색/대체` 탭을 사용합니다.
 
 #### 탐색을 위한 변수 선택
 
@@ -103,4 +103,51 @@ knitr::include_graphics("images/next.jpg")
 ```{r, echo=FALSE, out.width='80%', fig.align='center', fig.pos="!h"}
 knitr::include_graphics("images/replace.jpg")
 ```
+
+> 만약에 대체 기능으로 텍스트 데이터를 수정(정제)하였다면, "데이터 구조 파악하기"에서 소개한 저장 기능을 이용해서 변경된 데이터를 저장해야 합니다.
+
+
+### 형태소분석을 이용한 데이터 탐색
+
+`형태소분석` 탭의 기능은 장문의 본문을 일일이 읽기 어려울 경우에 유용한 기능입니다. 원문과 함께 명사만 추출한 정보를 제공해서 명사를 탐색하면서 문장의 전체 맥락을 속성으로 이해할 수 있습니다. 
+
+몇몇 개의 문서를 탐색하는 경우에는 문제가 발생하지 않지만, 하루 종일 수백, 수천개의 문서를 탐색하면서 텍스트 분석의 실마리를 찾아야하는 경우에 천사와 같은 기능을 제공해줄 것입니다.
+
+```{r, echo=FALSE, out.width='80%', fig.align='center', fig.pos="!h"}
+knitr::include_graphics("images/morpho.jpg")
+```
+
+
+### 공동발생분석을 이용한 데이터 탐색
+
+`공동발생분석` 탭의 기능은 검색 키워드와 공동으로 발현하는 명사들을 추출해줍니다. 관심있는 키워드와 함께 이야기하는 주제를 파악하기 쉽습니다.
+
+입력 위젯의 `Span`은 공동발현하는 명사가 키워드를 중심으로 몇번 째 거리에서 출현하는가를 정의합니다. 즉, 아래 그림의 예제는 기저귀와 2번째 거리 이내의 명사를 리스트업합니다.
+
+```{r, echo=FALSE, out.width='80%', fig.align='center', fig.pos="!h"}
+knitr::include_graphics("images/co-location.jpg")
+```
+
+
+### n-grams를 이용한 데이터 탐색
+
+`N-Gram` 탭의 기능은 검색 키워드로 검색된 개별 문서에 대해서 명사를 n-gram으로 토큰화합니다. 
+
+이 기능 역시 문서의 주제를 찾는데 유용합니다.
+
+```{r, echo=FALSE, out.width='80%', fig.align='center', fig.pos="!h"}
+knitr::include_graphics("images/ngram.jpg")
+```
+
+
+## R 명령어 실행
+
+bitTA 패키지에서 실행한 Shiny 앱은 모달(Modal) 창을 띄웁니다. 이것은 앱이 종료되기 전는에 R 콘솔을 사용할 수 없다는 것을 의미합니다. 그래서 `Text Data Explorer`는 간단한 R 스크립트를 수행할 수 있는 기능을 구현했습니다.
+
+`R Command` 탭은 간단한 R 스크립트를 수행할 수 있습니다. 다음 예제는 `Text Data Explorer`를 사용중에 `get_spacing()`으로 문서의 띄어쓰기를 보정하는 예시입니다.
+
+```{r, echo=FALSE, out.width='80%', fig.align='center', fig.pos="!h"}
+knitr::include_graphics("images/rcommand.jpg")
+```
+
 

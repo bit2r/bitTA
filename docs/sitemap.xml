@@ -13,6 +13,9 @@
     <loc>/articles/Introduce.html</loc>
   </url>
   <url>
+    <loc>/articles/explore_docs.html</loc>
+  </url>
+  <url>
     <loc>/articles/index.html</loc>
   </url>
   <url>
@@ -32,6 +35,9 @@
   </url>
   <url>
     <loc>/reference/doc_quality.html</loc>
+  </url>
+  <url>
+    <loc>/reference/explore_docs.html</loc>
   </url>
   <url>
     <loc>/reference/filter_text.html</loc>

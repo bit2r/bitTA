@@ -1,9 +1,10 @@
-pandoc: 2.17.1.1
+pandoc: '2.18'
 pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   Install_mecab: Install_mecab.html
   Introduce: Introduce.html
+  explore_docs: explore_docs.html
   morphology: morphology.html
-last_built: 2022-07-24T22:42Z
+last_built: 2022-07-28T23:18Z
 
