@@ -97,6 +97,8 @@ get_opinion <- function(doc, n = 1, agg = TRUE) {
 
 
 get_chunk_id <- function(N, chunk) {
+  chunk <- ifelse(chunk == 0, 1, chunk)
+  
   n <- N %/%  chunk
   
   if (N %%  chunk > 0) n <- n + 1

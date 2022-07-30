@@ -20,12 +20,13 @@ reference:
   - starts_with("concat")
   - starts_with("split")
   - starts_with("remove")
-  - ends_with("spacing")
-  - ends_with("ngram")
   - ends_with("meta")
-- subtitle: 텍스트 데이터 품질 진단 기능
+  - ends_with("spacing")
+  - ends_with("ngram")  
+  - starts_with("collapse")  
+- subtitle: 텍스트 데이터 탐색 기능
   contents:
-  - ends_with("quality")
+  - explore_docs
 - subtitle: 형태소분석 기능
   contents:
   - install_mecab_ko

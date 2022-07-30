@@ -1,4 +1,27 @@
-CHANGES IN R VERSION 1.2.0.9001:
+CHANGES IN R VERSION 1.3.0.9001:
+  NEW FEATURES:
+    * 토크나이즈한 명사를 묶어서 문서로 만들어주는 함수 추가 (#8)
+      - collapse_noun()
+    * vignettes 추가 (#2)
+      - Explore Docs
+      - Morphological Analysis     
+      
+  BUG FIXES:
+    * 대통령 연설문 데이터인 president_speech의 한글 인코딩 오류 수정
+    * 병렬처리를 위한 문서의 개수가 코어의 개수보다 작아서, 청크의 개수가 0으로 
+      계산되는 오류 해결
+      - replace_text()
+      - concat_text()
+      - remove_text()
+      - filter_text()
+      
+  MINOR CHANGES:
+    * 함수 이름으로 기능을 명확이 유추할 수 있도록 doc_quality()의 이름을 
+      explore_docs()로 변경       
+      
+      
+      
+CHANGES IN R VERSION 1.2.0:
   NEW FEATURES:
     * 은전한닢 형태소분석기(mecab-ko)와 사전(mecab-ko-dic)을 사용자 환경에 
       설치하는 함수 추가 (thanks to @stacklee, #5)
@@ -8,9 +31,9 @@ CHANGES IN R VERSION 1.2.0.9001:
       - get_ngram()
     * KOSAC 감성사전 기반의 감성분석 
       - get_opinion()
-    * vignettes 추가
+    * vignettes 추가 (#2)
       - Introduce bitTA
-      - Install mecab-ko
+      - Install mecab-ko (#6)
       
         
         

@@ -17,7 +17,7 @@ options(tibble.print_min = 4L, tibble.print_max = 4L)
 
 ## 텍스트 데이터 탐색
 
-데이터 분석을 위해서 데이터를 탐색하는 것(EDA, Exploratory Data Analysis)처럼 텍스트 데이터 분석 역시 데이터의 탐색이 필요합니다. 
+데이터 분석을 위해서 데이터를 탐색(EDA, Exploratory Data Analysis)하는 것처럼 텍스트 데이터 분석 역시 데이터의 탐색이 필요합니다. 
 
 이 작업을 통해 분석가는 주관적인 판단으로 데이터의 품질을 정성적으로 느끼거나, 데이터를 분석하기 위한 실마리를 찾습니다. 
 
@@ -46,7 +46,7 @@ explore_docs()
 
 그리과 좌측에는 텍스트 데이터를 편집했을 경우, 데이터를 저장하는 기능의 위젯이 위치합니다. 
 
-```{r, echo=FALSE, out.width='80%', fig.align='center', fig.pos="!h"}
+```{r, echo=FALSE, out.width='95%', fig.align='center', fig.pos="!h"}
 knitr::include_graphics("images/data_tab.jpg")
 ```
 
@@ -74,7 +74,7 @@ knitr::include_graphics("images/data_tab.jpg")
   - 조건변수값에서 해당 변수에서 탐색한 수준(levels)을 선택합니다.
 
 다음 그림은 `buzz`의 `CONTENTS` 변수를 탐색하는데, 그 대상은 `KEYWORD`가 `맞벌이`인 데이터를 대상으로 합니다. 화면에는 `CONTENTS`와 함께 `TITLE`, `SECTION`, `KEYWORD`를 표시할 것입니다.    
-```{r, echo=FALSE, out.width='80%', fig.align='center', fig.pos="!h"}
+```{r, echo=FALSE, out.width='95%', fig.align='center', fig.pos="!h"}
 knitr::include_graphics("images/choice_variable.jpg")
 ```
 
@@ -84,7 +84,7 @@ knitr::include_graphics("images/choice_variable.jpg")
 
 1000개의 문서들 중에서 19개의 문서에 검색 패턴인 `기저귀`가 포함되었으며, 그 중 첫번째 문서라는 것을 알려줍니다. 패턴과 매치되는 텍스트는 붉은색으로 표시됩니다.
 
-```{r, echo=FALSE, out.width='80%', fig.align='center', fig.pos="!h"}
+```{r, echo=FALSE, out.width='95%', fig.align='center', fig.pos="!h"}
 knitr::include_graphics("images/search.jpg")
 ```
 
@@ -92,15 +92,15 @@ knitr::include_graphics("images/search.jpg")
 
 오른쪽 방향 버튼을 누르면 두번째 문서화면으로 이동(패치)됩니다. 반대의 경우도 가능합니다.
 
-```{r, echo=FALSE, out.width='80%', fig.align='center', fig.pos="!h"}
+```{r, echo=FALSE, out.width='95%', fig.align='center', fig.pos="!h"}
 knitr::include_graphics("images/next.jpg")
 ```
 
 #### 대체
 
-검색한 패턴을 다른 문자열로 대체할 수도 있습니다. 텍스트 데이터의 정제를 위한 기능입니다. 다음은 `전업주부`라는 일반명사(결합명사)가 `전업 주부`로 분리되어 있는 사례를 보정하는 예시입니다.
+검색한 패턴을 다른 문자열로 대체할 수도 있습니다. 텍스트 데이터의 정제를 위한 기능입니다. 다음은 `전업주부`라는 복합명사(compound noun)가 `전업 주부`로 분리되어 있는 사례를 보정하는 예시입니다.
 
-```{r, echo=FALSE, out.width='80%', fig.align='center', fig.pos="!h"}
+```{r, echo=FALSE, out.width='95%', fig.align='center', fig.pos="!h"}
 knitr::include_graphics("images/replace.jpg")
 ```
 
@@ -113,18 +113,18 @@ knitr::include_graphics("images/replace.jpg")
 
 몇몇 개의 문서를 탐색하는 경우에는 문제가 발생하지 않지만, 하루 종일 수백, 수천개의 문서를 탐색하면서 텍스트 분석의 실마리를 찾아야하는 경우에 천사와 같은 기능을 제공해줄 것입니다.
 
-```{r, echo=FALSE, out.width='80%', fig.align='center', fig.pos="!h"}
+```{r, echo=FALSE, out.width='95%', fig.align='center', fig.pos="!h"}
 knitr::include_graphics("images/morpho.jpg")
 ```
 
 
 ### 공동발생분석을 이용한 데이터 탐색
 
-`공동발생분석` 탭의 기능은 검색 키워드와 공동으로 발현하는 명사들을 추출해줍니다. 관심있는 키워드와 함께 이야기하는 주제를 파악하기 쉽습니다.
+`공동발생분석` 탭의 기능은 검색 키워드와 공동으로 발현(collocation)하는 명사들을 추출해줍니다. 관심있는 키워드와 함께 이야기하는 주제를 파악하기 쉽습니다.
 
 입력 위젯의 `Span`은 공동발현하는 명사가 키워드를 중심으로 몇번 째 거리에서 출현하는가를 정의합니다. 즉, 아래 그림의 예제는 기저귀와 2번째 거리 이내의 명사를 리스트업합니다.
 
-```{r, echo=FALSE, out.width='80%', fig.align='center', fig.pos="!h"}
+```{r, echo=FALSE, out.width='95%', fig.align='center', fig.pos="!h"}
 knitr::include_graphics("images/co-location.jpg")
 ```
 
@@ -135,7 +135,7 @@ knitr::include_graphics("images/co-location.jpg")
 
 이 기능 역시 문서의 주제를 찾는데 유용합니다.
 
-```{r, echo=FALSE, out.width='80%', fig.align='center', fig.pos="!h"}
+```{r, echo=FALSE, out.width='95%', fig.align='center', fig.pos="!h"}
 knitr::include_graphics("images/ngram.jpg")
 ```
 
@@ -146,7 +146,7 @@ bitTA 패키지에서 실행한 Shiny 앱은 모달(Modal) 창을 띄웁니다. 
 
 `R Command` 탭은 간단한 R 스크립트를 수행할 수 있습니다. 다음 예제는 `Text Data Explorer`를 사용중에 `get_spacing()`으로 문서의 띄어쓰기를 보정하는 예시입니다.
 
-```{r, echo=FALSE, out.width='80%', fig.align='center', fig.pos="!h"}
+```{r, echo=FALSE, out.width='95%', fig.align='center', fig.pos="!h"}
 knitr::include_graphics("images/rcommand.jpg")
 ```
 
