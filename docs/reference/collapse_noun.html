@@ -69,6 +69,8 @@
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">collapse_noun</span><span class="op">(</span>
   <span class="va">doc</span>,
+  user_dic <span class="op">=</span> <span class="cn">NULL</span>,
+  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"noun"</span>, <span class="st">"noun2"</span><span class="op">)</span>,
   chunk <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="kw">if</span> <span class="op">(</span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/is_tibble.html" class="external-link">is_tibble</a></span><span class="op">(</span><span class="va">doc</span><span class="op">)</span><span class="op">)</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">doc</span><span class="op">)</span> <span class="kw">else</span> <span class="va">doc</span><span class="op">)</span><span class="op">/</span><span class="va">mc.cores</span><span class="op">)</span>,
   mc.cores <span class="op">=</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html" class="external-link">detectCores</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
@@ -78,6 +80,14 @@
     <h2>Arguments</h2>
     <dl><dt>doc</dt>
 <dd><p>character. 명사로만 구성될 문서를 만들 대상 텍스트 데이터</p></dd>
+<dt>user_dic</dt>
+<dd><p>mecab-ko 형태소 분석기의 사용자 정의 사전 파일.
+기본값은 NULL로 사용자 사전파일을 지정하지 않음.
+시스템 사전인 "/usr/local/lib/mecab/dic/mecab-ko-dic"(Linux, Mac)를 보완하여 사용됨.
+사용자 사전 파일은 mecab-dict-index 명령어로 생성되며, 확장자가 "dic"임.</p></dd>
+<dt>type</dt>
+<dd><p>character. 토큰화할 명사의 유형을 지정. "noun", "noun2"중에서 선택. 
+기본값은 "noun"로 일반명사를 의미하며, "noun2"는 모든 명사를 의미함.</p></dd>
 <dt>chunk</dt>
 <dd><p>integer. 병렬 작업 수행 시 처리 단위인 chunk</p></dd>
 <dt>mc.cores</dt>

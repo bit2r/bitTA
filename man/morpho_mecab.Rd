@@ -65,5 +65,19 @@ morpho_mecab(str, user_dic = dic_file)
 
 morpho_mecab(c("무궁화꽃이 피었습니다.", "나는 어제 올갱이국밥을 먹었다."))
 morpho_mecab(c("무궁화꽃이 피었습니다.", "나는 어제 올갱이국밥을 먹었다."), indiv = FALSE)
+
+# Using morpho_mecab with tidytext package
+library(dplyr)
+
+nho_noun_indiv <- president_speech \%>\%
+  filter(president \%in\% "노무현") \%>\%
+  filter(str_detect(category, "^외교")) \%>\%
+  tidytext::unnest_tokens(
+    out = "speech_noun",
+    input = "doc",
+    token = morpho_mecab
+  )
+  
+ nho_noun_indiv 
 }
 }

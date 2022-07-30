@@ -6,12 +6,22 @@
 \usage{
 collapse_noun(
   doc,
+  user_dic = NULL,
+  type = c("noun", "noun2"),
   chunk = round(length(if (tibble::is_tibble(doc)) dplyr::pull(doc) else doc)/mc.cores),
   mc.cores = parallel::detectCores()
 )
 }
 \arguments{
 \item{doc}{character. 명사로만 구성될 문서를 만들 대상 텍스트 데이터}
+
+\item{user_dic}{mecab-ko 형태소 분석기의 사용자 정의 사전 파일.
+기본값은 NULL로 사용자 사전파일을 지정하지 않음.
+시스템 사전인 "/usr/local/lib/mecab/dic/mecab-ko-dic"(Linux, Mac)를 보완하여 사용됨.
+사용자 사전 파일은 mecab-dict-index 명령어로 생성되며, 확장자가 "dic"임.}
+
+\item{type}{character. 토큰화할 명사의 유형을 지정. "noun", "noun2"중에서 선택. 
+기본값은 "noun"로 일반명사를 의미하며, "noun2"는 모든 명사를 의미함.}
 
 \item{chunk}{integer. 병렬 작업 수행 시 처리 단위인 chunk}
 

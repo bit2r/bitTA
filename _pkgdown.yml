@@ -22,7 +22,7 @@ reference:
   - starts_with("remove")
   - ends_with("meta")
   - ends_with("spacing")
-  - ends_with("ngram")  
+  - ends_with("ngrams")  
   - starts_with("collapse")  
 - subtitle: 텍스트 데이터 탐색 기능
   contents:
