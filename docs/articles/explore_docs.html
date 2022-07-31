@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Explore Docs • bitTA</title>
+<title>Explore Documents • bitTA</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Explore Docs">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Explore Documents">
 <meta property="og:description" content="bitTA">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bitTA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.2.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.0.9001</span>
       </span>
     </div>
 
@@ -56,10 +56,13 @@
       <a href="../articles/Introduce.html">Introduce bitTA</a>
     </li>
     <li>
-      <a href="../articles/explore_docs.html">Explore Docs</a>
+      <a href="../articles/explore_docs.html">Explore Documents</a>
     </li>
     <li>
       <a href="../articles/morphology.html">Morphological Analysis</a>
+    </li>
+    <li>
+      <a href="../articles/with_tidytext.html">Collaboration with tidytext package</a>
     </li>
   </ul>
 </li>
@@ -77,11 +80,8 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Explore Docs</h1>
-                        <h4 data-toc-skip class="author">Choonghyun
-Ryu</h4>
+      <h1 data-toc-skip>Explore Documents</h1>
             
-            <h4 data-toc-skip class="date">2022-07-29</h4>
       
       
       <div class="hidden name"><code>explore_docs.Rmd</code></div>
@@ -93,34 +93,40 @@ Ryu</h4>
 <div class="section level2">
 <h2 id="텍스트-데이터-탐색">텍스트 데이터 탐색<a class="anchor" aria-label="anchor" href="#%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%90%EC%83%89"></a>
 </h2>
-<p>데이터 분석을 위해서 데이터를 탐색하는 것(EDA, Exploratory Data
-Analysis)처럼 텍스트 데이터 분석 역시 데이터의 탐색이 필요합니다.</p>
+<p>데이터 분석을 위해서 데이터를 탐색(EDA, Exploratory Data
+Analysis)하는 것처럼 텍스트 데이터 분석 역시 데이터의 탐색이
+필요합니다.</p>
 <p>이 작업을 통해 분석가는 주관적인 판단으로 데이터의 품질을 정성적으로
 느끼거나, 데이터를 분석하기 위한 실마리를 찾습니다.</p>
 <p>데이터 품질의 인식은 데이터 정제의 패턴 룰을 발견하고, 필터링 룰을
 도출하여 분석 대상 문서를 선별하는 작업의 기초가 됩니다.</p>
-<div class="section level3">
-<h3 id="text-data-explorer">Text Data Explorer<a class="anchor" aria-label="anchor" href="#text-data-explorer"></a>
-</h3>
+<div class="section level4">
+<h4 id="text-data-explorer">Text Data Explorer<a class="anchor" aria-label="anchor" href="#text-data-explorer"></a>
+</h4>
+<p>bitTA에는 <code>buzz</code>라는 데이터를 제공하는데 다음과 같은
+변수를 가지고 있습니다. 변수 <code>CONTENT</code>를 대상으로 데이터를
+탐색하여 합니다.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(bitTA<span class="sc">::</span>buzz)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>] <span class="st">"KEYWORD"</span>        <span class="st">"SRC"</span>            <span class="st">"SECTION"</span>        <span class="st">"CRAWL_DT"</span>      </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> [<span class="dv">5</span>] <span class="st">"PUBLISH_DT"</span>     <span class="st">"URL"</span>            <span class="st">"TITLE"</span>          <span class="st">"CONTENT"</span>       </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> [<span class="dv">9</span>] <span class="st">"DOC_KEY"</span>        <span class="st">"PUBLISH_ID"</span>     <span class="st">"CLICK_CNT"</span>      <span class="st">"LIKE_CNT"</span>      </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">13</span>] <span class="st">"SEARCH_KEYWORD"</span></span></code></pre></div>
 <p>bitTA는 텍스트 데이터를 탐색할 수 있는
 <code>Text Data Explorer</code>를 제공합니다.
 <code>Text Data Explorer</code>는 Shiny 앱으로
 <code><a href="../reference/explore_docs.html">explore_docs()</a></code> 함수로 호출합니다.</p>
-<p>bitTA에서 제공하는 buzz 데이터를 탐색하기 위해서 다음과 같은
-스크립트를 수행합니다.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">bitTA</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">buzz</span><span class="op">)</span>
 
 <span class="fu"><a href="../reference/explore_docs.html">explore_docs</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
-</div>
-<div class="section level2">
-<h2 id="text-data-explorer-기능">Text Data Explorer 기능<a class="anchor" aria-label="anchor" href="#text-data-explorer-%EA%B8%B0%EB%8A%A5"></a>
-</h2>
 <div class="section level3">
-<h3 id="데이터-구조-파악하기">데이터 구조 파악하기<a class="anchor" aria-label="anchor" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B5%AC%EC%A1%B0-%ED%8C%8C%EC%95%85%ED%95%98%EA%B8%B0"></a>
+<h3 id="text-data-explorer-기능">Text Data Explorer 기능<a class="anchor" aria-label="anchor" href="#text-data-explorer-%EA%B8%B0%EB%8A%A5"></a>
 </h3>
+<div class="section level4">
+<h4 id="데이터-구조-파악하기">데이터 구조 파악하기<a class="anchor" aria-label="anchor" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B5%AC%EC%A1%B0-%ED%8C%8C%EC%95%85%ED%95%98%EA%B8%B0"></a>
+</h4>
 <p><code>Text Data Explorer</code>가 실행되면 다음과 같은, 분석할
 데이터를 선택하고, 선택한 데이터의 변수 구조를 알수 있는
 <code>데이터</code> 탭이 보여집니다. 현재는 데이터 프레임 객체가 buzz
@@ -129,11 +135,11 @@ Analysis)처럼 텍스트 데이터 분석 역시 데이터의 탐색이 필요�
 프레임 객체의 변수 이름과 데이터 유형이 출력됩니다.</p>
 <p>그리과 좌측에는 텍스트 데이터를 편집했을 경우, 데이터를 저장하는
 기능의 위젯이 위치합니다.</p>
-<p><img src="images/data_tab.jpg" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="images/data_tab.jpg" width="95%" style="display: block; margin: auto;"></p>
 </div>
-<div class="section level3">
-<h3 id="데이터-탐색과-정제하기">데이터 탐색과 정제하기<a class="anchor" aria-label="anchor" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%90%EC%83%89%EA%B3%BC-%EC%A0%95%EC%A0%9C%ED%95%98%EA%B8%B0"></a>
-</h3>
+<div class="section level4">
+<h4 id="데이터-탐색과-정제하기">데이터 탐색과 정제하기<a class="anchor" aria-label="anchor" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%90%EC%83%89%EA%B3%BC-%EC%A0%95%EC%A0%9C%ED%95%98%EA%B8%B0"></a>
+</h4>
 <p>텍스트 데이터를 탐색할 때 특히 하나의 문서가 아니라 여러 개의
 문서들로 구성되었을 때, 문서를 하나씩 패치하여 읽어나가거나 정규표현식을
 만족하는 문서만 추려서 하나씩 패치하면서 살펴봅니다. 경우에 따라서는
@@ -143,9 +149,9 @@ Analysis)처럼 텍스트 데이터 분석 역시 데이터의 탐색이 필요�
 <p><code>Text Data Explorer</code>는 텍스트 데이터를 탐색하고 정제할 수
 있는 간단한 기능을 제공합니다. 이 기능은 <code>검색/대체</code> 탭을
 사용합니다.</p>
-<div class="section level4">
-<h4 id="탐색을-위한-변수-선택">탐색을 위한 변수 선택<a class="anchor" aria-label="anchor" href="#%ED%83%90%EC%83%89%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%B3%80%EC%88%98-%EC%84%A0%ED%83%9D"></a>
-</h4>
+<div class="section level5">
+<h5 id="탐색을-위한-변수-선택">탐색을 위한 변수 선택<a class="anchor" aria-label="anchor" href="#%ED%83%90%EC%83%89%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%B3%80%EC%88%98-%EC%84%A0%ED%83%9D"></a>
+</h5>
 <p>데이터를 탐색하는 방법을 정의하는 과정입니다. 데이터 프레임 객체에서
 대상 변수를 선택하는 과정입니다.</p>
 <p>다음과 같은 변수를 선택합니다.</p>
@@ -176,33 +182,33 @@ Analysis)처럼 텍스트 데이터 분석 역시 데이터의 탐색이 필요�
 탐색하는데, 그 대상은 <code>KEYWORD</code>가 <code>맞벌이</code>인
 데이터를 대상으로 합니다. 화면에는 <code>CONTENTS</code>와 함께
 <code>TITLE</code>, <code>SECTION</code>, <code>KEYWORD</code>를 표시할
-것입니다.<br><img src="images/choice_variable.jpg" width="80%" style="display: block; margin: auto;"></p>
+것입니다.<br><img src="images/choice_variable.jpg" width="95%" style="display: block; margin: auto;"></p>
 </div>
-<div class="section level4">
-<h4 id="검색">검색<a class="anchor" aria-label="anchor" href="#%EA%B2%80%EC%83%89"></a>
-</h4>
+<div class="section level5">
+<h5 id="검색">검색<a class="anchor" aria-label="anchor" href="#%EA%B2%80%EC%83%89"></a>
+</h5>
 <p>패턴 검색에 검색하려는 정규표현식을 입력한 후 검색 버튼을 누르면
 다음처럼 정규표현식을 만족하는 문서들이 출력됩니다.</p>
 <p>1000개의 문서들 중에서 19개의 문서에 검색 패턴인
 <code>기저귀</code>가 포함되었으며, 그 중 첫번째 문서라는 것을
 알려줍니다. 패턴과 매치되는 텍스트는 붉은색으로 표시됩니다.</p>
-<p><img src="images/search.jpg" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="images/search.jpg" width="95%" style="display: block; margin: auto;"></p>
 </div>
-<div class="section level4">
-<h4 id="패치">패치<a class="anchor" aria-label="anchor" href="#%ED%8C%A8%EC%B9%98"></a>
-</h4>
+<div class="section level5">
+<h5 id="패치">패치<a class="anchor" aria-label="anchor" href="#%ED%8C%A8%EC%B9%98"></a>
+</h5>
 <p>오른쪽 방향 버튼을 누르면 두번째 문서화면으로 이동(패치)됩니다.
 반대의 경우도 가능합니다.</p>
-<p><img src="images/next.jpg" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="images/next.jpg" width="95%" style="display: block; margin: auto;"></p>
 </div>
-<div class="section level4">
-<h4 id="대체">대체<a class="anchor" aria-label="anchor" href="#%EB%8C%80%EC%B2%B4"></a>
-</h4>
+<div class="section level5">
+<h5 id="대체">대체<a class="anchor" aria-label="anchor" href="#%EB%8C%80%EC%B2%B4"></a>
+</h5>
 <p>검색한 패턴을 다른 문자열로 대체할 수도 있습니다. 텍스트 데이터의
 정제를 위한 기능입니다. 다음은 <code>전업주부</code>라는
-일반명사(결합명사)가 <code>전업 주부</code>로 분리되어 있는 사례를
+복합명사(compound noun)가 <code>전업 주부</code>로 분리되어 있는 사례를
 보정하는 예시입니다.</p>
-<p><img src="images/replace.jpg" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="images/replace.jpg" width="95%" style="display: block; margin: auto;"></p>
 <blockquote>
 <p>만약에 대체 기능으로 텍스트 데이터를 수정(정제)하였다면, “데이터 구조
 파악하기”에서 소개한 저장 기능을 이용해서 변경된 데이터를 저장해야
@@ -210,40 +216,40 @@ Analysis)처럼 텍스트 데이터 분석 역시 데이터의 탐색이 필요�
 </blockquote>
 </div>
 </div>
-<div class="section level3">
-<h3 id="형태소분석을-이용한-데이터-탐색">형태소분석을 이용한 데이터 탐색<a class="anchor" aria-label="anchor" href="#%ED%98%95%ED%83%9C%EC%86%8C%EB%B6%84%EC%84%9D%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%90%EC%83%89"></a>
-</h3>
+<div class="section level4">
+<h4 id="형태소분석을-이용한-데이터-탐색">형태소분석을 이용한 데이터 탐색<a class="anchor" aria-label="anchor" href="#%ED%98%95%ED%83%9C%EC%86%8C%EB%B6%84%EC%84%9D%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%90%EC%83%89"></a>
+</h4>
 <p><code>형태소분석</code> 탭의 기능은 장문의 본문을 일일이 읽기 어려울
 경우에 유용한 기능입니다. 원문과 함께 명사만 추출한 정보를 제공해서
 명사를 탐색하면서 문장의 전체 맥락을 속성으로 이해할 수 있습니다.</p>
 <p>몇몇 개의 문서를 탐색하는 경우에는 문제가 발생하지 않지만, 하루 종일
 수백, 수천개의 문서를 탐색하면서 텍스트 분석의 실마리를 찾아야하는
 경우에 천사와 같은 기능을 제공해줄 것입니다.</p>
-<p><img src="images/morpho.jpg" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="images/morpho.jpg" width="95%" style="display: block; margin: auto;"></p>
 </div>
-<div class="section level3">
-<h3 id="공동발생분석을-이용한-데이터-탐색">공동발생분석을 이용한 데이터 탐색<a class="anchor" aria-label="anchor" href="#%EA%B3%B5%EB%8F%99%EB%B0%9C%EC%83%9D%EB%B6%84%EC%84%9D%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%90%EC%83%89"></a>
-</h3>
-<p><code>공동발생분석</code> 탭의 기능은 검색 키워드와 공동으로 발현하는
-명사들을 추출해줍니다. 관심있는 키워드와 함께 이야기하는 주제를 파악하기
-쉽습니다.</p>
+<div class="section level4">
+<h4 id="공동발생분석을-이용한-데이터-탐색">공동발생분석을 이용한 데이터 탐색<a class="anchor" aria-label="anchor" href="#%EA%B3%B5%EB%8F%99%EB%B0%9C%EC%83%9D%EB%B6%84%EC%84%9D%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%90%EC%83%89"></a>
+</h4>
+<p><code>공동발생분석</code> 탭의 기능은 검색 키워드와 공동으로
+발현(collocation)하는 명사들을 추출해줍니다. 관심있는 키워드와 함께
+이야기하는 주제를 파악하기 쉽습니다.</p>
 <p>입력 위젯의 <code>Span</code>은 공동발현하는 명사가 키워드를 중심으로
 몇번 째 거리에서 출현하는가를 정의합니다. 즉, 아래 그림의 예제는
 기저귀와 2번째 거리 이내의 명사를 리스트업합니다.</p>
-<p><img src="images/co-location.jpg" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="images/co-location.jpg" width="95%" style="display: block; margin: auto;"></p>
 </div>
-<div class="section level3">
-<h3 id="n-grams를-이용한-데이터-탐색">n-grams를 이용한 데이터 탐색<a class="anchor" aria-label="anchor" href="#n-grams%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%90%EC%83%89"></a>
-</h3>
+<div class="section level4">
+<h4 id="n-grams를-이용한-데이터-탐색">n-grams를 이용한 데이터 탐색<a class="anchor" aria-label="anchor" href="#n-grams%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%90%EC%83%89"></a>
+</h4>
 <p><code>N-Gram</code> 탭의 기능은 검색 키워드로 검색된 개별 문서에
 대해서 명사를 n-gram으로 토큰화합니다.</p>
 <p>이 기능 역시 문서의 주제를 찾는데 유용합니다.</p>
-<p><img src="images/ngram.jpg" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="images/ngram.jpg" width="95%" style="display: block; margin: auto;"></p>
 </div>
 </div>
-<div class="section level2">
-<h2 id="r-명령어-실행">R 명령어 실행<a class="anchor" aria-label="anchor" href="#r-%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%8B%A4%ED%96%89"></a>
-</h2>
+<div class="section level3">
+<h3 id="r-명령어-실행">R 명령어 실행<a class="anchor" aria-label="anchor" href="#r-%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%8B%A4%ED%96%89"></a>
+</h3>
 <p>bitTA 패키지에서 실행한 Shiny 앱은 모달(Modal) 창을 띄웁니다. 이것은
 앱이 종료되기 전는에 R 콘솔을 사용할 수 없다는 것을 의미합니다. 그래서
 <code>Text Data Explorer</code>는 간단한 R 스크립트를 수행할 수 있는
@@ -252,7 +258,8 @@ Analysis)처럼 텍스트 데이터 분석 역시 데이터의 탐색이 필요�
 다음 예제는 <code>Text Data Explorer</code>를 사용중에
 <code><a href="../reference/get_spacing.html">get_spacing()</a></code>으로 문서의 띄어쓰기를 보정하는
 예시입니다.</p>
-<p><img src="images/rcommand.jpg" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="images/rcommand.jpg" width="95%" style="display: block; margin: auto;"></p>
+</div>
 </div>
   </div>
 

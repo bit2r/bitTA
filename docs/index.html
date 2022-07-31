@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">bitTA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.2.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.0.9001</span>
       </span>
     </div>
 
@@ -56,10 +56,13 @@
       <a href="articles/Introduce.html">Introduce bitTA</a>
     </li>
     <li>
-      <a href="articles/explore_docs.html">Explore Docs</a>
+      <a href="articles/explore_docs.html">Explore Documents</a>
     </li>
     <li>
       <a href="articles/morphology.html">Morphological Analysis</a>
+    </li>
+    <li>
+      <a href="articles/with_tidytext.html">Collaboration with tidytext package</a>
     </li>
   </ul>
 </li>
@@ -78,26 +81,28 @@
   <div class="contents col-md-9">
 <div class="section level1">
 <div class="page-header"><h1 id="bitta-">bitTA
-<img src="reference/figures/r2bit.png" align="right" height="120" width="130"><a class="anchor" aria-label="anchor" href="#bitta-"></a>
+<a href="https://r2bit.com/bitTA/" class="external-link"><img src="reference/figures/r2bit.png" align="right" height="120" width="130"></a>
+<a class="anchor" aria-label="anchor" href="#bitta-"></a>
 </h1></div>
 <div class="section level2">
-<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+<h2 id="bitta-개요">bitTA 개요<a class="anchor" aria-label="anchor" href="#bitta-%EA%B0%9C%EC%9A%94"></a>
 </h2>
-<p><code>bitTA</code>는 텍스트 데이터의 품질을 보정하고,
+<p><code>bitTA</code>는
+<code>텍스트 데이터를 탐색(Explore Documents)</code>하고,
 <code>자연어 처리(Natural Language Processing)</code> 및
-<code>형태소분석</code>, <code>감성분석</code>을 지원하는 도구의
-모음입니다.</p>
+<code>형태소분석</code>, <code>감성분석</code>을 수행하는, <strong>한글
+텍스트 데이터 분석 도구들의 모음</strong>입니다.</p>
 <p><code>bitTA</code>의 다음 기능은 bitTA 패키지의 비네트인 <a href="https://r2bit.com/bitTA/articles/Introduce.html" class="external-link">Introduce
 bitTA</a>에 소개되어 있습니다.</p>
 <ul>
 <li>텍스트 데이터 전처리 기능</li>
-<li>텍스트 데이터 품질 진단 기능</li>
+<li>텍스트 데이터 탐색 기능</li>
 <li>형태소분석 기능</li>
 <li>감성분석 기능</li>
 </ul>
 </div>
 <div class="section level2">
-<h2 id="install-bitta">Install bitTA<a class="anchor" aria-label="anchor" href="#install-bitta"></a>
+<h2 id="bitta-설치">bitTA 설치<a class="anchor" aria-label="anchor" href="#bitta-%EC%84%A4%EC%B9%98"></a>
 </h2>
 <div class="section level3">
 <h3 id="bitta-패키지-설치하기">bitTA 패키지 설치하기<a class="anchor" aria-label="anchor" href="#bitta-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0"></a>
@@ -151,8 +156,8 @@ mecab-ko</a>에 설명되어 있습니다.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">bitTA</span><span class="op">)</span>
 
-<span class="fu"><a href="reference/get_spacing.html">get_spacing</a></span><span class="op">(</span><span class="st">"최근음성인식정확도가높아짐에따라많은음성데이터가Text로변환되고분석되기시작했는데,이를위해잘동작하는띄어쓰기엔진은거의필수적인게되어버렸다"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "최근 음성 인식 정확도가 높아 짐에 따라 많은 음성 데이터가 T ex t로 변환되고 분석되기 시작했는데, 이를 위해 잘 동작하는 띄어쓰기 엔진은 거의 필수적인 게 되어 버렸다"</span>
+<span class="fu"><a href="reference/get_spacing.html">get_spacing</a></span><span class="op">(</span><span class="st">"최근음성인식정확도가높아짐에따라많은음성데이터가텍스트로변환되고분석되기시작했는데,이를위해잘동작하는띄어쓰기엔진은거의필수적인게되어버렸다"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "최근 음성 인식 정확도가 높아 짐에 따라 많은 음성 데이터가 텍스트로 변환되고 분석되기 시작했는데, 이를 위해 잘 동작하는 띄어쓰기 엔진은 거의 필수적인 게 되어 버렸다"</span>
 <span class="va">str</span> <span class="op">&lt;-</span> <span class="st">"글쓰기에서맞춤법과띄어쓰기를올바르게하는것은좋은글이될수있는요건중하나이다.하지만요즘학생들은부족한어문규정지식으로인해맞춤법과띄어쓰기에서많은오류를범하기도한다.본연구는그중띄어쓰기가글을인식하는데중요한역할을하는것으로판단하여,대학생들이띄어쓰기에대해서어느정도정확하게인식하고있는지,실제오류실태는어떠한지에대해살펴서그오류를개선할수있는교육방안을마련할필요가있다고판단하였다."</span>
 <span class="fu"><a href="reference/get_spacing.html">get_spacing</a></span><span class="op">(</span><span class="va">str</span><span class="op">)</span>
 <span class="co">#&gt; [1] "글쓰기에서 맞춤법과 띄어쓰기를 올바르게 하는 것은 좋은 글이 될 수 있는 요건 중 하나이다. 하지만 요즘 학생들은 부족한 어문 규정 지식으로 인해 맞춤법과 띄어쓰기에서 많은 오류를 범하기도 한다. 본 연구는 그중 띄어쓰기가 글을 인식하는 데 중요한 역할을 하는 것으로 판단하여, 대학생들이 띄어쓰기에 대해서 어느 정도 정확하게 인식하고 있는지, 실제 오류 실태는 어떠한지에 대해 살펴서 그 오류를 개선할 수 있는 교육 방안을 마련할 필요가 있다고 판단하였다."</span></code></pre></div>
@@ -160,43 +165,241 @@ mecab-ko</a>에 설명되어 있습니다.</p>
 <div class="section level3">
 <h3 id="형태소-분석">형태소 분석<a class="anchor" aria-label="anchor" href="#%ED%98%95%ED%83%9C%EC%86%8C-%EB%B6%84%EC%84%9D"></a>
 </h3>
-<p>은전한닢 형태소 분석기를 호출하여 형태소 분석을 수행</p>
+<p>은전한닢 형태소 분석기를 호출하여 형태소 분석을 수행합니다. bitTA는
+이 형태소분석을 쉽고 효과적으로 수행하는 것을 도와줍니다.</p>
 <p>형태소분석은 비네트인 <a href="https://r2bit.com/bitTA/articles/morphology.html" class="external-link">Morphological
 Analysis</a>에 설명되어 있습니다.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span><span class="op">)</span>
-<span class="co">#&gt;      NNG      NNG </span>
-<span class="co">#&gt; "아버지"     "방"</span>
-
-<span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span>, type <span class="op">=</span> <span class="st">"morpheme"</span><span class="op">)</span>
-<span class="co">#&gt;      NNG      JKS      NNG      JKB       VV    EP+EF       SF </span>
-<span class="co">#&gt; "아버지"     "가"     "방"     "에" "들어가"   "신다"      "."</span>
-
-<span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span>, type <span class="op">=</span> <span class="st">"verb"</span><span class="op">)</span>
-<span class="co">#&gt;       VV </span>
-<span class="co">#&gt; "들어가"</span></code></pre></div>
+<code class="sourceCode R"><span class="va">docs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"님은 갔습니다. 아아, 사랑하는 나의 님은 갔습니다."</span>,
+          <span class="st">"푸른 산빛을 깨치고 단풍나무 숲을 향하여 난 작은 길을 걸어서, 차마 떨치고 갔습니다."</span><span class="op">)</span>
+<span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="va">docs</span>,  type <span class="op">=</span> <span class="st">"morpheme"</span><span class="op">)</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt;      NNG       JX    VV+EP       EF       SF       IC       SC      NNG </span>
+<span class="co">#&gt;     "님"     "은"     "갔" "습니다"      "."   "아아"      ","   "사랑" </span>
+<span class="co">#&gt;      XSV      ETM       NP      JKG      NNG       JX    VV+EP       EF </span>
+<span class="co">#&gt;     "하"     "는"     "나"     "의"     "님"     "은"     "갔" "습니다" </span>
+<span class="co">#&gt;       SF </span>
+<span class="co">#&gt;      "." </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt;     VA+ETM        NNG        NNG        JKO         VV         EC        NNG </span>
+<span class="co">#&gt;     "푸른"       "산"       "빛"       "을"     "깨치"       "고" "단풍나무" </span>
+<span class="co">#&gt;        NNG        JKO         VV         EC      NP+JX         VA        ETM </span>
+<span class="co">#&gt;       "숲"       "을"     "향하"       "여"       "난"       "작"       "은" </span>
+<span class="co">#&gt;        NNG        JKO      VV+EC         SC        MAG         VV         EC </span>
+<span class="co">#&gt;       "길"       "을"   "걸어서"        ","     "차마"     "떨치"       "고" </span>
+<span class="co">#&gt;      VV+EP         EF         SF </span>
+<span class="co">#&gt;       "갔"   "습니다"        "."</span></code></pre></div>
+<p>한글 텍스트에서는 명사만으로 문맥을 파악하는 것이 유용합니다.
+morpho_mecab() 함수의 기본 인수는 이를 지원합니다.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="va">docs</span><span class="op">)</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt;    NNG    NNG    NNG </span>
+<span class="co">#&gt;   "님" "사랑"   "님" </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt;        NNG        NNG        NNG        NNG        NNG </span>
+<span class="co">#&gt;       "산"       "빛" "단풍나무"       "숲"       "길"</span></code></pre></div>
+<p>morpho_mecab()는 여러 개의 문서를 하나로 합쳐서 토크나이즈할 수도
+있습니다.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="va">docs</span>, indiv <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="co">#&gt;        NNG        NNG        NNG        NNG        NNG        NNG        NNG </span>
+<span class="co">#&gt;       "님"     "사랑"       "님"       "산"       "빛" "단풍나무"       "숲" </span>
+<span class="co">#&gt;        NNG </span>
+<span class="co">#&gt;       "길"</span></code></pre></div>
+<div class="section level4">
+<h4 id="품사의-워드클라우드-그리기">품사의 워드클라우드 그리기<a class="anchor" aria-label="anchor" href="#%ED%92%88%EC%82%AC%EC%9D%98-%EC%9B%8C%EB%93%9C%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EA%B7%B8%EB%A6%AC%EA%B8%B0"></a>
+</h4>
+<p>명사를 추출하여 워드클라우드를 그려봅니다. bitTA에 수록된 대통령
+연설문 데이터셋인 <code>president_speech</code>에서 임의의 연설문
+100개에서 일반명사를 추출 후 워드클라우드를 그려 봅니다.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">president_speech</span><span class="op">$</span><span class="va">contents</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">]</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span>indiv <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">wordcloud2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/wordcloud2/man/wordcloud2.html" class="external-link">wordcloud2</a></span><span class="op">(</span>fontFamily <span class="op">=</span> <span class="st">"NanumSquare"</span><span class="op">)</span></code></pre></div>
+<p><img src="articles/images/wordcloud1.jpg" width="90%" style="display: block; margin: auto;"></p>
+</div>
 </div>
 <div class="section level3">
-<h3 id="감성-분석">감성 분석<a class="anchor" aria-label="anchor" href="#%EA%B0%90%EC%84%B1-%EB%B6%84%EC%84%9D"></a>
+<h3 id="텍스트-데이터-탐색">텍스트 데이터 탐색<a class="anchor" aria-label="anchor" href="#%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%90%EC%83%89"></a>
 </h3>
+<p>텍스트 데이터 탐색 기능은 비네트인 <a href="https://r2bit.com/bitTA/articles/explore_docs.html" class="external-link">Explore
+Documents</a>에 설명되어 있습니다.</p>
 <div class="section level4">
-<h4 id="mecab-형태소-분석기">Mecab 형태소 분석기<a class="anchor" aria-label="anchor" href="#mecab-%ED%98%95%ED%83%9C%EC%86%8C-%EB%B6%84%EC%84%9D%EA%B8%B0"></a>
+<h4 id="text-data-explorer">Text Data Explorer<a class="anchor" aria-label="anchor" href="#text-data-explorer"></a>
 </h4>
-<p>Mecab 형태소 분석기를 호출하여 형태소 분석을 수행</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span><span class="op">)</span>
-<span class="co">#&gt;      NNG      NNG </span>
-<span class="co">#&gt; "아버지"     "방"</span>
-
-<span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span>, type <span class="op">=</span> <span class="st">"morpheme"</span><span class="op">)</span>
-<span class="co">#&gt;      NNG      JKS      NNG      JKB       VV    EP+EF       SF </span>
-<span class="co">#&gt; "아버지"     "가"     "방"     "에" "들어가"   "신다"      "."</span>
-
-<span class="fu"><a href="reference/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="st">"아버지가 방에 들어가신다."</span>, type <span class="op">=</span> <span class="st">"verb"</span><span class="op">)</span>
-<span class="co">#&gt;       VV </span>
-<span class="co">#&gt; "들어가"</span></code></pre></div>
+<p>텍스트 데이터 탐색 기능은 <strong>Text Data Explorer</strong>라는
+이름의 Shiny 앱이 제공합니다. 그리고 그 기능은 다음과 같습니다.</p>
+<ul>
+<li>데이터 구조 파악하기</li>
+<li>데이터 탐색과 정제하기</li>
+<li>패턴검색과 문자열 대체</li>
+<li>형태소분석을 이용한 데이터 탐색</li>
+<li>공동발생분석을 이용한 데이터 탐색</li>
+<li>n-grams를 이용한 데이터 탐색</li>
+<li>R 명령어 실행</li>
+</ul>
+</div>
+<div class="section level4">
+<h4 id="text-data-explorer-예시-화면">Text Data Explorer 예시 화면<a class="anchor" aria-label="anchor" href="#text-data-explorer-%EC%98%88%EC%8B%9C-%ED%99%94%EB%A9%B4"></a>
+</h4>
+<ul>
+<li>Text Data Explorer 기능 중에서 탐색 및 치환 기능 화면에 대한 예시는
+다음과 같습니다.:</li>
+</ul>
+<p><img src="articles/images/replace.jpg" title="탐색 및 치환 기능 화면" alt="탐색 및 치환 기능 화면" width="80%" style="display: block; margin: auto;"></p>
 </div>
 </div>
+<div class="section level3">
+<h3 id="tidytext와의-협업">tidytext와의 협업<a class="anchor" aria-label="anchor" href="#tidytext%EC%99%80%EC%9D%98-%ED%98%91%EC%97%85"></a>
+</h3>
+<p><code>tidytext</code> 패키지와의 협업을 위한 기능은 비네트인 <a href="https://r2bit.com/bitTA/articles/with_tidytext.html" class="external-link">Collaboration
+with tidytext package</a>에 설명되어 있습니다.</p>
+<div class="section level4">
+<h4 id="tokenizers">tokenizers<a class="anchor" aria-label="anchor" href="#tokenizers"></a>
+</h4>
+<p>bitTA는 토크나이저로 다음과 같은 함수를 지원합니다.</p>
+<ul>
+<li>형태소 토크나이저
+<ul>
+<li>morpho_mecab()</li>
+<li>part-of-speech tagger 단위의 토크나이저</li>
+</ul>
+</li>
+<li>명사 n-grams 토크나이저
+<ul>
+<li><strong>tokenize_noun_ngrams()</strong></li>
+</ul>
+</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">docs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"님은 갔습니다. 아아, 사랑하는 나의 님은 갔습니다."</span>,
+          <span class="st">"푸른 산빛을 깨치고 단풍나무 숲을 향하여 난 작은 길을 걸어서, 차마 떨치고 갔습니다."</span><span class="op">)</span>
+
+<span class="fu"><a href="reference/tokenize_noun_ngrams.html">tokenize_noun_ngrams</a></span><span class="op">(</span><span class="va">docs</span><span class="op">)</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; [1] "님 사랑 님"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt; [1] "산 빛 단풍나무" "빛 단풍나무 숲" "단풍나무 숲 길"</span>
+
+<span class="co"># simplify = TRUE</span>
+<span class="fu"><a href="reference/tokenize_noun_ngrams.html">tokenize_noun_ngrams</a></span><span class="op">(</span><span class="va">docs</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, simplify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt; [1] "님 사랑 님"</span>
+
+<span class="va">str</span> <span class="op">&lt;-</span> <span class="st">"신혼부부나 주말부부는 놀이공원 자유이용권을 즐겨 구매합니다."</span>
+
+<span class="fu"><a href="reference/tokenize_noun_ngrams.html">tokenize_noun_ngrams</a></span><span class="op">(</span><span class="va">str</span><span class="op">)</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; [1] "신혼 부부 주말"     "부부 주말 부부"     "주말 부부 놀이공원"</span>
+<span class="co">#&gt; [4] "부부 놀이공원 자유" "놀이공원 자유 이용" "자유 이용 구매"</span>
+
+<span class="co"># 불용어 처리</span>
+<span class="fu"><a href="reference/tokenize_noun_ngrams.html">tokenize_noun_ngrams</a></span><span class="op">(</span><span class="va">str</span>, stopwords <span class="op">=</span> <span class="st">"구매"</span><span class="op">)</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; [1] "신혼 부부 주말"     "부부 주말 부부"     "주말 부부 놀이공원"</span>
+<span class="co">#&gt; [4] "부부 놀이공원 자유" "놀이공원 자유 이용"</span>
+ 
+<span class="co"># 사용자 정의 사전 사용</span>
+<span class="va">dic_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"dic"</span>, package <span class="op">=</span> <span class="st">"bitTA"</span><span class="op">)</span>
+<span class="va">dic_file</span> <span class="op">&lt;-</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{dic_path}/buzz_dic.dic"</span><span class="op">)</span>
+<span class="fu"><a href="reference/tokenize_noun_ngrams.html">tokenize_noun_ngrams</a></span><span class="op">(</span><span class="va">str</span>, simplify <span class="op">=</span> <span class="cn">TRUE</span>, user_dic <span class="op">=</span> <span class="va">dic_file</span><span class="op">)</span>
+<span class="co">#&gt; [1] "신혼부부 주말부부 놀이공원"   "주말부부 놀이공원 자유이용권"</span>
+<span class="co">#&gt; [3] "놀이공원 자유이용권 구매"</span>
+
+<span class="co"># n_min</span>
+<span class="fu"><a href="reference/tokenize_noun_ngrams.html">tokenize_noun_ngrams</a></span><span class="op">(</span><span class="va">str</span>, n_min <span class="op">=</span> <span class="fl">1</span>, user_dic <span class="op">=</span> <span class="va">dic_file</span><span class="op">)</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt;  [1] "신혼부부"                     "신혼부부 주말부부"           </span>
+<span class="co">#&gt;  [3] "신혼부부 주말부부 놀이공원"   "주말부부"                    </span>
+<span class="co">#&gt;  [5] "주말부부 놀이공원"            "주말부부 놀이공원 자유이용권"</span>
+<span class="co">#&gt;  [7] "놀이공원"                     "놀이공원 자유이용권"         </span>
+<span class="co">#&gt;  [9] "놀이공원 자유이용권 구매"     "자유이용권"                  </span>
+<span class="co">#&gt; [11] "자유이용권 구매"              "구매"</span>
+
+<span class="co"># ngram_delim</span>
+<span class="fu"><a href="reference/tokenize_noun_ngrams.html">tokenize_noun_ngrams</a></span><span class="op">(</span><span class="va">str</span>, ngram_delim <span class="op">=</span> <span class="st">":"</span>, user_dic <span class="op">=</span> <span class="va">dic_file</span><span class="op">)</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; [1] "신혼부부:주말부부:놀이공원"   "주말부부:놀이공원:자유이용권"</span>
+<span class="co">#&gt; [3] "놀이공원:자유이용권:구매"</span>
+
+<span class="co"># bi-grams</span>
+<span class="fu"><a href="reference/tokenize_noun_ngrams.html">tokenize_noun_ngrams</a></span><span class="op">(</span><span class="va">str</span>, n <span class="op">=</span> <span class="fl">2</span>, ngram_delim <span class="op">=</span> <span class="st">":"</span>, user_dic <span class="op">=</span> <span class="va">dic_file</span><span class="op">)</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; [1] "신혼부부:주말부부"   "주말부부:놀이공원"   "놀이공원:자유이용권"</span>
+<span class="co">#&gt; [4] "자유이용권:구매"</span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="한글-unnest_tokens">한글 unnest_tokens<a class="anchor" aria-label="anchor" href="#%ED%95%9C%EA%B8%80-unnest_tokens"></a>
+</h4>
+<p>bitTA의 한글 <code>unnest_tokens</code>에는 명사 n-grams 토크나이즈를
+지원하는 <code><a href="reference/unnest_noun_ngrams.html">unnest_noun_ngrams()</a></code> 함수가 있습니다. 이 함수는
+<code>tidytext</code> 패키지의 <code>unnest_tokens</code> 함수군의
+사용법과 거의 동일합니다.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
+
+<span class="va">president_speech</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">title</span>, <span class="va">doc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/ranking.html" class="external-link">row_number</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&lt;=</span> <span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="reference/unnest_noun_ngrams.html">unnest_noun_ngrams</a></span><span class="op">(</span>
+    <span class="va">noun_bigram</span>,
+    <span class="va">doc</span>,
+    n <span class="op">=</span> <span class="fl">2</span>,
+    ngram_delim <span class="op">=</span> <span class="st">":"</span>,
+    type <span class="op">=</span> <span class="st">"noun2"</span>
+  <span class="op">)</span>
+<span class="co">#&gt; # A tibble: 271 × 2</span>
+<span class="co">#&gt;    title                              noun_bigram</span>
+<span class="co">#&gt;    &lt;chr&gt;                              &lt;chr&gt;      </span>
+<span class="co">#&gt;  1 "2005 한일 우정의 해 개막식 축사 " 일:우정    </span>
+<span class="co">#&gt;  2 "2005 한일 우정의 해 개막식 축사 " 우정:해    </span>
+<span class="co">#&gt;  3 "2005 한일 우정의 해 개막식 축사 " 해:개막식  </span>
+<span class="co">#&gt;  4 "2005 한일 우정의 해 개막식 축사 " 개막식:축하</span>
+<span class="co">#&gt;  5 "2005 한일 우정의 해 개막식 축사 " 축하:행사  </span>
+<span class="co">#&gt;  6 "2005 한일 우정의 해 개막식 축사 " 행사:축하  </span>
+<span class="co">#&gt;  7 "2005 한일 우정의 해 개막식 축사 " 축하:참석  </span>
+<span class="co">#&gt;  8 "2005 한일 우정의 해 개막식 축사 " 참석:여러분</span>
+<span class="co">#&gt;  9 "2005 한일 우정의 해 개막식 축사 " 여러분:모두</span>
+<span class="co">#&gt; 10 "2005 한일 우정의 해 개막식 축사 " 모두:환영  </span>
+<span class="co">#&gt; # … with 261 more rows</span></code></pre></div>
+</div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="고마운-분들">고마운 분들<a class="anchor" aria-label="anchor" href="#%EA%B3%A0%EB%A7%88%EC%9A%B4-%EB%B6%84%EB%93%A4"></a>
+</h2>
+<ul>
+<li>김준혁
+<ul>
+<li><a href="https://github.com/junhewk/RcppMeCab" class="external-link">RcppMeCab</a></li>
+</ul>
+</li>
+<li>윤원섭
+<ul>
+<li><a href="https://github.com/Pusnow/mecab-ko-msvc" class="external-link">mecab-ko-msvc</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="도움요청">도움요청<a class="anchor" aria-label="anchor" href="#%EB%8F%84%EC%9B%80%EC%9A%94%EC%B2%AD"></a>
+</h2>
+<p>bitTA의 발전을 위해서 버그에 대한 리포팅, 기능 개선을 위한
+요구사항들은 <a href="https://github.com/bit2r/bitTA/issues" class="external-link">여기에</a>에 문제를
+제기하거나 요청해주세요. 특히 버그는 최소한의 재현 가능한 예제와 함께
+제출바랍니다.</p>
+</div>
+<div class="section level2">
+<h2 id="기여자-행동-강령">기여자 행동 강령<a class="anchor" aria-label="anchor" href="#%EA%B8%B0%EC%97%AC%EC%9E%90-%ED%96%89%EB%8F%99-%EA%B0%95%EB%A0%B9"></a>
+</h2>
+<p>이 프로젝트는 <a href="https://github.com/bit2r/bitTA/blob/main/CONDUCT.md" class="external-link">Contributor
+Code of Conduct(기여자 행동 강령)</a>과 함께 릴리스되었습니다 . 이
+프로젝트에 참여함으로써 귀하는 해당 조건을 준수하는 데 동의하는
+것입니다.</p>
 </div>
 </div>
   </div>

@@ -1,7 +1,5 @@
 ---
 title: "Install mecab-ko"
-author: "Choonghyun Ryu"
-date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Install mecab-ko}

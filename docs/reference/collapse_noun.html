@@ -40,10 +40,13 @@
       <a href="../articles/Introduce.html">Introduce bitTA</a>
     </li>
     <li>
-      <a href="../articles/explore_docs.html">Explore Docs</a>
+      <a href="../articles/explore_docs.html">Explore Documents</a>
     </li>
     <li>
       <a href="../articles/morphology.html">Morphological Analysis</a>
+    </li>
+    <li>
+      <a href="../articles/with_tidytext.html">Collaboration with tidytext package</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"></ul></div><!--/.nav-collapse -->
@@ -112,6 +115,14 @@
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Collaboration with tidytext</span></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘dplyr’</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:stats’:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     filter, lag</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:base’:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">nho_noun</span> <span class="op">&lt;-</span> <span class="va">president_speech</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">president</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="st">"노무현"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -122,24 +133,14 @@
 <span class="r-in">      <span class="va">doc_noun</span>,</span>
 <span class="r-in">      n <span class="op">=</span> <span class="fl">2</span></span>
 <span class="r-in">   <span class="op">)</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in filter(., str_detect(category, "^외교")):</span> Problem while computing `..1 = str_detect(category, "^외교")`.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `str_detect()`:</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> could not find function "str_detect"</span>
 <span class="r-in"><span class="va">nho_noun</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 47,590 × 8</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    id       president category  type  title              date  doc   noun_bigram</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의… 2005… <span style="color: #949494;">"</span>  …  우정 해    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의… 2005… <span style="color: #949494;">"</span>  …  해 개막식  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의… 2005… <span style="color: #949494;">"</span>  …  개막식 축하</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의… 2005… <span style="color: #949494;">"</span>  …  축하 행사  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의… 2005… <span style="color: #949494;">"</span>  …  행사 축하  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의… 2005… <span style="color: #949494;">"</span>  …  축하 참석  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의… 2005… <span style="color: #949494;">"</span>  …  참석 모두  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의… 2005… <span style="color: #949494;">"</span>  …  모두 환영  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의… 2005… <span style="color: #949494;">"</span>  …  환영 감사  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의… 2005… <span style="color: #949494;">"</span>  …  감사 인사  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 47,580 more rows</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'nho_noun' not found</span>
 <span class="r-in"> </span>
 <span class="r-in"><span class="va">nho_noun</span><span class="op">$</span><span class="va">noun_bigram</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "우정 해"     "해 개막식"   "개막식 축하" "축하 행사"   "행사 축하"  </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'nho_noun' not found</span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

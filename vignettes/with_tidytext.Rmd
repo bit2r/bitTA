@@ -1,0 +1,245 @@
+---
+title: "Collaboration with tidytext package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Collaboration with tidytext package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r environment, echo = FALSE, message = FALSE, warning=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "", out.width = "600px", dpi = 70,
+                      echo = TRUE, message = FALSE, warning = FALSE)
+options(tibble.print_min = 4L, tibble.print_max = 4L)
+```
+
+## tidytext 패키지
+
+요즘 R 진영에는 `tidy`한 작업이 대세입니다. **깔끔하게** 정도로 번역을 할 수도 있지만, 최적의 단어로 번역이 어렵습니다. 쉽게 생각한다면,
+`tidyverse` 패키지군의 "`tibble` 구조로 데이터를 구조화하여 분석할 수 있다." 정도의 의미 해석이 가능합니다. 
+
+이것은 한편으로는 `tidyverse` 패키지군과의 협업 용이성을 의미하기도 합니다. 즉, `tidyverse` 패키지군에서 제공하는 여러 장점을 사용할 수 있다는 것입니다. 아마도 `dplyr`와의 협업이 주가 될 것입니다.
+
+다음은 CRAN에 등록된 패키지중에서 `tidy`라는 단어가 들어간 패키지 이름을 조사한 결과입니다. 앞으로 계속 늘어날텐데, 이 작업을 수행한 시점인 2022-07-31에는 73개 패키지가 있습니다.
+
+```{r}
+library(tidyverse)
+
+available.packages(repos = "https://cran.rstudio.com/") %>% 
+  row.names() %>% 
+  str_subset("tidy")
+```
+
+목록의 63번째 `tidytext` 패키지는 텍스트 데이터 분석을 수행할 때, tidyverse 패키지군의 `dplyr`과 `ggplot2`의 기능과 더불어 쉽고 효과적인 텍스트 분석을 수행할 수 있습니다.
+
+## tidytext와의 협업
+
+아마도 한국 텍스트분석을 수행하는 분석가중 많은 수가 `tidytext` 패키지를 이용할 것입니다. 그러나 영문 텍스트 분석을 수행할 목적으로 개발된 `tidytext` 패키지에서는 한글을 분석하는데 다소 부족한 영역이 존재합니다.  그래서 `bitTA` 패키지는 이 지점을 지원하여, 한글 텍스트 분석을 수행함에 있어서 `tidytext` 패키지를 원활히 사용할 수 있도록 도와줍니다. 
+
+### 한글 tokenizer
+
+교착어인 한글은 영문과 달리, 띄어쓰기 단위인 `words`가 아닌 형태소 단위로 토큰화를 수행해야 텍스트 분석을 수행할 수 있습니다. 물론 경우에 따라서 `words` 단위의 토큰화가 유용한 경우도 있습니다.
+
+bitTA에서는 `tidytext` 패키지에서 지원하지 않는, 엄밀히 말하면 `tidytext` 패키지 내부에서 사용하는 `tokenizers` 패키지에서 제공하지 않는 두개의 토크나이저(tokenizers)를 제공합니다.:
+
+* 형태소 토크나이저
+  - morpho_mecab()
+  - part-of-speech tagger 단위의 토크나이저
+* 명사 n-grams 토크나이저
+  - **tokenize_noun_ngrams()**
+  
+tidytext 구문에서 형태소 토크나이저인 morpho_mecab()는 다음과 같이 사용합니다.
+
+```{r}
+library(bitTA)
+library(tidyverse)
+library(tidytext)
+
+nho_noun_indiv <- president_speech %>%
+  filter(president %in% "노무현") %>%
+  filter(str_detect(category, "^외교")) %>%
+  tidytext::unnest_tokens(
+    out = "speech_noun",
+    input = "doc",
+    token = morpho_mecab
+  )
+  
+ nho_noun_indiv 
+```
+  
+만약 사용자 사전이 있다면 다음과 같이 user_dic 인수를 사용할 수도 있습니다.
+
+```{r, eval=FALSE}
+president_speech %>%
+  filter(president %in% "노무현") %>%
+  filter(str_detect(category, "^외교")) %>%
+  tidytext::unnest_tokens(
+    out = "speech_noun",
+    input = "doc",
+    token = morpho_mecab,
+    user_dic = user_dic
+  )
+```
+
+
+명사 n-grams 토크나이저는 다음과 같이 사용합니다. 
+
+```{r}
+tokenize_noun_ngrams(president_speech$doc[1:2])
+
+# simplify = TRUE
+tokenize_noun_ngrams(president_speech$doc[1], simplify = TRUE)
+
+str <- "신혼부부나 주말부부는 놀이공원 자유이용권을 즐겨 구매합니다."
+
+tokenize_noun_ngrams(str)
+
+# 불용어 처리
+tokenize_noun_ngrams(str, stopwords = "구매")
+ 
+# 사용자 정의 사전 사용
+dic_path <- system.file("dic", package = "bitTA")
+dic_file <- glue::glue("{dic_path}/buzz_dic.dic")
+tokenize_noun_ngrams(str, simplify = TRUE, user_dic = dic_file)
+
+# n_min
+tokenize_noun_ngrams(str, n_min = 1, user_dic = dic_file)
+
+# ngram_delim
+tokenize_noun_ngrams(str, ngram_delim = ":", user_dic = dic_file)
+
+# bi-grams
+tokenize_noun_ngrams(str, n = 2, ngram_delim = ":", user_dic = dic_file)
+```
+
+### 한글 unnest_tokens
+
+bitTA의 한글 `unnest_tokens`에는 명사 n-grams 토크나이즈를 지원하는 `unnest_noun_ngrams()` 함수가 있습니다. 이 함수는 `tidytext` 패키지의 `unnest_tokens` 함수군의 사용법과 거의 동일합니다. 
+
+`tidy`와 같이 회자되는 단어인 **unnest**는 **"중첩을 해제한다"고 번역**되지만, 이것 또한 어렵게 번역되고 있습니다.
+
+`tidy` 데이터의 핵심은 데이터를 관측치인 행과 변수인 열로 구조화는 것입니다. 그리고 열에는 하나의 값인 단일 값(길이가 1인 벡터)을 포함해야 합니다. 즉, 행의 차원와 열의 차원으로 구성된 2차원 데이터 구조가 `tidy` 데이터입니다.  
+
+그런데 하나의 관측치에서 특정 변수의 값이 단일 값이 아닌 경우가 있습니다. 마치 R의 리스트처럼 여러 값으로 구성되어 있습니다. 이 경우에서 문제가 되는 특정 열의 여러 정보를 풀어서 단일 정보로 변환하는 것이 `unnest`입니다. 결국의 해당 변수의 단일 정보 개수만큼 관측치(행)를 복제한 후, 해당 열에 각각의 단일 정보만 넣는 작업이 `unnest`입니다.
+
+다음의 한용운님의 `님의 침묵` 시에서 첫번째와 두번째 줄을 `tibble` 객체로 만든 것입니다.
+
+```{r}
+docs <- c("님은 갔습니다. 아아, 사랑하는 나의 님은 갔습니다.",
+          "푸른 산빛을 깨치고 단풍나무 숲을 향하여 난 작은 길을 걸어서, 차마 떨치고 갔습니다.")
+
+poem <- tibble(
+  연 = rep(1, 2),
+  행 = 1:2,
+  내용 = docs
+)
+
+poem
+```
+
+우리는 시의 내용에서 다음처럼 일반명사만 추출했습니다. 명사를 추출한 변수 `명사`에는 첫 행에는 3개의 명사(정보)가, 둘째 행에는 5개의 명사(정보)가 들어있습니다. 
+
+```{r}
+poem %>% 
+  mutate(명사 = collapse_noun(내용)) %>% 
+  select(-내용)
+```
+그런데 **텍스트 분석에서는 문장 레벨의 분석보다는 토큰(한글 텍스트 데이터에서는 명사) 레벨로 분석**합니다. 이것은 개별 행에서의 분석의 대상이 되는 컬럼에는 단일 토큰을 넣어야 한다는 의미입니다. 즉 개별 토큰 레벨의 `unnest` 작업이 필요합니다.
+
+한글 텍스트 데이터에서 일반명사를 추출한 후 이것을 `tidy`한 데이터로 만들기 위해서는 `tidytext`의 `unnest_tokens()` 함수에 토크나이저로 `bitTA`의 `morpho_mecab()`를 사용합니다. 원하는 모습의 `tidy` 데이터가 만들어진 것입니닫.
+
+```{r}
+poem %>% 
+  unnest_tokens(
+    명사,
+    내용,
+    token = morpho_mecab
+  )
+```
+
+`unnest` 작업은 다음처럼 얻는 것과 잃는 것이 있습니다. 
+
+* 얻는 것
+  - `tidy`한 데이터 구조로 변환하였기 때문에 연산이 쉽고, 이해하기 쉽다.
+* 잃는 것
+  - 불필요한 데이터가 반복적으로 복제되어 데이터의 크기가 늘어난다.
+
+#### unnest_noun_ngrams()
+
+`bitTA`의 `unnest_noun_ngrams()`는 추출된 n-grams 명사 토큰들을 tibble의 컬럼에 하나씩 붙여줍니다.
+
+다음은 대통령 연설문의 명사 `bi-grams`를 추출하여, `noun_bigram` 변수에 개별 토큰을 넣습니다.
+
+```{r}
+president_speech %>%
+  select(title, doc) %>% 
+  filter(row_number() <= 2) %>%
+  unnest_noun_ngrams(
+    noun_bigram,
+    doc,
+    n = 2,
+    ngram_delim = ":",
+    type = "noun2"
+  )
+```
+
+noun_bigram 변수에, `ngram_delim = ":"`로 토큰의 개별 단어들을 묶어주는 문자에 기본값인 공백이 아닌 콜론(:)을 지정합니다. 그리고 `drop = FALSE`는 토큰화하려는 변수인 `doc`를 보존합니다.
+
+```{r}
+president_speech %>%
+  select(title, doc) %>% 
+  filter(row_number() <= 2) %>%
+  unnest_noun_ngrams(
+    noun_bigram,
+    doc,
+    n = 2,
+    ngram_delim = ":",
+    drop = FALSE
+  )   
+```
+
+`unnest_noun_ngrams()` 함수는 `group_by()` 함수 함께 사용할 수 있습니다.
+
+```{r}
+# grouping using group_by() function
+president_speech %>%
+  filter(row_number() <= 4) %>%
+  mutate(speech_year = substr(date, 1, 4)) %>% 
+  select(speech_year, title, doc) %>% 
+  group_by(speech_year) %>%
+  unnest_noun_ngrams(
+    noun_bigram,
+    doc,
+    n = 2,
+    ngram_delim = ":"
+  )
+```
+
+`group_by()` 함수를 사용하지 않고도 동일한 작업을 수행할 수 있습니다. `collapse` 인수를 사용하면 됩니다. 
+
+```{r}
+# grouping using collapse argument
+president_speech %>%
+  filter(row_number() <= 4) %>%
+  mutate(speech_year = substr(date, 1, 4)) %>% 
+  select(speech_year, title, doc) %>% 
+  unnest_noun_ngrams(
+    noun_bigram,
+    doc,
+    n = 2,
+    ngram_delim = ":",
+    collapse = "speech_year"
+  )
+```
+
+`unnest_noun_ngrams()`는 ... 인수를 지원해서 `tokenize_noun_ngrams()`에서 사용할 수 있는 인수도 사용가능합니다. 즉, 사용자 정의 사전으로 명사를 추출할 수도 있습니다. 그리고 이런 일련의 작업들이 병렬로 처리됩니다.
+
+```{r}
+args(unnest_noun_ngrams)
+```
+
+## 향후 일정
+
+앞으로도 bitTA 패키지는 tidytext와의 협업을 모토로, tidytext에서 사용할 수 있는 유용한 기능을 추가해 나갈 것입니다.
+
+

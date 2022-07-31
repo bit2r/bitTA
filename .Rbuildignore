@@ -1,6 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-docs
+^docs$
 README.md
 README.Rmd
 ^doc$

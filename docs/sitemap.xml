@@ -4,6 +4,9 @@
     <loc>/404.html</loc>
   </url>
   <url>
+    <loc>/CONDUCT.html</loc>
+  </url>
+  <url>
     <loc>/LICENSE-text.html</loc>
   </url>
   <url>
@@ -22,6 +25,9 @@
     <loc>/articles/morphology.html</loc>
   </url>
   <url>
+    <loc>/articles/with_tidytext.html</loc>
+  </url>
+  <url>
     <loc>/authors.html</loc>
   </url>
   <url>
@@ -32,6 +38,9 @@
   </url>
   <url>
     <loc>/reference/buzz.html</loc>
+  </url>
+  <url>
+    <loc>/reference/collapse_noun.html</loc>
   </url>
   <url>
     <loc>/reference/doc_quality.html</loc>
@@ -47,6 +56,9 @@
   </url>
   <url>
     <loc>/reference/get_ngram.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_ngrams.html</loc>
   </url>
   <url>
     <loc>/reference/get_opinion.html</loc>
@@ -83,5 +95,14 @@
   </url>
   <url>
     <loc>/reference/sentiment_dic.html</loc>
+  </url>
+  <url>
+    <loc>/reference/tok_ngram.html</loc>
+  </url>
+  <url>
+    <loc>/reference/tokenize_noun_ngrams.html</loc>
+  </url>
+  <url>
+    <loc>/reference/unnest_noun_ngrams.html</loc>
   </url>
 </urlset>

@@ -38,10 +38,13 @@
       <a href="../articles/Introduce.html">Introduce bitTA</a>
     </li>
     <li>
-      <a href="../articles/explore_docs.html">Explore Docs</a>
+      <a href="../articles/explore_docs.html">Explore Documents</a>
     </li>
     <li>
       <a href="../articles/morphology.html">Morphological Analysis</a>
+    </li>
+    <li>
+      <a href="../articles/with_tidytext.html">Collaboration with tidytext package</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"></ul></div><!--/.nav-collapse -->
@@ -158,22 +161,12 @@ NIADic이 포함되어 있지 않음. 이것은 bitTA 패키지에서는 참조�
 <span class="r-in">    input <span class="op">=</span> <span class="st">"doc"</span>,</span>
 <span class="r-in">    token <span class="op">=</span> <span class="va">morpho_mecab</span></span>
 <span class="r-in">  <span class="op">)</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in filter(., str_detect(category, "^외교")):</span> Problem while computing `..1 = str_detect(category, "^외교")`.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `str_detect()`:</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> could not find function "str_detect"</span>
 <span class="r-in">  </span>
 <span class="r-in"> <span class="va">nho_noun_indiv</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 47,720 × 7</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    id       president category  type  title                    date  speech_noun</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의 해 개… 2005… 우정       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의 해 개… 2005… 해         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의 해 개… 2005… 개막식     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의 해 개… 2005… 축하       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의 해 개… 2005… 행사       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의 해 개… 2005… 축하       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의 해 개… 2005… 참석       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의 해 개… 2005… 모두       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의 해 개… 2005… 환영       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> DOC_0001 노무현    외교-통상 치사  <span style="color: #949494;">"</span>2005 한일 우정의 해 개… 2005… 감사       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 47,710 more rows</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'nho_noun_indiv' not found</span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

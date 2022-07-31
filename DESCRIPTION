@@ -10,6 +10,7 @@ Depends: R (>= 2.13.0)
 Imports: 
   cli,
   dplyr,
+  glue,
   ngram,
   parallel,
   purrr, 
@@ -18,7 +19,8 @@ Imports:
   shiny, 
   stringr,
   tibble,
-  tidytext
+  tidytext,
+  tokenizers
 Suggests:
   glue,
   knitr,

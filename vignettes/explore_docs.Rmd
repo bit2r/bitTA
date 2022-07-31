@@ -1,10 +1,8 @@
 ---
-title: "Explore Docs"
-author: "Choonghyun Ryu"
-date: "`r Sys.Date()`"
+title: "Explore Documents"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Explore Docs}
+  %\VignetteIndexEntry{Explore Documents}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -15,7 +13,7 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "", out.width = "600px", dpi = 
 options(tibble.print_min = 4L, tibble.print_max = 4L)
 ```
 
-## 텍스트 데이터 탐색
+# 텍스트 데이터 탐색
 
 데이터 분석을 위해서 데이터를 탐색(EDA, Exploratory Data Analysis)하는 것처럼 텍스트 데이터 분석 역시 데이터의 탐색이 필요합니다. 
 
@@ -24,11 +22,14 @@ options(tibble.print_min = 4L, tibble.print_max = 4L)
 데이터 품질의 인식은 데이터 정제의 패턴 룰을 발견하고, 필터링 룰을 도출하여 분석 대상 문서를 선별하는 작업의 기초가 됩니다.
 
 ### Text Data Explorer
- 
- bitTA는 텍스트 데이터를 탐색할 수 있는 `Text Data Explorer`를 제공합니다. `Text Data Explorer`는 Shiny 앱으로 `explore_docs()` 함수로 호출합니다.
 
- bitTA에서 제공하는 buzz 데이터를 탐색하기 위해서 다음과 같은 스크립트를 수행합니다.
- 
+bitTA에는 `buzz`라는 데이터를 제공하는데 다음과 같은 변수를 가지고 있습니다. 변수 `CONTENT`를 대상으로 데이터를 탐색하여 합니다.
+
+```{r}
+names(bitTA::buzz)
+```
+bitTA는 텍스트 데이터를 탐색할 수 있는 `Text Data Explorer`를 제공합니다. `Text Data Explorer`는 Shiny 앱으로 `explore_docs()` 함수로 호출합니다.
+
 ```{r, echo=TRUE, eval=FALSE}
 library(bitTA)
 data(buzz)
@@ -149,5 +150,3 @@ bitTA 패키지에서 실행한 Shiny 앱은 모달(Modal) 창을 띄웁니다. 
 ```{r, echo=FALSE, out.width='95%', fig.align='center', fig.pos="!h"}
 knitr::include_graphics("images/rcommand.jpg")
 ```
-
-
