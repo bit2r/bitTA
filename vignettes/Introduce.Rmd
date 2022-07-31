@@ -46,12 +46,18 @@ bitTA는 텍스트 데이터의 자연어 처리(NLP, Natural Language Processin
   + 품사 기반의 토큰화 (Extracting Nouns)
 * 키워드 검색과 공동발현 분석
   + Collocation Analysis
-        
+
+* Vignettes
+  + [Explore Docs](https://r2bit.com/bitTA/articles/explore_docs.html){target='_blank'}
+
 #### 형태소분석 기능
 
 * mecab-ko 인터페이스
   + 품사 태깅
   + 품사 기반의 토큰화
+  
+* Vignettes
+  + [Morphological Analysis](https://r2bit.com/bitTA/articles/morphology.html){target='_blank'}
   
 #### 감성분석
 
@@ -65,7 +71,21 @@ bitTA는 텍스트 데이터의 자연어 처리(NLP, Natural Language Processin
       + 중립 (Neutral)
       + 해당없음 (None)
   + 주관성(subjectivity) 도출  
-      
+
+#### tidytext 패키지 호환
+
+* tokenizer
+  + 한글 형태소 기반의 POS tagger
+      + morpho_mecab()
+  + N-Grams 명사 tokenizer
+      + tokenize_noun_ngrams()
+* Unnest 토큰
+  + 명사 n-grams 토큰 Unnest
+      + unnest_noun_ngrams()
+
+* Vignettes
+  + [Collaboration with tidytext package](https://r2bit.com/bitTA/articles/with_tidytext.html){target='_blank'}
+  
 ## 특장점
 
 bitTA는 토이(Toy) 데이터가 아닌 대용량 텍스트 데이터 처리를 목적으로 개발되었으며, 다음과 같은 특장점이 있습니다.
@@ -77,6 +97,6 @@ bitTA는 토이(Toy) 데이터가 아닌 대용량 텍스트 데이터 처리를
   + Shiny 앱으로 텍스트 데이터를 탐색하여 정제 룰을 발견하고,
   + 정제룰을 메타 파일에 등록하여,
   + 룰 기반의 데이터 전처리 수행
-* 실무에 적용할 수 있는 사례중심의 매뉴얼 제공
+* 실무에 적용할 수 있는 사례 중심의 매뉴얼 제공
   + TO-DO
   

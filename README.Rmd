@@ -13,13 +13,13 @@ knitr::opts_chunk$set(
 )
 ```
 
-# bitTA <a href='https://r2bit.com/bitTA/'><img src="man/figures/r2bit.png" align="right" height="120" width="130"/></a>
+# bitTA <a href='https://r2bit.com/bitTA/' target='_blank'><img src="man/figures/r2bit.png" align="right" height="120" width="130"/></a>
 
 ## bitTA 개요
 
 `bitTA`는 `텍스트 데이터를 탐색(Explore Documents)`하고, `자연어 처리(Natural Language Processing)` 및 `형태소분석`, `감성분석`을 수행하는, **한글 텍스트 데이터 분석 도구들의 모음**입니다.
 
-`bitTA`의 다음 기능은 bitTA 패키지의 비네트인 [Introduce bitTA](https://r2bit.com/bitTA/articles/Introduce.html)에 소개되어 있습니다.
+`bitTA`의 다음 기능은 bitTA 패키지의 비네트인 [Introduce bitTA](https://r2bit.com/bitTA/articles/Introduce.html){target='_blank'}에 소개되어 있습니다.
 
 * 텍스트 데이터 전처리 기능
 * 텍스트 데이터 탐색 기능
@@ -46,7 +46,7 @@ bitTA를 사용하기 위해서는 다음의 두 리소스를 설치해야 합�
 * RcppMeCab 패키지   
   - R에서 mecab-ko 연동을 위한 R 패키지
 
-은전한닢 형태소분석기 시스템과 사전은 bitTA 패키지의 비네트인 [Install mecab-ko](https://r2bit.com/bitTA/articles/Install_mecab.html)에 설명되어 있습니다. 
+은전한닢 형태소분석기 시스템과 사전은 bitTA 패키지의 비네트인 [Install mecab-ko](https://r2bit.com/bitTA/articles/Install_mecab.html){target='_blank'}에 설명되어 있습니다. 
 
 사전에 설치해야 하는 리소스는 다음의 순서와 방법대로 설치하는 것을 추천합니다.
 
@@ -82,7 +82,7 @@ get_spacing(str)
 
 은전한닢 형태소 분석기를 호출하여 형태소 분석을 수행합니다. bitTA는 이 형태소분석을 쉽고 효과적으로 수행하는 것을 도와줍니다.
 
-형태소분석은 비네트인 [Morphological Analysis](https://r2bit.com/bitTA/articles/morphology.html)에 설명되어 있습니다. 
+형태소분석은 비네트인 [Morphological Analysis](https://r2bit.com/bitTA/articles/morphology.html){target='_blank'}에 설명되어 있습니다. 
 
 
 ```{r eval = TRUE}
@@ -121,7 +121,7 @@ knitr::include_graphics("vignettes/images/wordcloud1.jpg")
 
 ### 텍스트 데이터 탐색
 
-텍스트 데이터 탐색 기능은 비네트인 [Explore Documents](https://r2bit.com/bitTA/articles/explore_docs.html)에 설명되어 있습니다. 
+텍스트 데이터 탐색 기능은 비네트인 [Explore Documents](https://r2bit.com/bitTA/articles/explore_docs.html){target='_blank'}에 설명되어 있습니다. 
 
 #### Text Data Explorer
 
@@ -145,7 +145,7 @@ knitr::include_graphics('vignettes/images/replace.jpg')
 
 ### tidytext와의 협업
 
-`tidytext` 패키지와의 협업을 위한 기능은 비네트인 [Collaboration with tidytext package](https://r2bit.com/bitTA/articles/with_tidytext.html)에 설명되어 있습니다. 
+`tidytext` 패키지와의 협업을 위한 기능은 비네트인 [Collaboration with tidytext package](https://r2bit.com/bitTA/articles/with_tidytext.html){target='_blank'}에 설명되어 있습니다. 
 
 #### tokenizers
 
@@ -210,17 +210,17 @@ president_speech %>%
 ## 고마운 분들
 
 * 김준혁
-  - [RcppMeCab](https://github.com/junhewk/RcppMeCab)
+  - [RcppMeCab](https://github.com/junhewk/RcppMeCab){target='_blank'}
 * 윤원섭
-  - [mecab-ko-msvc](https://github.com/Pusnow/mecab-ko-msvc) 
+  - [mecab-ko-msvc](https://github.com/Pusnow/mecab-ko-msvc){target='_blank'} 
 
 ## 도움요청
 
-bitTA의 발전을 위해서 버그에 대한 리포팅, 기능 개선을 위한 요구사항들은 [여기에](https://github.com/bit2r/bitTA/issues)에 문제를 제기하거나 요청해주세요. 특히 버그는 최소한의 재현 가능한 예제와 함께 제출바랍니다.
+bitTA의 발전을 위해서 버그에 대한 리포팅, 기능 개선을 위한 요구사항들은 [여기에](https://github.com/bit2r/bitTA/issues){target='_blank'}에 문제를 제기하거나 요청해주세요. 특히 버그는 최소한의 재현 가능한 예제와 함께 제출바랍니다.
 
 ## 기여자 행동 강령
 
-이 프로젝트는 [Contributor Code of Conduct(기여자 행동 강령)](https://github.com/bit2r/bitTA/blob/main/CONDUCT.md)과 함께 릴리스되었습니다 . 이 프로젝트에 참여함으로써 귀하는 해당 조건을 준수하는 데 동의하는 것입니다. 
+이 프로젝트는 [Contributor Code of Conduct(기여자 행동 강령)](https://github.com/bit2r/bitTA/blob/main/CONDUCT.md){target='_blank'}과 함께 릴리스되었습니다 . 이 프로젝트에 참여함으로써 귀하는 해당 조건을 준수하는 데 동의하는 것입니다. 
 
 
 
