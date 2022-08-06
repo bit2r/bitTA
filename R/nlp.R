@@ -76,6 +76,10 @@ set_meta <-function(id = c("filter", "replace", "remove", "concat", "split"),
 #' @description 텍스트 데이터의 전처리 과정 중 패턴 일치되는 문자열이 있는
 #' 데이터를 취하거나 제거한다.
 #' @param doc character. 문자열 필터링을 수행할 문자열 벡터
+#' @param as_logical logical. 반환값을 논리벡터로 반환할지의 여부. 
+#' 기본값 TRUE이면 추출한 대상을 의미하는 논리값을 반환하고, 
+#' FALSE이면 대상을 추출한 문자열 벡터를 반환. 
+#' tidytext 패키지를 사용할 경우에는 기본값인 TRUE를 사용하면 됨
 #' @param chunk integer. 병렬 작업 수행 시 처리 단위인 chunk
 #' @param mc.cores integer. 병렬 작업 수행 시 사용할 코어의 개수
 #' @param verbos logical. 메타의 Rule 당 처리된 건수를 화면에 출력할 지의 여부
@@ -97,14 +101,21 @@ set_meta <-function(id = c("filter", "replace", "remove", "concat", "split"),
 #' doc_content <- buzz[, "CONTENT"]
 #'
 #' # 필터링, verbos = FALSE, chunk = 200
-#' doc_content_after <- filter_text(doc_content, verbos = FALSE, chunk = 200)
+#' doc_after_logical <- filter_text(doc_content, verbos = FALSE, chunk = 200)
 #'
-#' # 필터링, chunk = 500, mc.cores = 8
-#' doc_content_after <- filter_text(doc_content, chunk = 500, mc.cores = 8)
+#' # 필터링, as_logical = FALSE,  mc.cores = 8, 
+#' doc_after_character <- filter_text(doc_content, as_logical = FALSE, mc.cores = 8)
 #'
 #' # 필터링 전/후 비교
 #' NROW(doc_content)
-#' length(doc_content_after)
+#' sum(doc_after_logical)
+#' NROW(doc_after_character)
+#' 
+#' # tidyverse(혹은 tidytext)와의 협업
+#' library(dplyr)
+#' buzz %>% 
+#'   filter(filter_text(CONTENT, verbos = FALSE)) %>% 
+#'   select(KEYWORD, SRC, CONTENT)
 #' }
 #'
 #' @export
@@ -116,6 +127,7 @@ set_meta <-function(id = c("filter", "replace", "remove", "concat", "split"),
 #' @importFrom tibble is_tibble
 filter_text <- function(
     doc,
+    as_logical = TRUE,
     chunk = round(length(if (tibble::is_tibble(doc)) dplyr::pull(doc) else doc) / mc.cores),
     mc.cores = parallel::detectCores(),
     verbos = TRUE
@@ -133,43 +145,55 @@ filter_text <- function(
 
   chunk_idx <- get_chunk_id(N = length(doc), chunk = chunk)
 
-  filtering <- function(chunk_id, data, pattern) {
+  filtering <- function(chunk_id, data, pattern, as_logical) {
     cnt <- integer(nrow(pattern))
 
     start <- chunk_idx$idx_start[chunk_id]
     end <- chunk_idx$idx_end[chunk_id]
 
-    tmp <- data[start:end]
+    chunks <- data[start:end]
+    is_accept_allow <- rep(FALSE, length(start:end))
+    is_accept_deny <- rep(TRUE, length(start:end))
 
     for (idx in seq(cnt)) {
       rule <- pattern[idx, "pattern"]
       accept <- pattern[idx, "accept"]
 
-      detect <- stringr::str_detect(tmp, rule)
+      detect_docs <- stringr::str_detect(chunks, rule)
 
       if (verbos)
-        cnt[idx] <- sum(detect, na.rm = TRUE) * ifelse(accept, 1, -1)
+        cnt[idx] <- sum(detect_docs, na.rm = TRUE) * ifelse(accept, 1, -1)
 
       if (accept) {
-        tmp <- tmp[detect]
+        is_accept_allow <- is_accept_allow | detect_docs
       } else {
-        tmp <- tmp[!detect]
-      }
+        is_accept_deny <- is_accept_deny & !detect_docs
+      }   
     }
+    
+    is_accept <- is_accept_allow | is_accept_deny
 
+    if (!as_logical) {
+      result <- chunks[is_accept]
+    } else {
+      result <- is_accept
+    }
+    
     if (verbos)
-      list(docs = tmp, cnt = cnt)
+      list(docs = result, cnt = cnt)
     else
-      list(docs = tmp)
+      list(docs = result)
   }
 
-  doc <- parallel::mclapply(seq(chunk_idx$idx_start), filtering, data = doc,
-                            pattern = filter_patterns, mc.cores = mc.cores)
+  doc <- parallel::mclapply(
+    seq(chunk_idx$idx_start), 
+    filtering, data = doc,
+    as_logical = as_logical,
+    pattern = filter_patterns, 
+    mc.cores = mc.cores)
 
   if (verbos) {
     cnt <- apply(sapply(doc, function(x) x$cnt), 1, sum)
-    # message(paste(filter_patterns[, "rule_nm"], ":",
-    #               ifelse(cnt > 0, "accepts", "rejects"), abs(cnt), "\n"))
 
     job_summary <- data.frame(
       rule_nm = filter_patterns[, "rule_nm"],
@@ -193,7 +217,27 @@ filter_text <- function(
       )
   }
 
-  do.call("c", lapply(doc, function(x) x$docs))
+  result <- do.call("c", lapply(doc, function(x) x$docs))
+  
+  idx_na <- is.na(result) %>% 
+    which
+
+  if (length(idx_na) > 0) {
+    if (as_logical) {
+      result[idx_na] <- FALSE
+    } else {
+      result <- result[-c(idx_na)]
+    }  
+
+    if (verbos) {
+      cli::cli_rule(
+        left = "Missing Check: Removing NA",
+        right = "{format(length(idx_na), big.mark = ',')}건"
+      )
+    }    
+  }
+  
+  result
 }
 
 

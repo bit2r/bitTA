@@ -42,6 +42,9 @@
       <a href="../articles/explore_docs.html">Explore Documents</a>
     </li>
     <li>
+      <a href="../articles/manipulate_docs.html">Manipulate Documents</a>
+    </li>
+    <li>
       <a href="../articles/morphology.html">Morphological Analysis</a>
     </li>
     <li>
@@ -70,6 +73,7 @@
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">filter_text</span><span class="op">(</span>
   <span class="va">doc</span>,
+  as_logical <span class="op">=</span> <span class="cn">TRUE</span>,
   chunk <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="kw">if</span> <span class="op">(</span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/is_tibble.html" class="external-link">is_tibble</a></span><span class="op">(</span><span class="va">doc</span><span class="op">)</span><span class="op">)</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">doc</span><span class="op">)</span> <span class="kw">else</span> <span class="va">doc</span><span class="op">)</span><span class="op">/</span><span class="va">mc.cores</span><span class="op">)</span>,
   mc.cores <span class="op">=</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html" class="external-link">detectCores</a></span><span class="op">(</span><span class="op">)</span>,
   verbos <span class="op">=</span> <span class="cn">TRUE</span>
@@ -80,6 +84,11 @@
     <h2>Arguments</h2>
     <dl><dt>doc</dt>
 <dd><p>character. 문자열 필터링을 수행할 문자열 벡터</p></dd>
+<dt>as_logical</dt>
+<dd><p>logical. 반환값을 논리벡터로 반환할지의 여부. 
+기본값 TRUE이면 추출한 대상을 의미하는 논리값을 반환하고, 
+FALSE이면 대상을 추출한 문자열 벡터를 반환. 
+tidytext 패키지를 사용할 경우에는 기본값인 TRUE를 사용하면 됨</p></dd>
 <dt>chunk</dt>
 <dd><p>integer. 병렬 작업 수행 시 처리 단위인 chunk</p></dd>
 <dt>mc.cores</dt>
@@ -106,79 +115,70 @@
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># 등록된 필터링 룰 확인하기</span></span>
 <span class="r-in"><span class="fu"><a href="get_meta.html">get_meta</a></span><span class="op">(</span><span class="st">"filter"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      rule_nm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1      기사1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2      기사2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3      서명1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   원문링크</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  기관홍보1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  제품홍보1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  제품홍보2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  제품홍보3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   설문조사</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10      출처</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11    이벤트</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  국민청원</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  재택근무</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14      방송</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                          pattern</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                        (팍스넷|파이낸셜|연합|(PT)|오마이|경제)[[:space:]]?뉴스</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                 기사입력|(popular)|매일경제|머니투데이|국민투표|(chosun)|(kyunghyang)|(정유경[[:space:]]?기자)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         ((모금|청원|아고라|반대)[[:space:]]?서명)|(서명[[:space:]]?(동참|부탁|좀|한표|가능|해주세요|운동|도와|합시다|한번|서))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                           비비안나|레이첼21|(무[[:space:]]?료[[:space:]]?상[[:space:]]?담[[:space:]]?신청하기[[:space:]]?클릭)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                (건강가정|직장맘|가정건강|다문화가족|육아종합)[[:space:]]?지원센터|세계보건기구</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                         풀무원[[:space:]]?(맘스클럽|(샘물)?[[:space:]]?체험단|생나또|한끼박스|수서지사|찬마루)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                         레몬테라스[[:space:]]?카페체험단에[[:space:]]?선정|텐프로클럽|전문가[[:space:]]?블랙홀</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                              ((입법|정치|교육|마케팅|SNS|유통)[[:space:]]?플랫폼)|맘마미아[[:space:]]?가계부[[:print:]]*인증샷</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                        (3Mtampj0NBL1pfKI3)|(GYvuimis)|(shinmoongo)|(firstdm)|좌담회|구글설문|수수팥떡가족사랑연대|채용대행업체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                                 출처[[:space:]]?:|문의처보건복지콜센터|애쉬님</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                         (증정|기념)이벤트|허니스크린|이벤트를[[:space:]]?진행</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                                                          국민[[:space:]]?청원</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                                                                  (hellodm)|(Playtex)|교육기부</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 제작진|기억저장소|추모카페|전동지게차|블랙홀|(misago15)|코엠영어학습연구소장|네이버[[:space:]]?북마크|푸드스튜디오|연금정보넷</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    accept  use</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  FALSE TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    rule_nm</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 신문기사</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 제품홍보</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 설문조사</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     출처</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   이벤트</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     방송</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                     pattern</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                   (팍스넷|파이낸셜|연합|(PT)|오마이|경제)[[:space:]]*뉴스</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 ((입법|정치|교육)[[:space:]]*플랫폼)|맘마미아[[:space:]]*가계부[[:print:]]*인증샷|Playtex</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                              좌담회|구글설문|채용대행업체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                    출처[[:space:]]*:|문의처보건복지콜센터</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                     (증정|기념)이벤트|허니스크린|이벤트를[[:space:]]*진행</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                 제작진|기억저장소|추모카페|블랙홀|푸드스튜디오|연금정보넷</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   accept  use</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  FALSE TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  FALSE TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  FALSE TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  FALSE TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  FALSE TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  FALSE TRUE</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">doc_content</span> <span class="op">&lt;-</span> <span class="va">buzz</span><span class="op">[</span>, <span class="st">"CONTENT"</span><span class="op">]</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># 필터링, verbos = FALSE, chunk = 200</span></span>
-<span class="r-in"><span class="va">doc_content_after</span> <span class="op">&lt;-</span> <span class="fu">filter_text</span><span class="op">(</span><span class="va">doc_content</span>, verbos <span class="op">=</span> <span class="cn">FALSE</span>, chunk <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">doc_after_logical</span> <span class="op">&lt;-</span> <span class="fu">filter_text</span><span class="op">(</span><span class="va">doc_content</span>, verbos <span class="op">=</span> <span class="cn">FALSE</span>, chunk <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="co"># 필터링, chunk = 500, mc.cores = 8</span></span>
-<span class="r-in"><span class="va">doc_content_after</span> <span class="op">&lt;-</span> <span class="fu">filter_text</span><span class="op">(</span><span class="va">doc_content</span>, chunk <span class="op">=</span> <span class="fl">500</span>, mc.cores <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 국민청원 ──────────────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 기관홍보1 ─────────────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 기사1 ─────────────────────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 기사2 ─────────────────────────────────────────────────────── 0건 ──</span>
+<span class="r-in"><span class="co"># 필터링, as_logical = FALSE,  mc.cores = 8, </span></span>
+<span class="r-in"><span class="va">doc_after_character</span> <span class="op">&lt;-</span> <span class="fu">filter_text</span><span class="op">(</span><span class="va">doc_content</span>, as_logical <span class="op">=</span> <span class="cn">FALSE</span>, mc.cores <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 방송 ──────────────────────────────────────────────────────── 3건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 서명1 ─────────────────────────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 설문조사 ──────────────────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 원문링크 ──────────────────────────────────────────────────── 0건 ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 신문기사 ──────────────────────────────────────────────────── 1건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 이벤트 ────────────────────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 재택근무 ──────────────────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 제품홍보1 ─────────────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 제품홍보2 ─────────────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 제품홍보3 ─────────────────────────────────────────────────── 1건 ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 제품홍보 ──────────────────────────────────────────────────── 2건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── rejects: 출처 ──────────────────────────────────────────────────────── 2건 ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Missing Check: Removing NA ─────────────────────────────────────────── 5건 ──</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># 필터링 전/후 비교</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">NROW</a></span><span class="op">(</span><span class="va">doc_content</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1000</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">doc_content_after</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 990</span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">doc_after_logical</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 985</span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">NROW</a></span><span class="op">(</span><span class="va">doc_after_character</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 985</span>
+<span class="r-in"></span>
+<span class="r-in"><span class="co"># tidyverse(혹은 tidytext)와의 협업</span></span>
+<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span class="r-in"><span class="va">buzz</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu">filter_text</span><span class="op">(</span><span class="va">CONTENT</span>, verbos <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">KEYWORD</span>, <span class="va">SRC</span>, <span class="va">CONTENT</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 985 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    KEYWORD SRC              CONTENT                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 맞벌이  17,18년 베이비맘 <span style="color: #949494;">"</span>지금 둘째 임신중인 어머니예요 첫째는 16년 1월생 둘…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 맞벌이  20대 수다방      <span style="color: #949494;">"</span>저희 부부는 맞벌이인데요 남편 회사 사람들도 거의 … </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 맞벌이  20대 수다방      <span style="color: #949494;">"</span>신랑지출 제지출 구분해서 따로적으시나요 제가쓴돈은…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 맞벌이  20대 수다방      <span style="color: #949494;">"</span>너무 고민이 되서 하소연 할때 없어서 여기서 하소연 …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 맞벌이  20대 수다방      <span style="color: #949494;">"</span>\"이제 벌써 결혼 1년차 가까이 되어가는 동갑내기신… </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 맞벌이  20대 수다방      <span style="color: #949494;">"</span>자가는 아니고 신랑 직장때문에 집 팔고 세들어 살고 …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 맞벌이  20대 수다방      <span style="color: #949494;">"</span>계획했던 임신이 아니라서 급하게 맞벌이 (주말부부)… </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 맞벌이  20대 수다방      <span style="color: #949494;">"</span>못가지니까 기분이 안좋아요 다른것도아니고 여유가 … </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 맞벌이  20대 수다방      <span style="color: #949494;">"</span>남편이랑 저랑 동갑에 둘 다 맞벌이에요. 저는 현재 … </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 맞벌이  20대 수다방      <span style="color: #949494;">"</span>요즘 퇴근하고 남편이 데리러 오는데요 살빼려고 하는…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 975 more rows</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 <span class="r-in"></span>
 </code></pre></div>

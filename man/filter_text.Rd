@@ -6,6 +6,7 @@
 \usage{
 filter_text(
   doc,
+  as_logical = TRUE,
   chunk = round(length(if (tibble::is_tibble(doc)) dplyr::pull(doc) else doc)/mc.cores),
   mc.cores = parallel::detectCores(),
   verbos = TRUE
@@ -13,6 +14,11 @@ filter_text(
 }
 \arguments{
 \item{doc}{character. 문자열 필터링을 수행할 문자열 벡터}
+
+\item{as_logical}{logical. 반환값을 논리벡터로 반환할지의 여부. 
+기본값 TRUE이면 추출한 대상을 의미하는 논리값을 반환하고, 
+FALSE이면 대상을 추출한 문자열 벡터를 반환. 
+tidytext 패키지를 사용할 경우에는 기본값인 TRUE를 사용하면 됨}
 
 \item{chunk}{integer. 병렬 작업 수행 시 처리 단위인 chunk}
 
@@ -44,14 +50,21 @@ get_meta("filter")
 doc_content <- buzz[, "CONTENT"]
 
 # 필터링, verbos = FALSE, chunk = 200
-doc_content_after <- filter_text(doc_content, verbos = FALSE, chunk = 200)
+doc_after_logical <- filter_text(doc_content, verbos = FALSE, chunk = 200)
 
-# 필터링, chunk = 500, mc.cores = 8
-doc_content_after <- filter_text(doc_content, chunk = 500, mc.cores = 8)
+# 필터링, as_logical = FALSE,  mc.cores = 8, 
+doc_after_character <- filter_text(doc_content, as_logical = FALSE, mc.cores = 8)
 
 # 필터링 전/후 비교
 NROW(doc_content)
-length(doc_content_after)
+sum(doc_after_logical)
+NROW(doc_after_character)
+
+# tidyverse(혹은 tidytext)와의 협업
+library(dplyr)
+buzz \%>\% 
+  filter(filter_text(CONTENT, verbos = FALSE)) \%>\% 
+  select(KEYWORD, SRC, CONTENT)
 }
 
 }
