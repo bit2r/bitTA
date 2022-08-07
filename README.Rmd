@@ -207,6 +207,91 @@ president_speech %>%
   )
 ```
 
+### 텍스트 데이터 정제
+
+텍스트 데이터 정제를 위한 텍스트 데이터 조작은 비네트인 [Manipulate Documents](https://r2bit.com/bitTA/articles/manipulate_docs.html){target='_blank'}에 설명되어 있습니다. 
+
+#### 텍스트 데이터 정제를 위한 bitTA의 기능
+
+bitTA의 텍스트 데이터 조작 기능을 정리하면 다음과 같습니다.
+
+-   문서 단위의 전처리
+    -   문서 필터링 (Filter Documents)
+-   텍스트 단위의 전처리
+    -   텍스트 대체 (Replace Texts)
+    -   텍스트 연결 (Concatenate Texts)
+    -   텍스트 분리 (Split Texts)
+    -   텍스트 제거 (Remove Texts)
+
+bitTA는 대용량의 텍스트 데이터에서 상기 데이터 조작을 수행할 수 있도록 도와줍니다. 그래서 다음과 같은 방법으로 작업합니다.
+
+-   병렬 처리를 통한 속도의 개선
+-   데이터 조작 룰을 등록한 메타(meta) 파일 활용
+
+본 소개글에서는 문서 필터링에 대한 사례만 소개합니다. 다른 텍스트 조작은 비네트를 참고하십시요.
+
+#### filter_text()를 이용한 문서 필터링
+
+bitTA 패키지는 샘플 메타 데이터 파일을 제공하는데, 문서 필터링을 위한 샘플 메타 데이터 파일을 읽어 봅니다. 
+
+```{r}
+library(bitTA)
+
+meta_path <- system.file("meta", package = "bitTA")
+fname <- glue::glue("{meta_path}/preparation_filter.csv")
+
+## 데이터 필터링 메타 신규 등록
+set_meta("filter", fname, fileEncoding = "utf8")
+```
+
+`get_meta()` 함수는 세션 안에서 등록된 메타 데이터를 조회합니다.
+
+```{r}
+## 기 등록된 데이터 필터링 메타 조회
+get_meta("filter")
+```
+
+텍스트 데이터(문서들) 중에서 분석을 수행하려는 목적과 부합하지 않은 텍스트(문서)를 제거해야할 경우에는 `filter_text()`를 사용합니다.
+
+이미 앞에서 문서 필터링을 위한 메타 데이터 파일을 읽어들였습니다. 6개의 룰은 `accept` 값이 FALSE인 deny 룰입니다. 즉 해당 검색 패턴을 만족하는 텍스트 데이터를 제거하는 작업을 수행합니다.
+
+#### 문자 벡터의 필터링
+
+버즈 데이터의 본문은 길이가 1000인 문자 벡터입니다. 이 벡터는 5개의 결측치를 포함하고 있습니다.
+
+```{r}
+doc_content <- buzz$CONTENT
+is.character(doc_content)
+length(doc_content)
+
+sum(is.na(doc_content))
+```
+
+8개의 코어를 이용해서 필터링을 수행합니다. `as_logical = FALSE`을 지정하면 문자 벡터의 필터링을 수행할 수 있습니다.
+
+```{r, message=TRUE}
+doc_after_character <- filter_text(doc_content, as_logical = FALSE, mc.cores = 8)
+
+length(doc_after_character)
+```
+
+5개의 결측치와 6개의 룰에서 10개의 문서가 제거되어서 길이가 985인 문자 벡터가 만들어졌습니다.
+
+#### 데이터 프레임의 필터링
+
+tidytext 패키지를 이용해서 텍스트 데이터 분석을 수행한다면, 문자 벡터의 필터링이 아니라 문자 변수를 이용한 필터링을 수행해야 합니다.
+
+다음처럼 `as_logical` 인수의 기본값인 TRUE를 사용합니다. 이 경우는 `CONTENT` 변수의 모든 원소에 대해서 allow 필터링 여부를 의미하는 논리 벡터를 만들어 반환합니다. 그러므로 `dplyr` 패키지의 `filter` 함수와 사용하여 필터링합니다.
+
+```{r}
+library(dplyr)
+
+buzz %>% 
+  filter(filter_text(CONTENT, verbos = FALSE)) %>% 
+  select(KEYWORD, SRC, CONTENT)
+```
+
+
 ## 고마운 분들
 
 * 김준혁
