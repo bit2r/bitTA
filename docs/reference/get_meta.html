@@ -43,6 +43,9 @@
       <a href="../articles/explore_docs.html">Explore Documents</a>
     </li>
     <li>
+      <a href="../articles/manipulate_docs.html">Manipulate Documents</a>
+    </li>
+    <li>
       <a href="../articles/morphology.html">Morphological Analysis</a>
     </li>
     <li>
@@ -110,51 +113,27 @@
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## 기 등록된 데이터 필터링 메타 조회</span></span>
 <span class="r-in"><span class="fu">get_meta</span><span class="op">(</span><span class="st">"filter"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      rule_nm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1      기사1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2      기사2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3      서명1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   원문링크</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  기관홍보1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  제품홍보1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  제품홍보2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  제품홍보3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   설문조사</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10      출처</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11    이벤트</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  국민청원</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  재택근무</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14      방송</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                          pattern</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                        (팍스넷|파이낸셜|연합|(PT)|오마이|경제)[[:space:]]?뉴스</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                 기사입력|(popular)|매일경제|머니투데이|국민투표|(chosun)|(kyunghyang)|(정유경[[:space:]]?기자)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         ((모금|청원|아고라|반대)[[:space:]]?서명)|(서명[[:space:]]?(동참|부탁|좀|한표|가능|해주세요|운동|도와|합시다|한번|서))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                           비비안나|레이첼21|(무[[:space:]]?료[[:space:]]?상[[:space:]]?담[[:space:]]?신청하기[[:space:]]?클릭)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                (건강가정|직장맘|가정건강|다문화가족|육아종합)[[:space:]]?지원센터|세계보건기구</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                         풀무원[[:space:]]?(맘스클럽|(샘물)?[[:space:]]?체험단|생나또|한끼박스|수서지사|찬마루)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                         레몬테라스[[:space:]]?카페체험단에[[:space:]]?선정|텐프로클럽|전문가[[:space:]]?블랙홀</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                              ((입법|정치|교육|마케팅|SNS|유통)[[:space:]]?플랫폼)|맘마미아[[:space:]]?가계부[[:print:]]*인증샷</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                        (3Mtampj0NBL1pfKI3)|(GYvuimis)|(shinmoongo)|(firstdm)|좌담회|구글설문|수수팥떡가족사랑연대|채용대행업체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                                 출처[[:space:]]?:|문의처보건복지콜센터|애쉬님</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                         (증정|기념)이벤트|허니스크린|이벤트를[[:space:]]?진행</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                                                          국민[[:space:]]?청원</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                                                                  (hellodm)|(Playtex)|교육기부</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 제작진|기억저장소|추모카페|전동지게차|블랙홀|(misago15)|코엠영어학습연구소장|네이버[[:space:]]?북마크|푸드스튜디오|연금정보넷</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    accept  use</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  FALSE TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  FALSE TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    rule_nm</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 신문기사</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 제품홍보</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 설문조사</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     출처</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   이벤트</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     방송</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                     pattern</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                   (팍스넷|파이낸셜|연합|(PT)|오마이|경제)[[:space:]]*뉴스</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 ((입법|정치|교육)[[:space:]]*플랫폼)|맘마미아[[:space:]]*가계부[[:print:]]*인증샷|Playtex</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                              좌담회|구글설문|채용대행업체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                    출처[[:space:]]*:|문의처보건복지콜센터</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                     (증정|기념)이벤트|허니스크린|이벤트를[[:space:]]*진행</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                 제작진|기억저장소|추모카페|블랙홀|푸드스튜디오|연금정보넷</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   accept  use</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  FALSE TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  FALSE TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  FALSE TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  FALSE TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  FALSE TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  FALSE TRUE</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## 데이터 필터링 메타 추가 등록</span></span>
 <span class="r-in"><span class="co">#fname &lt;- "preparation_filter2.csv"</span></span>

@@ -42,6 +42,9 @@
       <a href="../articles/explore_docs.html">Explore Documents</a>
     </li>
     <li>
+      <a href="../articles/manipulate_docs.html">Manipulate Documents</a>
+    </li>
+    <li>
       <a href="../articles/morphology.html">Morphological Analysis</a>
     </li>
     <li>
@@ -127,237 +130,38 @@
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># 등록된 문자열 대체 룰 확인하기</span></span>
 <span class="r-in"><span class="fu"><a href="get_meta.html">get_meta</a></span><span class="op">(</span><span class="st">"replace"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                rule_nm    rule_class</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  ?/^/*/!/^/-/;/~/[/] 스페이스 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2      ㅋㅋ/ㅎㅎ/ㅠ/ㅜ 스페이스 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3             특수기호 스페이스 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4          숫자 넘버링 스페이스 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   다중 스페이스 제거 스페이스 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6          다중 구두점   구두점 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7     과민성대장증후군 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8     다낭성난소증후군 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9       에드워드증후군 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10      손목터널증후군 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11      피셔스프라이스 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12      바이더닥터아토 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13        생리전증후군 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14          새집증후군 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15          베이비시터 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16          산후조리원 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17          명절증후군 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18          다낭성난소 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19          아토앤오투 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20            문화센터 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21            테스트기 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22            앱솔루트 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23            기프티콘 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24            텔레비전 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25            파트타임 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26            어린이집 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27            산양분유 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28            아주머니 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29            매트리스 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30            아토앤비 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31            브래지어 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32              어머니 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33              아버지 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34              월요일 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35              화요일 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36              수요일 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37              목요일 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38              금요일 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39              토요일 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40              일요일 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41              월급날 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42              짜증나 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43              사무실 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44              할머니 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45              화이팅 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46              설거지 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47              지하철 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48              핸드폰 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49              워크샵 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50              공청기 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51              상여금 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52              마사지 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53              에어컨 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54              리모컨 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55              칼퇴근 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56              유모차 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57              모유량 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58                친정 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59                베개 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60                초등 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61                카페 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62                양가 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63                의사 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64                연차 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65                아들 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66                막내 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67                초산 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68                사표 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69                육휴 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70                급여 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71                마통 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72                생리 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73                수트 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74                  딸 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75                CCTV 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76                 ORT 유사단어 대체</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                             pattern</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  (\\?|\\^|\\*|\\!|\\^|\\-|\\;|\\~|\\[|\\]|\\,|\\&gt;|\\&lt;|ㅡ|\\·){1,}</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                 (ㅋ|ㅎ|ㅠ|ㅜ){1,}</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                   (♡|♥|★|▶|※){1,}</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                         [[:space:]][0-9][[:space:]]\\)[[:space:]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                   [[:space:]]{2,}</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                         (\\.){2,}</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                          과민성[[:space:]]?대장[[:space:]]?증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                          다낭성[[:space:]]?난소[[:space:]]?증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                        애드워드[[:space:]]?증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                           손목[[:space:]]?터널[[:space:]]?증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                    피셔스([[:space:]]?프라이스)?</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                        (바이더)?[[:space:]]?닥터[[:space:]]?아토</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                           생리[[:space:]]?증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                               새[[:space:]]?집[[:space:]]?증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15           베비시터|((육아|아이|아기)[[:space:]]*(도우미|돌보미))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                    산후[[:space:]]*조리원|조리원</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                        (명절[[:space:]]?)?연휴[[:space:]]?증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                           다낭성[[:space:]]?난포</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                       아토엔오투</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                                                 문센[[:space:]]?</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                                                         테스터기</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                                                         엡솔루트</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                                            기프트콘|[기|깊|깁]콘</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                                   TV|테레비|티브이|텔레비젼|티비</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                                                           시간제</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26                                                      얼집|보육원</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27                                                    산양(유|우유)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28                                                      아줌(마|씨)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29                                                         메트리스</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30                                                         아토엔비</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31                                                         브레지어</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32                                          엄마|어머님|엄니|어무니</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33                                               아버님|아빠|아부지</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34                                                             월욜</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35                                                             화욜</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36                                                             수욜</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37                                                             목욜</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38                                                             금욜</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39                                                             토욜</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40                                                             일욜</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41                                               급여(일|날)|월급일</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42                                                             짱나</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43                                                             삼실</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44                                              할(미|머님|무니|매)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45                                               파이팅|홧팅|퐈이팅</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46                                                           설겆이</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47                                                             전철</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48                                                 휴대폰|핸폰|핸펀</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49                                                             웍샵</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50                                                           공청기</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51                                                      상여|보너스</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52                                                           맛사지</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53                                                           에어콘</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54                                                           리모콘</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55                                                          칼퇴근?</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56                                                             윰차</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57                                          모유[[:space:]]?[양|량]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58                                                           친정집</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59                                                     [베배][게개]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60                                                             초딩</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61                                                             까페</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62                                                      양쪽집(안)?</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63                                      의사[[:space:]]*(선생님|쌤)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64                                        연차[[:space:]]*휴가|연가</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65                                       아들(래미|아이|애|내미|램)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66                                                           막둥이</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67                                        (첫|처음)[[:space:]]*출산</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68                                                    (사직|퇴직)서</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69                                                             육휴</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70                                                        월급|봉급</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71                                                             마통</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72                                                             월경</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73                                                             슈트</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74                                         딸(래미|아이|애|내미|램)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75                    (CC|cc|씨씨)[[:space:]]?(텔레비전|티비|tv|TV)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76   오알티|[[:space:]]ort|옥스포드[[:space:]]?리딩[[:space:]]?트리</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             replace   use</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6               \\.  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  과민성대장증후군  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  다낭성난소증후군  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9    에드워드증후군  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10   손목터널증후군  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11   피셔스프라이스  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12   바이더닥터아토  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13     생리전증후군  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14       새집증후군  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15       베이비시터  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16       산후조리원  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17       명절증후군  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18       다낭성난소  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19       아토앤오투  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20         문화센터  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21         테스트기  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22         앱솔루트  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23         기프티콘  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24         텔레비전  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25         파트타임  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26         어린이집  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27         산양분유  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28         아주머니  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29         매트리스  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30         아토앤비  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31         브래지어  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32           어머니  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33           아버지  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34           월요일  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35           화요일  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36           수요일  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37           목요일  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38           금요일  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39           토요일  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40           일요일  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41           월급날  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42           짜증나  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43           사무실  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44           할머니  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45           화이팅  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46           설거지  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47           지하철  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48           핸드폰  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49           워크샵  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50       공기청정기  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51           상여금  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52           마사지  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53           에어컨  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54           리모컨  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55             생리  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56           유모차  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57           모유량  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58             친정  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59             베개  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60             초등  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61             카페  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62             양가  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63             의사  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64             연차  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65             아들  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66             막내  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67             초산  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68             사표  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69         육아휴직  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70             급여  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71     마이너스통장  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72             생리  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73             수트  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74               딸  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75             CCTV  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76              ORT  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        rule_nm    rule_class</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  다중 구두점   구두점 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2         남편 유사단어 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   베이비시터 유사단어 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     텔레비전 유사단어 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5         CCTV 유사단어 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6       할머니 유사단어 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7       어머니 유사단어 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8       아버지 유사단어 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9         아들 유사단어 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10          딸 유사단어 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11      화이팅 유사단어 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12      모유량 유사단어 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13        베개 유사단어 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14        초산 유사단어 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15        급여 유사단어 대체</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                   pattern    replace  use</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                               (\\.){2,}        \\. TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                               신랑|남편       남편 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  베비시터|((육아|아이|아기)[[:space:]]*(도우미|돌보미)) 베이비시터 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                          TV|테레비|티브이|텔레비젼|티비   텔레비전 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5           (CC|cc|씨씨)[[:space:]]?(텔레비전|티비|tv|TV)       CCTV TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                     할(미|머님|무니|매)     할머니 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                 엄마|어머님|엄니|어무니     어머니 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                      아버님|아빠|아부지     아버지 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                              아들(래미|아이|애|내미|램)       아들 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                               딸(래미|아이|애|내미|램)         딸 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                     파이팅|홧팅|퐈이팅     화이팅 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                모유[[:space:]]?[양|량]     모유량 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                           [베배][게개]       베개 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                              (첫|처음)[[:space:]]*출산       초산 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                              월급|봉급       급여 TRUE</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">doc_content</span> <span class="op">&lt;-</span> <span class="va">buzz</span><span class="op">[</span>, <span class="st">"CONTENT"</span><span class="op">]</span></span>
 <span class="r-in"></span>
@@ -367,79 +171,19 @@
 <span class="r-in"><span class="co"># 문자열 대체, chunk = 500, mc.cores = 8</span></span>
 <span class="r-in"><span class="va">doc_content_after</span> <span class="op">&lt;-</span> <span class="fu">replace_text</span><span class="op">(</span><span class="va">doc_content</span>, chunk <span class="op">=</span> <span class="fl">500</span>, mc.cores <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [구두점 대체] - 다중 구두점 ───────────────────────────────── 2건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [스페이스 대체] - ?/^/*/!/^/-/;/~/[/] ─────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [스페이스 대체] - ㅋㅋ/ㅎㅎ/ㅠ/ㅜ ─────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [스페이스 대체] - 다중 스페이스 제거 ──────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [스페이스 대체] - 특수기호 ────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - CCTV ────────────────────────────────────── 3건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - ORT ─────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 공청기 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 과민성대장증후군 ────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 금요일 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 급여 ────────────────────────────────────── 5건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 기프티콘 ────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 다낭성난소 ──────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 다낭성난소증후군 ────────────────────────── 0건 ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 급여 ────────────────────────────────────── 0건 ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 남편 ──────────────────────────────────── 323건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 딸 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 리모컨 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 마사지 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 마통 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 막내 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 매트리스 ────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 명절증후군 ──────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 모유량 ──────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 목요일 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 문화센터 ────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 바이더닥터아토 ──────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 베개 ────────────────────────────────────── 5건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 베이비시터 ──────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 브래지어 ────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 사무실 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 사표 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 산양분유 ────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 산후조리원 ─────────────────────────────── 17건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 상여금 ──────────────────────────────────── 9건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 새집증후군 ──────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 생리 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 생리전증후군 ────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 설거지 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 손목터널증후군 ──────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 수요일 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 수트 ────────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 아들 ────────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 아버지 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 아주머니 ────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 아토앤비 ────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 아토앤오투 ──────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 앱솔루트 ────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 양가 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 어린이집 ────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 어머니 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 에드워드증후군 ──────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 에어컨 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 연차 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 워크샵 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 월급날 ──────────────────────────────────── 5건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 월요일 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 유모차 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 육휴 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 의사 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 일요일 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 지하철 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 짜증나 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 초등 ────────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 초산 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 친정 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 카페 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 칼퇴근 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 테스트기 ────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 텔레비전 ────────────────────────────────── 3건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 토요일 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 파트타임 ────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 피셔스프라이스 ──────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 할머니 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 핸드폰 ──────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 화요일 ──────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Replace: [유사단어 대체] - 화이팅 ──────────────────────────────────── 0건 ──</span>
 <span class="r-in"><span class="co"># }</span></span>
 <span class="r-in"><span class="co"># \donttest{</span></span>
@@ -454,120 +198,16 @@
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># 등록된 문자열 결합 룰 확인하기</span></span>
 <span class="r-in"><span class="fu"><a href="get_meta.html">get_meta</a></span><span class="op">(</span><span class="st">"concat"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                      rule_nm                            pattern        replace</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  (에드워드증후군) 붙여쓰기         에드워드[[:space:]]+증후군 에드워드증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2    (마이너스통장) 붙여쓰기           마이너스[[:space:]]+통장   마이너스통장</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3    (새학기증후군) 붙여쓰기           새학기[[:space:]]+증후군   새학기증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4    (파랑새증후군) 붙여쓰기           파랑새[[:space:]]+증후군   파랑새증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5    (피터팬증후군) 붙여쓰기           피터팬[[:space:]]+증후군   피터팬증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6    (방아쇠증후군) 붙여쓰기           방아쇠[[:space:]]+증후군   방아쇠증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7    (빈둥지증후군) 붙여쓰기           빈둥지[[:space:]]+증후군   빈둥지증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8    (흔들림증후군) 붙여쓰기           흔들림[[:space:]]+증후군   흔들림증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9      (대사증후군) 붙여쓰기             대사[[:space:]]+증후군     대사증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10     (버킷리스트) 붙여쓰기             버킷[[:space:]]+리스트     버킷리스트</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11     (재직증명서) 붙여쓰기             재직[[:space:]]+증명서     재직증명서</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12     (건강보험료) 붙여쓰기             건강[[:space:]]+보험료     건강보험료</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13     (다운증후군) 붙여쓰기             다운[[:space:]]+증후군     다운증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14     (명절증후군) 붙여쓰기             명절[[:space:]]+증후군     명절증후군</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15     (하원도우미) 붙여쓰기             하원[[:space:]]+도우미     하원도우미</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16     (등원도우미) 붙여쓰기             등원[[:space:]]+도우미     등원도우미</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17     (입주도우미) 붙여쓰기             입주[[:space:]]+도우미     입주도우미</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18     (교포도우미) 붙여쓰기             교포[[:space:]]+도우미     교포도우미</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19     (가사도우미) 붙여쓰기             가사[[:space:]]+도우미     가사도우미</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20     (산후도우미) 붙여쓰기             산후[[:space:]]+도우미     산후도우미</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21     (보육도우미) 붙여쓰기             보육[[:space:]]+도우미     보육도우미</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22     (산모도우미) 붙여쓰기             산모[[:space:]]+도우미     산모도우미</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23     (친정어머니) 붙여쓰기             친정[[:space:]]+어머니     친정어머니</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24     (베이비시터) 붙여쓰기             베이비[[:space:]]+시터     베이비시터</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25     (베이비페어) 붙여쓰기             베이비[[:space:]]+페어     베이비페어</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26     (닥터브라운) 붙여쓰기             닥터[[:space:]]+브라운     닥터브라운</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27     (공기청정기) 붙여쓰기             공기[[:space:]]+청정기     공기청정기</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28     (자유이용권) 붙여쓰기 자유[[:space:]]+이용[[:space:]]+권     자유이용권</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29       (체크카드) 붙여쓰기               체크[[:space:]]+카드       체크카드</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30       (신용카드) 붙여쓰기               신용[[:space:]]+카드       신용카드</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31       (연말정산) 붙여쓰기               연말[[:space:]]+정산       연말정산</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32       (재정상태) 붙여쓰기               재정[[:space:]]+상태       재정상태</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33       (대출상환) 붙여쓰기               대출[[:space:]]+상환       대출상환</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34       (전세대출) 붙여쓰기               전세[[:space:]]+대출       전세대출</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35       (육아휴직) 붙여쓰기               육아[[:space:]]+휴직       육아휴직</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36       (신혼부부) 붙여쓰기               신혼[[:space:]]+부부       신혼부부</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37       (주말부부) 붙여쓰기               주말[[:space:]]+부부       주말부부</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38       (초등학교) 붙여쓰기               초등[[:space:]]+학교       초등학교</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39       (산후조리) 붙여쓰기               산후[[:space:]]+조리       산후조리</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40       (출산휴가) 붙여쓰기               출산[[:space:]]+휴가       출산휴가</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41       (제왕절개) 붙여쓰기               제왕[[:space:]]+절개       제왕절개</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42       (유연근무) 붙여쓰기               유연[[:space:]]+근무       유연근무</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43       (유통기한) 붙여쓰기               유통[[:space:]]+기한       유통기한</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44       (키즈카페) 붙여쓰기               키즈[[:space:]]+카페       키즈카페</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45       (유도분만) 붙여쓰기               유도[[:space:]]+분만       유도분만</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46       (자연분만) 붙여쓰기               자연[[:space:]]+분만       자연분만</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47       (바디수트) 붙여쓰기               바디[[:space:]]+수트       바디수트</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48       (타미플루) 붙여쓰기               타미[[:space:]]+플루       타미플루</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49       (더블하트) 붙여쓰기               더블[[:space:]]+하트       더블하트</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50       (실업급여) 붙여쓰기               실업[[:space:]]+급여       실업급여</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51       (대학병원) 붙여쓰기               대학[[:space:]]+병원       대학병원</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52       (산양분유) 붙여쓰기               산양[[:space:]]+분유       산양분유</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53       (시어머니) 붙여쓰기               시[[:space:]]+어머니       시어머니</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54         (종일반) 붙여쓰기                 종일[[:space:]]+반         종일반</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55         (방과후) 붙여쓰기                 방과[[:space:]]+후         방과후</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56           (집밥) 붙여쓰기                   집[[:space:]]+밥           집밥</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     use</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 rule_nm                pattern    replace  use</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 (하원도우미) 붙여쓰기 하원[[:space:]]+도우미 하원도우미 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 (가사도우미) 붙여쓰기 가사[[:space:]]+도우미 가사도우미 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 (산후도우미) 붙여쓰기 산후[[:space:]]+도우미 산후도우미 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 (친정어머니) 붙여쓰기 친정[[:space:]]+어머니 친정어머니 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 (베이비시터) 붙여쓰기 베이비[[:space:]]+시터 베이비시터 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   (연말정산) 붙여쓰기   연말[[:space:]]+정산   연말정산 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   (출산휴가) 붙여쓰기   출산[[:space:]]+휴가   출산휴가 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   (시어머니) 붙여쓰기   시[[:space:]]+어머니   시어머니 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   (육아휴직) 붙여쓰기   육아[[:space:]]+휴직   육아휴직 TRUE</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">doc_content</span> <span class="op">&lt;-</span> <span class="va">buzz</span><span class="op">[</span>, <span class="st">"CONTENT"</span><span class="op">]</span></span>
 <span class="r-in"></span>
@@ -577,61 +217,14 @@
 <span class="r-in"><span class="co">## chunk = 500, mc.cores = 8</span></span>
 <span class="r-in"><span class="va">doc_content_after</span> <span class="op">&lt;-</span> <span class="fu">concat_text</span><span class="op">(</span><span class="va">doc_content</span>, chunk <span class="op">=</span> <span class="fl">500</span>, mc.cores <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (가사도우미) 붙여쓰기 ─────────────────────────────────────── 22건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (건강보험료) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (공기청정기) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (교포도우미) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (다운증후군) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (닥터브라운) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (대사증후군) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (대출상환) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (대학병원) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (더블하트) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (등원도우미) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (마이너스통장) 붙여쓰기 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (명절증후군) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (바디수트) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (방과후) 붙여쓰기 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (방아쇠증후군) 붙여쓰기 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (버킷리스트) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (베이비시터) 붙여쓰기 ──────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (베이비페어) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (보육도우미) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (빈둥지증후군) 붙여쓰기 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (산모도우미) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (산양분유) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (산후도우미) 붙여쓰기 ──────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (산후조리) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (새학기증후군) 붙여쓰기 ────────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (시어머니) 붙여쓰기 ────────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (신용카드) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (신혼부부) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (실업급여) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (에드워드증후군) 붙여쓰기 ──────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (연말정산) 붙여쓰기 ────────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (유도분만) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (유연근무) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (유통기한) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (육아휴직) 붙여쓰기 ────────────────────────────────────────── 2건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (입주도우미) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (자연분만) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (자유이용권) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (재정상태) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (재직증명서) 붙여쓰기 ──────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (전세대출) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (제왕절개) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (종일반) 붙여쓰기 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (주말부부) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (집밥) 붙여쓰기 ────────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (체크카드) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (초등학교) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (출산휴가) 붙여쓰기 ────────────────────────────────────────── 1건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (친정어머니) 붙여쓰기 ──────────────────────────────────────── 5건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (키즈카페) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (타미플루) 붙여쓰기 ────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (파랑새증후군) 붙여쓰기 ────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (피터팬증후군) 붙여쓰기 ────────────────────────────────────── 0건 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (하원도우미) 붙여쓰기 ──────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Concat: (흔들림증후군) 붙여쓰기 ────────────────────────────────────── 0건 ──</span>
 <span class="r-in"><span class="co"># }</span></span>
 <span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in"><span class="co">##======================================================</span></span>
@@ -668,336 +261,16 @@
 <span class="r-in"><span class="va">meta_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"meta"</span>, package <span class="op">=</span> <span class="st">"bitTA"</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">fname</span> <span class="op">&lt;-</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{meta_path}/preparation_remove.csv"</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="get_meta.html">set_meta</a></span><span class="op">(</span><span class="st">"remove"</span>, <span class="va">fname</span>, fileEncoding <span class="op">=</span> <span class="st">"utf8"</span><span class="op">)</span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>incomplete final line found by readTableHeader on '/private/var/folders/2g/sk4df3sn3bdbxh2rb9kdt_5c0000gn/T/RtmpZSR09I/temp_libpath54d7794f6584/bitTA/meta/preparation_remove.csv'</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># 등록된 문자열 제거 룰 확인하기</span></span>
 <span class="r-in"><span class="fu"><a href="get_meta.html">get_meta</a></span><span class="op">(</span><span class="st">"remove"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              rule_nm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   카페 안내문구  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   카페 안내문구  2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   카페 안내문구  3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   카페 안내문구  4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   카페 안내문구  6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   카페 안내문구  7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   카페 안내문구  8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   카페 안내문구  9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   카페 안내문구 10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  카페 안내문구 11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  카페 안내문구 12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  카페 안내문구 13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  카페 안내문구 14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  카페 안내문구 15</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  카페 안내문구 16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  카페 안내문구 17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  카페 안내문구 18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  카페 안내문구 19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  카페 안내문구 20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  카페 안내문구 21</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  카페 안내문구 22</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  카페 안내문구 23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  카페 안내문구 24</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  카페 안내문구 25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  카페 안내문구 26</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26  카페 안내문구 27</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  카페 안내문구 28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28  카페 안내문구 29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29  카페 안내문구 30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  카페 안내문구 31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31  카페 안내문구 32</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32  카페 안내문구 33</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33  카페 안내문구 34</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  카페 안내문구 35</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  카페 안내문구 36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  카페 안내문구 37</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37  카페 안내문구 38</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38  카페 안내문구 39</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39  카페 안내문구 40</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40  카페 안내문구 41</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41  카페 안내문구 42</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42  카페 안내문구 43</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43  카페 안내문구 44</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44  카페 안내문구 45</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45  카페 안내문구 46</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46  카페 안내문구 47</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47  카페 안내문구 48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48  카페 안내문구 49</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49  카페 안내문구 50</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50  카페 안내문구 51</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51  카페 안내문구 52</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52  카페 안내문구 53</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53  카페 안내문구 54</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54  카페 안내문구 55</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55  카페 안내문구 56</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56  카페 안내문구 57</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57  카페 안내문구 58</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58  카페 안내문구 59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59  카페 안내문구 60</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60  카페 안내문구 61</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61  카페 안내문구 62</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62  카페 안내문구 63</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63  카페 안내문구 64</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64  카페 안내문구 65</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65  카페 안내문구 66</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66  카페 안내문구 67</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67  카페 안내문구 68</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68  카페 안내문구 69</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69  카페 안내문구 70</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70  카페 안내문구 71</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71  카페 안내문구 72</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72  카페 안내문구 73</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73  카페 안내문구 74</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74  카페 안내문구 75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75  카페 안내문구 76</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76  카페 안내문구 77</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77  카페 안내문구 78</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78  카페 안내문구 79</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79  카페 안내문구 80</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80  카페 안내문구 81</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81  카페 안내문구 82</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82  카페 안내문구 83</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83  카페 안내문구 84</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84  카페 안내문구 85</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85  카페 안내문구 86</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86  카페 안내문구 87</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87  카페 안내문구 88</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88  카페 안내문구 89</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89  카페 안내문구 90</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90  카페 안내문구 91</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91  카페 안내문구 92</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92  카페 안내문구 93</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93  카페 안내문구 94</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94  카페 안내문구 95</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95  카페 안내문구 96</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96  카페 안내문구 97</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97  카페 안내문구 98</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98  카페 안내문구 99</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99  카페 안내문구100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100 카페 안내문구101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101 카페 안내문구102</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102 카페 안내문구103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103 카페 안내문구104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104 카페 안내문구105</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105 카페 안내문구106</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106 카페 안내문구200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 107        HTML 태그</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 108         URL 문구</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                      pattern</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                                                       (해외)?(게시판[[:space:]]?이용[[:space:]]?전)[[:print:]]*(숙지[[:space:]]?당부드립니다|확인해주세요)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                                              ([0-9]\\))?[[:space:]]?((수다방|게시판)[[:print:]]*성격에)[[:print:]]*(이동|삭제)(됩니)?(다)?</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                                                             ((수다|질문)방[[:space:]]?이용|게시판[[:space:]]?글작성)[[:print:]]*꼭[[:space:]]?확인해주세요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                  ([0-9]\\))?[[:space:]]?(카페|게시판)[[:space:]]?이용[[:space:]]?전[[:space:]]?반드시[[:print:]]*(읽어주세요|없으시길[[:space:]]?바랍니다)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                                                                               ([0-9]\\))?[[:space:]]?(광고|판매)[[:print:]]*등은[[:space:]]?게시불가합니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                                                            ([0-9]\\))?[[:space:]]?후기글은[[:space:]]?해당[[:space:]]?후기게시판으로[[:print:]]*삭제됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                                                                                                예:[[:space:]]?임신을기다리는맘들수다방[[:print:]]*많은[[:space:]]?협조[[:space:]]?바랍니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   ([0-9]\\))?[[:space:]]?(필독|공지|잠깐)?[[:space:]]?카[[:space:]]?페규정[[:print:]]*(28123090?|당부드립니다|알려드립니다)[[:space:]]?(을[[:space:]]?미리[[:space:]]?숙지)?[[:print:]]*(적정한|알뜰벼룩)?</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                                                                                                  ([0-9]\\))?[[:space:]]?(맘스홀릭|임산부가)[[:print:]]*(28307983|28308781)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                                                                                   ([0-9]\\))?[[:space:]]?괜찮을까[[:space:]]?고민했던[[:print:]]*32199069</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                                                           ([0-9]\\))?[[:space:]]?(임산부가?|후기글은)[[:print:]]*많은[[:space:]]?협조[[:space:]]?바랍니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                                                                                          반드시[[:space:]]?가입[[:print:]]*인사글만[[:space:]]?올려주세요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                                                                                                                      주부구단[[:space:]]?등업은[[:print:]]*자동등업됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                                                                                                                      등업공지[[:space:]]?참고[[:print:]]*등업요청글[[:space:]]?올려주세요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                                                                                                              (핫클릭)?[[:space:]]?태아보험[[:space:]]?(전문가|스페셜)[[:print:]]*상담혜택</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                                                                     흥부야재테크하자[[:space:]]?카페에?[[:space:]]?가입[[:print:]]*(꼭|작성해)[[:space:]]?(확인하|주)세요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                                                                                                      재정상태를[[:space:]]?공유[[:print:]]*현금흐름표[[:space:]]?작성하기</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                                                (내가|지금까지의)[[:space:]]?(바라는|나를)[[:space:]]?(꿈|되짚어)[[:print:]]*문구로[[:space:]]?정(하|해[[:space:]]?보)세요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                                                                                              우리집[[:space:]]?재테크[[:space:]]?게시판[[:print:]]*노하우[[:space:]]?환영</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                                                                                                              이곳은[[:space:]]?등업신청[[:space:]]?게시판[[:print:]]*무기한[[:space:]]?활동정지처리됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                                                                                                                            자기소개글을[[:space:]]?지우면[[:print:]]*무기한[[:space:]]?활동정지처리됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                                                                                                                                                          내[[:space:]]?소개[[:print:]]*연령[[:space:]]?등</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                                                                                                                                                  카페[[:space:]]?가입계기[[:print:]]*재테크[[:space:]]?등</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                                                                                                                                                        가입[[:space:]]?경로[[:print:]]*검색[[:space:]]?등</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                                                                                                                                                        다른[[:space:]]?하고[[:space:]]?싶은[[:space:]]?말</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26                                                                                                                                                                다짐[[:space:]]?한마디[[:space:]]?해주세요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27                                                                                                                                            회원간[[:space:]]?벼룩거래[[:print:]]*이용[[:space:]]?바랍니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28                                                                                                                                    업체나[[:space:]]?제품후기[[:print:]]*이용후기를[[:space:]]?올려주세요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29                                                                                                                                                   (상담|클린[[:space:]]?지역게시판)[[:print:]]*삭제됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30                                                                                                                            각[[:space:]]?질문방의[[:space:]]?주제[[:print:]]*무통보[[:space:]]?이동됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31                                                                                                                                  타인에게[[:space:]]?불쾌감[[:print:]]*매너사진으로[[:space:]]?올려주세요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32                                                                                                                                                     공지[[:space:]]?http[[:print:]]*2번항[[:space:]]?참고</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33                                                                                                                                              게시판별[[:space:]]?운영[[:space:]]?정책[[:print:]]*35756864</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34                                                                                                                                    게시글[[:space:]]?작성(하시기)?[[:space:]]?전[[:space:]]?필독(하시기)?</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35                                                                                                                                              특정업체[[:space:]]?거론[[:print:]]*강퇴가[[:space:]]?됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36                                                                                                                            특히[[:space:]]?태아보험보험[[:print:]]*삭제활동정지탈퇴[[:space:]]?처리됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37                                                                                                                          임배테기[[:space:]]?온라인[[:space:]]?거래글은[[:space:]]?불법[[:space:]]?입니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38                                                                                                                                                            기타[[:space:]]?거래글등[[:space:]]?금지됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39                                                                                                                                        가급적[[:space:]]?지정된[[:print:]]*작성하시기[[:space:]]?바랍니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40                                                                                                                                                반성을[[:space:]]?계기로[[:space:]]?알찬[[:print:]]*합니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41                                                                                     나의[[:space:]]?재정[[:space:]]?상태[[:space:]]?및[[:space:]]?재테크[[:print:]]*(진지|솔직)하게[[:space:]]?반성해보자</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42                                                                                                                                               업체(방문|관련)[[:print:]]*이용후기를[[:space:]]?올려주세요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43                                                                                                                                                돌잔치[[:space:]]?자료실[[:print:]]*금지[[:space:]]?입니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44                                                                                                                                                  돌잔치[[:space:]]?후기는[[:print:]]*게시[[:space:]]?불가</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45                                                                                                                                돌잔치관련[[:space:]]?공동구매모집[[:print:]]*이용하여[[:space:]]?주십시요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46                                                                                                                                                  순수[[:space:]]?후기[[:print:]]*주의[[:space:]]?바랍니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47                                                                        (업체[[:space:]]?글작성[[:space:]]?)?홍보[[:space:]]?링크[[:print:]]*(금지협력인증업체등은?|동맹협력인증)[[:space:]]?없(음|습니다)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48                                                                                                                             (후기)?주의[[:space:]]?결혼업체[[:print:]]*업체광고판단[[:space:]]?탈퇴됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49                                                                                                             (메일쪽지는|후기성[[:space:]]?광고)[[:print:]]*주의해[[:space:]]?주세요[[:space:]]?탈퇴됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50                                                                                                                                            관리자스텝에[[:print:]]*신고가[[:space:]]?아주[[:space:]]?많음</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51                                                                                                                 (견적[[:space:]]?문의[[:space:]]?추천|결혼관련[[:space:]]?비광고)[[:print:]]*이용해주세요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52                                                                                                                                                                결혼준비[[:print:]]*후기글[[:space:]]?금지</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53                                                                                                                          이를[[:space:]]?위반게시물[[:print:]]*모바일[[:space:]]?공지[[:space:]]?바로가기</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54                                                                                                                                                할인등[[:space:]]?혜택[[:print:]]*삭제[[:space:]]?탈퇴처리</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55                                                                                                                구매유도[[:space:]]?금지[[:space:]]?후기[[:print:]]*광고[[:space:]]?금지[[:space:]]?탈퇴됨</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56                                                                                                                                   예신방규칙바로가기|기타[[:space:]]?거래글[[:space:]]?등[[:space:]]?금지</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57                                                                                                             마이홈자랑[[:space:]]?게시판[[:print:]]*재이동[[:space:]]?금지[[:print:]]*(공지|규칙)바로가기</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58                                                                                                                                                                메일쪽지[[:print:]]*무단[[:space:]]?광고임</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59                                                                                                                                                        태아보험보험[[:print:]]*탈퇴[[:space:]]?처리됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60                                                                                                                                    태아보험[[:print:]]*레몬테라스[[:space:]]?카페와[[:space:]]?무관합니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61                                                                                                                                                          해당업체의[[:space:]]?무단[[:print:]]*답변입니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62                                                                                                                                 이번주[[:space:]]?이벤트체험단|모바일[[:space:]]?공지[[:space:]]?바로가기</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63                                                                                                                                                                        보험업체[[:print:]]*온라인거래불법</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64                                                                                                                                                         예신방[[:space:]]?규칙[[:space:]]?(바로|보러)가기</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65                                                                                                                                                            회원님들[[:space:]]?쪽지[[:print:]]*삼가주세요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66                                                                                                         업체[[:print:]]*(부탁|활동)[[:print:]]*(마시길|정지[[:space:]]?탈퇴)[[:space:]]?(바랍니다|됩니다)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67                                                                                                                                                  예신방결혼준비[[:print:]]*삭제탈퇴[[:space:]]?처리됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68                                                                                              레몬테라스[[:space:]]?카페[[:space:]]?는[[:print:]]*피해[[:space:]]?없으시길[[:space:]]?바랍니[[:space:]]?다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69                                                                                                                                결혼보험등[[:space:]]?관련[[:print:]]*허위글등삼가[[:space:]]?부탁드립니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70                                                                                                                                              필독[[:space:]]?맘스홀릭[[:print:]]*재가입재복구불가능합니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71                                                                                                                                        양식이[[:space:]]?불편하신[[:print:]]*작성하시면[[:space:]]?됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72                                                                                                                                            등업[[:space:]]?목적[[:print:]]*게시물은[[:space:]]?삭제됩니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73                                                                                                                                                              등업[[:space:]]?공지[[:print:]]*카페이용문의</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74                                                                                                                                                        지역생활정보[[:print:]]*위치해[[:space:]]?있습니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75                                                                                                                                                               원(판매자정보|거래방법)[[:print:]]*31338750</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76                                                                                                                       순수하게[[:space:]]?구입[[:print:]]*(7583888|필독해주세요|글들은[[:space:]]?적정함)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77                                                                                                    11월[[:space:]]?맘스캠프[[:print:]]*게시글을[[:space:]]?확인하시면[[:space:]]?알수[[:space:]]?있습니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78                                                                                                                                                      보험[[:space:]]?업체[[:print:]]*거래[[:space:]]?불법</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79                                                                                                                                                 임신부를[[:space:]]?위한[[:print:]]*혜택도[[:space:]]?3배</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80                                                                                                               (나의[[:space:]])?재테크(에)?[[:space:]]?(임하는[[:space:]]각오[[:space:]])?(한마디|목표)는</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81                                                                                                                                                             (수고하셨습니다|회원님들의)[[:print:]]*합니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82                                                                                                                                 가급적[[:space:]]?(아래|지정)된[[:print:]]*사용하시기[[:space:]]?바랍니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83                                                                                                                                    나만의[[:space:]]?버킷리스트[[:print:]]*말아주시기[[:space:]]?바랍니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84                                                                                                                                               (수고하셨습니다|회원님들의[[:space:]]?총)[[:print:]]*합니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85                                                                                                                                                      나의[[:space:]]?버킷리스트[[:space:]]?(이름은|5개는)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86                                                                                                                                                    레몬테라스반려동물[[:print:]]*꼭[[:space:]]?읽어주세요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87                                                                                                                                              한줄[[:space:]]?게시글[[:print:]]*활동을[[:space:]]?바랍니다</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88                                                                                                                                (맞벌이|나의|재테크에[[:space:]]?임하는)[[:space:]]?각오[[:space:]]?한마디</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89                                                                                                                                 나의[[:space:]]?(재무|재테크|(한달[[:space:]]?생활비))[[:space:]]?목표는?</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90                                                                                                                                                                이를[[:space:]]?위반게시물[[:print:]]*탈퇴</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91                                                                                                                                                          지속적인[[:space:]]?상업[[:print:]]*유의해주세요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92                           마이홈자랑[[:space:]]?게시판[[:print:]]*(새해소망을|판단|시사회|카페|빕스영화|체험단|여름휴가|등|수)[[:space:]]?(남겨보세요|탈퇴처리됨|이벤트|응모|예매권등|모집|증정|있습니다)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93                                                                                                                                          급여쟁이[[:print:]]*바[[:space:]]?로[[:space:]]?가[[:space:]]?기</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94                                                              (무분별한|업체|쓸데없는)?[[:space:]]?(광고|방판)(글|물)?(는|은)?[[:print:]]*사절[[:space:]]?((하|이)(에|예|구)?요|(임|입|합)(니)?다|할게요)?</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95                                                                                                                목표[[:space:]]?달성[[:space:]]?진척[[:space:]]?상황을[[:space:]]?점검한[[:space:]]?결과는</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96                                                                                                                                                          오늘의[[:space:]]?가계부를[[:space:]]?정리해보자</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97                                                                                                                                    회원[[:space:]]?간[[:space:]]?벼룩거래[[:print:]]*알뜰[[:space:]]?벼룩</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98                                                                                                                                  흥부야재테크하자[[:print:]]*바다로[[:space:]]?뛰어들어[[:space:]]?보세요</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99                                                                                                                 카페를[[:space:]]?둘러보는[[:print:]]*((나이직업성별[[:space:]]?등)|자기소개소?|확인세요)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100                                                                                                                                ([0-9]\\))?[[:space:]]?기타[[:space:]]?하고[[:space:]]?싶은[[:space:]]?말</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101                                                                                                                       ([0-9]\\))?[[:space:]]?카페[[:space:]]?가입[[:space:]]?경로\\/가입[[:space:]]?계기</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102                                                                                  작성한[[:space:]]?글을[[:space:]]?기초자료[[:print:]]*(수|신청방법을|통장쪼개기)[[:space:]]?(있습니다|확인하세요|part1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103                                                                                                                         홍보[[:space:]]?링크[[:space:]]?업체소개[[:print:]]*도전바로가기[[:space:]]?클릭</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104                                                                                   (레몬테라스|원거래방법)안전거래[[:print:]]*((책임을[[:space:]]?지지[[:space:]]?않습니다)|(거래[[:space:]]?금지입니다))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105                                                                                                                                                   잠깐[[:print:]]*게시글[[:print:]]*필독[[:print:]]*공지</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106                                                                                                                                           (게시판|카페)?[[:space:]]?이용[[:space:]]?전[[:space:]]?반드시</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 107                                                                                                               function[[:space:]]?registrationComplete[[:print:]]*return[[:space:]]?fraudInformationText</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 108                                                                                                                                                            (http|www)([a-zA-Z0-9\\&gt;\\/\\.\\:\\=\\&amp;\\_])*</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      use</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 107 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 108 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           rule_nm                                         pattern  use</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 카페 안내문구 1 게시판[[:space:]]*이용전[[:print:]]*이동됩니다. TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 카페 안내문구 2                  카페이용 전[[:print:]]*참고\\) TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 카페 안내문구 3                 게시글 작성[[:print:]]*35756864 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 카페 안내문구 4             흥부야[[:print:]]*기타 하고 싶은 말 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5        URL 문구   (http|www)([a-zA-Z0-9\\&gt;\\/\\.\\:\\=\\&amp;\\_])* TRUE</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">doc_content</span> <span class="op">&lt;-</span> <span class="va">buzz</span><span class="op">[</span>, <span class="st">"CONTENT"</span><span class="op">]</span></span>
 <span class="r-in"></span>
@@ -1006,114 +279,11 @@
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## chunk = 500, mc.cores = 8</span></span>
 <span class="r-in"><span class="va">doc_content_after</span> <span class="op">&lt;-</span> <span class="fu">remove_text</span><span class="op">(</span><span class="va">doc_content</span>, chunk <span class="op">=</span> <span class="fl">500</span>, mc.cores <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: HTML 태그 ─────────────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: URL 문구 ─────────────────────────────────────────────────── 14건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구  1 ─────────────────────────────────────────── 33건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구  2 ─────────────────────────────────────────── 55건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구  3 ──────────────────────────────────────────── 2건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구  4 ─────────────────────────────────────────── 11건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구  6 ──────────────────────────────────────────── 2건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구  7 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구  8 ──────────────────────────────────────────── 7건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구  9 ─────────────────────────────────────────── 48건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 10 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 11 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 12 ──────────────────────────────────────────── 2건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 13 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 14 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 15 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 16 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 17 ──────────────────────────────────────────── 3건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 18 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 19 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 20 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 21 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 22 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 23 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 24 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 25 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 26 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 27 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 28 ──────────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 29 ──────────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 30 ──────────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 31 ──────────────────────────────────────────── 2건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 32 ──────────────────────────────────────────── 2건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 33 ──────────────────────────────────────────── 2건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 34 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 35 ─────────────────────────────────────────── 47건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 36 ──────────────────────────────────────────── 2건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 37 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 38 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 39 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 40 ──────────────────────────────────────────── 6건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 41 ──────────────────────────────────────────── 6건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 42 ──────────────────────────────────────────── 6건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 43 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 44 ──────────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 45 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 46 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 47 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 48 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 49 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 50 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 51 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 52 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 53 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 54 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 55 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 56 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 57 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 58 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 59 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 60 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 61 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 62 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 63 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 64 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 65 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 66 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 67 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 68 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 69 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 70 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 71 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 72 ──────────────────────────────────────────── 7건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 73 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 74 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 75 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 76 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 77 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 78 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 79 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 80 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 81 ──────────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 82 ──────────────────────────────────────────── 3건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 83 ──────────────────────────────────────────── 1건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 84 ──────────────────────────────────────────── 2건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 85 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 86 ──────────────────────────────────────────── 2건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 87 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 88 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 89 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 90 ──────────────────────────────────────────── 7건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 91 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 92 ──────────────────────────────────────────── 2건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 93 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 94 ──────────────────────────────────────────── 3건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 95 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 96 ──────────────────────────────────────────── 7건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 97 ──────────────────────────────────────────── 7건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 98 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 99 ─────────────────────────────────────────── 13건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구100 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구101 ─────────────────────────────────────────── 18건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구102 ─────────────────────────────────────────── 18건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구103 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구104 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구105 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구106 ──────────────────────────────────────────── 0건 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구200 ──────────────────────────────────────────── 0건 ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: URL 문구 ─────────────────────────────────────────────────── 40건 ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 1 ──────────────────────────────────────────── 33건 ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 2 ───────────────────────────────────────────── 9건 ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 3 ──────────────────────────────────────────── 47건 ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Removes: 카페 안내문구 4 ──────────────────────────────────────────── 16건 ──</span>
 <span class="r-in"><span class="co"># }</span></span>
 <span class="r-in"></span>
 </code></pre></div>

@@ -8,7 +8,8 @@ CHANGES IN R VERSION 1.3.0.9001:
       - unnest_noun_ngrams()
     * vignettes 추가 (#2)
       - Explore Docs
-      - Morphological Analysis     
+      - Morphological Analysis   
+      - Manipulate Documents
       
   BUG FIXES:
     * 대통령 연설문 데이터인 president_speech의 한글 인코딩 오류 수정

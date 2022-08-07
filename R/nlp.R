@@ -284,10 +284,10 @@ replace_text <- function(
     mc.cores = parallel::detectCores(),
     verbos = TRUE
   ) {
-  filter_patterns <- get_meta("replace")
-  filter_patterns <- filter_patterns[filter_patterns$use, ]
+  replace_patterns <- get_meta("replace")
+  replace_patterns <- replace_patterns[replace_patterns$use, ]
 
-  if (is.null(filter_patterns)) {
+  if (is.null(replace_patterns)) {
     stop("문자열 대체 메타 정보를 등록하지 않았습니다.")
   }
 
@@ -322,14 +322,14 @@ replace_text <- function(
   }
 
   doc <- parallel::mclapply(seq(chunk_idx$idx_start), replace, data = doc,
-                            pattern = filter_patterns, mc.cores = mc.cores)
+                            pattern = replace_patterns, mc.cores = mc.cores)
 
   if (verbos) {
     cnt <- apply(sapply(doc, function(x) x$cnt), 1, sum)
 
     job_summary <- data.frame(
-      rule_nm = filter_patterns[, "rule_nm"],
-      rule_class = filter_patterns[, "rule_class"],
+      rule_nm = replace_patterns[, "rule_nm"],
+      rule_class = replace_patterns[, "rule_class"],
       cnt = abs(cnt),
       stringsAsFactors = FALSE
     ) %>%
@@ -391,10 +391,10 @@ concat_text <- function(
     mc.cores = parallel::detectCores(),
     verbos = TRUE
   ) {
-  filter_patterns <- get_meta("concat")
-  filter_patterns <- filter_patterns[filter_patterns$use, ]
+  concat_patterns <- get_meta("concat")
+  concat_patterns <- concat_patterns[concat_patterns$use, ]
 
-  if (is.null(filter_patterns)) {
+  if (is.null(concat_patterns)) {
     stop("문자열 결합 메타 정보를 등록하지 않았습니다.")
   }
 
@@ -432,13 +432,13 @@ concat_text <- function(
   }
 
   doc <- parallel::mclapply(seq(chunk_idx$idx_start), replace, data = doc,
-                            pattern = filter_patterns, mc.cores = mc.cores)
+                            pattern = concat_patterns, mc.cores = mc.cores)
 
   if (verbos) {
     cnt <- apply(sapply(doc, function(x) x$cnt), 1, sum)
 
     job_summary <- data.frame(
-      rule_nm = filter_patterns[, "rule_nm"],
+      rule_nm = concat_patterns[, "rule_nm"],
       cnt = abs(cnt),
       stringsAsFactors = FALSE
     ) %>%
@@ -498,10 +498,10 @@ split_text <- function(
     mc.cores = parallel::detectCores(),
     verbos = TRUE
   ) {
-  filter_patterns <- get_meta("split")
-  filter_patterns <- filter_patterns[filter_patterns$use, ]
+  split_patterns <- get_meta("split")
+  split_patterns <- split_patterns[split_patterns$use, ]
 
-  if (is.null(filter_patterns)) {
+  if (is.null(split_patterns)) {
     stop("문자열 분리 메타 정보를 등록하지 않았습니다.")
   }
 
@@ -537,13 +537,13 @@ split_text <- function(
   }
 
   doc <- parallel::mclapply(seq(chunk_idx$idx_start), replace, data = doc,
-                            pattern = filter_patterns, mc.cores = mc.cores)
+                            pattern = split_patterns, mc.cores = mc.cores)
 
   if (verbos) {
     cnt <- sum(sapply(doc, function(x) x$cnt))
 
     job_summary <- data.frame(
-      rule_nm = filter_patterns[, "rule_nm"],
+      rule_nm = split_patterns[, "rule_nm"],
       cnt = abs(cnt),
       stringsAsFactors = FALSE
     ) %>%
@@ -604,10 +604,10 @@ remove_text <- function(
     mc.cores = parallel::detectCores(),
     verbos = TRUE
   ) {
-  filter_patterns <- get_meta("remove")
-  filter_patterns <- filter_patterns[filter_patterns$use, ]
+  remove_patterns <- get_meta("remove")
+  remove_patterns <- remove_patterns[remove_patterns$use, ]
 
-  if (is.null(filter_patterns)) {
+  if (is.null(remove_patterns)) {
     stop("문자열 제거 메타 정보를 등록하지 않았습니다.")
   }
 
@@ -641,13 +641,13 @@ remove_text <- function(
   }
 
   doc <- parallel::mclapply(seq(chunk_idx$idx_start), remove, data = doc,
-                            pattern = filter_patterns, mc.cores = mc.cores)
+                            pattern = remove_patterns, mc.cores = mc.cores)
 
   if (verbos) {
     cnt <- apply(sapply(doc, function(x) x$cnt), 1, sum)
 
     job_summary <- data.frame(
-      rule_nm = filter_patterns[, "rule_nm"],
+      rule_nm = remove_patterns[, "rule_nm"],
       cnt = abs(cnt),
       stringsAsFactors = FALSE
     ) %>%
