@@ -1,50 +1,11 @@
-library(shiny)
-library(bitTA)
-library(RMeCab)
-
-#################################################################
-## User defined function
-#################################################################
-getCoCollocate <- function(x, node, span = 2) {
-  library(dplyr)
-
-  collocate_filter <- function(x) {
-
-    # one character
-    filter_char1 <- nchar(x[, "Term"]) == 1
-    x <- x[!filter_char1, ]
-
-    # asterisk
-    filter_asta <- grep("\\*", x[, "Term"], invert = TRUE)
-    x <- x[filter_asta, ]
-
-    # tag
-    filter_tag <- grep("^E", x[, "Term"], invert = TRUE)
-    x[filter_tag, ]
-  }
-
-  fname <- "tmp.txt"
-  cat(x, file = fname)
-
-  coll <- collocate(fname, node = node, span = span) %>%
-    collocate_filter
-
-  if (is.null(coll)) return(NULL)
-
-  coll <- collScores(coll, node = node, span = span) %>%
-    filter(!is.na(MI) & MI > 2)
-  coll
-}
-
-node <- "통일"
-span <- 2 
-
-docs <- N <- idx <- NULL
-
 shinyServer(function(input, output, session) {
   #################################################################
   ## Data Tab
   #################################################################
+  observe({
+    if (length(list_df) == 0) stopApp()       # stop shiny
+  })
+  
   observeEvent(input$dname, {
     assign(".docData", data.frame(get(input$dname)), pos = 1)
 
@@ -83,8 +44,10 @@ shinyServer(function(input, output, session) {
     output$dtable <-  renderDataTable({
       nms <- names(.docData)
       type <- mapply(.docData, FUN = class)
-      data.frame(var_name = nms, var_type = type)
-    }, options = list(searching = FALSE, paging = FALSE))
+      data.frame("Variable Name" = nms, "Variable Type" = type)
+    }, 
+    options = list(searching = FALSE, paging = FALSE))
+    
   })
 
   observeEvent(input$save, {

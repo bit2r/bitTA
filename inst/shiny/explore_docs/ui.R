@@ -1,19 +1,9 @@
-library(shiny)
-
-lst <- sapply(ls(pos = ".GlobalEnv"), function(x) is.data.frame(get(x)))
-nms <- names(lst)
-dnames <- nms[lst]
-vnames <- names(get(dnames[1]))
-
-ucnt <- apply(get(dnames[1]), 2, function(x) length(unique(x)))
-cnames <- vnames[ucnt > 1 & ucnt <= 30]
-cnames <- c("전체", cnames)
-
 shinyUI(
   navbarPage("Docs Explorer",
              tabPanel("데이터",
                       sidebarPanel(
-                        selectInput("dname", "데이터 로드: ", choices=dnames, selected=dnames[1]),
+                        selectInput("dname", "데이터 로드: ", choices = list_df, 
+                                    selected = list_df[1]),
                         HTML("<b>데이터 저장:</b>"),
                         fluidRow(
                           column(width = 9, textInput("savename", NULL, "newData")),
