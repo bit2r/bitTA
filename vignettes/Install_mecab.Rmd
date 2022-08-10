@@ -84,6 +84,12 @@ Windows 환경에서는 "c:\mecab" 디렉토리에 형태소분석기를 설치�
 install_mecab_ko(mecabLocation = "d:/morpheme/mecab")
 ```
 
+** Windows 환경에서 bitTA 패키지 설치 이전에 이미 mecab-ko와 mecab-ko-dic을 설치하였다면, 다음처럼 regist_mecab_ko()로 설치된 경로를 bitTA 패키지에 등록합니다.**
+
+```{r, eval=FALSE}
+regist_mecab_ko("d:/mecab")
+```
+
 ### RcppMeCab 패키지 설치
 
 bitTA에서 형태소분석 기능을 사용하기 위해서는 RcppMeCab 패키지고 설치해야 합니다. 만약에 이 패키지가 설치되어 있지 않다면, 형태소분석기를 호출할 때 다음과 같은 에러가 발생합니다.

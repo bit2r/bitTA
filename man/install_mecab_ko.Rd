@@ -6,6 +6,10 @@
 \usage{
 install_mecab_ko(mecabLocation = "c:/mecab")
 }
+\arguments{
+\item{mecabLocation}{mecab-ko-msvc와 mecab-ko-dic-msvc를 설치할 디렉토리. 
+기본값은 "c:/mecab"로 이를 권장한다.}
+}
 \description{
 은전한닢 형태소분석기인 mecab-ko와 은전한닢 형태소분석기 사전인 
 mecab-ko-dic을 사용자 환경에 설치한다.

@@ -30,6 +30,7 @@ reference:
 - subtitle: 형태소분석 기능
   contents:
   - install_mecab_ko
+  - regist_mecab_ko  
   - morpho_mecab
 - subtitle: 감성분석 기능
   contents:
