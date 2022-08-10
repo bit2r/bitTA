@@ -1,4 +1,4 @@
-CHANGES IN R VERSION 1.3.0.9001:
+CHANGES IN R VERSION 1.3.0.9003:
   NEW FEATURES:
     * 토크나이즈한 명사를 묶어서 문서로 만들어주는 함수 (#8)
       - collapse_noun()
