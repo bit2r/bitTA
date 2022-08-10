@@ -21,6 +21,8 @@ CHANGES IN R VERSION 1.3.0.9001:
       - filter_text()
     * .GlobalEnv에 데이터 프레임 객체가 하나도 없을 경우에 Docs Explorer 구동과 
       동시에 발생하는 에러 수정 (#13)  
+    * MS-Windows에서 기존에 mecab-ko가 설치되어 있을 경우에, 이를 인식하지 못하고
+      에러가 발생하는 오류 수정 (thanks to Kwangchun Lee, #15)        
       
   MINOR CHANGES:
     * 함수 이름으로 기능을 명확이 유추할 수 있도록 doc_quality()의 이름을 

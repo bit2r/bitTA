@@ -430,9 +430,16 @@ buzz %>%
 
 ## 고마운 분들
 
+bitTA는 다음 오픈소스 기여자의 리소스를 사용하거나 참조하였습니다.:
+
+-   은전한닢 프로젝트 관계자
+    -   <a href="http://eunjeon.blogspot.com/" target="_blank">은전한닢
+        프로젝트</a>
 -   김준혁
     -   <a href="https://github.com/junhewk/RcppMeCab"
         target="_blank">RcppMeCab</a>
+    -   <a href="https://github.com/junhewk/RmecabKo"
+        target="_blank">RmecabKo</a>  
 -   윤원섭
     -   <a href="https://github.com/Pusnow/mecab-ko-msvc"
         target="_blank">mecab-ko-msvc</a>
