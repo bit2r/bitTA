@@ -69,24 +69,21 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">regist_mecab_ko</span><span class="op">(</span><span class="va">mecabLocation</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">regist_mecab_ko</span><span class="op">(</span><span class="op">)</span></code></pre></div>
     </div>
 
-    <div id="arguments">
-    <h2>Arguments</h2>
-    <dl><dt>mecabLocation</dt>
-<dd><p>mecab-ko-msvc와 mecab-ko-dic-msvc가 설치된 디렉토리.</p></dd>
-</dl></div>
     <div id="details">
     <h2>Details</h2>
     <p>이 메뉴는 MS-Windows 운영체제에서만 지원한다. bitTA를 설치하기 전에, 
-이미 mecab-ko를 설치하였을 경우에 그 설치 경로를 bitTA가 인식하도록 도와준다.</p>
+이미 mecab-ko를 설치하였을 경우에 그 설치 경로를 bitTA가 인식하도록 도와준다. 
+Windows는 mecab-ko를 반드시 "c:/mecab" 경로에 설치해야 한다. 
+만약이 다른 경로에 이미 설치하였다면, 이 경로로 옮겨 놓아야 한다.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co"># regist_mecab_ko("d:/mecab")</span></span>
+<span class="r-in"><span class="co"># regist_mecab_ko()</span></span>
 <span class="r-in"><span class="op">}</span></span>
 </code></pre></div>
     </div>

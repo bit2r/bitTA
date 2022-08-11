@@ -4,11 +4,7 @@
 \alias{install_mecab_ko}
 \title{Installation of Eunjeonhan morpheme analyzer and dic}
 \usage{
-install_mecab_ko(mecabLocation = "c:/mecab")
-}
-\arguments{
-\item{mecabLocation}{mecab-ko-msvc와 mecab-ko-dic-msvc를 설치할 디렉토리. 
-기본값은 "c:/mecab"로 이를 권장한다.}
+install_mecab_ko()
 }
 \description{
 은전한닢 형태소분석기인 mecab-ko와 은전한닢 형태소분석기 사전인 
@@ -16,6 +12,7 @@ mecab-ko-dic을 사용자 환경에 설치한다.
 }
 \details{
 Linux와 Mac은 소스를 가져다 컴파일하며, Windows는 바이너리를 가져다 복사한다.
+Windows는 "c:/mecab" 경로에 설치된다. 만약이 다른 경로에 이미 설치하였다면, 이 경로로 옮겨 놓아야 한다.
 }
 \examples{
 \dontrun{

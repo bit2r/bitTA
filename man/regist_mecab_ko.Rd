@@ -4,20 +4,19 @@
 \alias{regist_mecab_ko}
 \title{Register the path where Mecab-Ko is installed}
 \usage{
-regist_mecab_ko(mecabLocation)
-}
-\arguments{
-\item{mecabLocation}{mecab-ko-msvc와 mecab-ko-dic-msvc가 설치된 디렉토리.}
+regist_mecab_ko()
 }
 \description{
 은전한닢 형태소분석기인 mecab-ko가 설치된 경로는 bitTA 패키지에 등록.
 }
 \details{
 이 메뉴는 MS-Windows 운영체제에서만 지원한다. bitTA를 설치하기 전에, 
-이미 mecab-ko를 설치하였을 경우에 그 설치 경로를 bitTA가 인식하도록 도와준다.
+이미 mecab-ko를 설치하였을 경우에 그 설치 경로를 bitTA가 인식하도록 도와준다. 
+Windows는 mecab-ko를 반드시 "c:/mecab" 경로에 설치해야 한다. 
+만약이 다른 경로에 이미 설치하였다면, 이 경로로 옮겨 놓아야 한다.
 }
 \examples{
 \dontrun{
-# regist_mecab_ko("d:/mecab")
+# regist_mecab_ko()
 }
 }

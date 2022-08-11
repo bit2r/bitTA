@@ -40,7 +40,7 @@ is_mecab_installed <- function(mecabLocation = "c:/mecab") {
   } else if (is_windows()) {
     mecabLibs <- getOption("mecab.libpath")
     
-    if (is.null(mecabLibs)) {
+    if (is.null(mecabLibs) | mecabLibs == "") {
       mecabLibs <- mecabLocation
     }
     
@@ -59,16 +59,17 @@ is_mecab_installed <- function(mecabLocation = "c:/mecab") {
 
 #' Register the path where Mecab-Ko is installed
 #' @description 은전한닢 형태소분석기인 mecab-ko가 설치된 경로는 bitTA 패키지에 등록.
-#' @param mecabLocation mecab-ko-msvc와 mecab-ko-dic-msvc가 설치된 디렉토리. 
 #' @details 이 메뉴는 MS-Windows 운영체제에서만 지원한다. bitTA를 설치하기 전에, 
 #' 이미 mecab-ko를 설치하였을 경우에 그 설치 경로를 bitTA가 인식하도록 도와준다. 
+#' Windows는 mecab-ko를 반드시 "c:/mecab" 경로에 설치해야 한다. 
+#' 만약이 다른 경로에 이미 설치하였다면, 이 경로로 옮겨 놓아야 한다.
 #' @examples
 #' \dontrun{
-#' # regist_mecab_ko("d:/mecab")
+#' # regist_mecab_ko()
 #' }
 #' @export
 #' @importFrom glue glue
-regist_mecab_ko <- function(mecabLocation) {
+regist_mecab_ko <- function() {
   if (is_linux() | is_mac()) {
     stop("regist_mecab_ko() function is possible only in Linux or Mac OSX")    
   }
@@ -77,9 +78,11 @@ regist_mecab_ko <- function(mecabLocation) {
     stop("mecab-ko is already registed.")
   }
   
+  mecabLocation <- "c:/mecab"
+  
   if (file.exists(file.path(mecabLocation, "mecab.exe"))) {
     mecabLibsLoc <- file.path(system.file(package = "bitTA"), "mecabLibs")
-      
+    
     if (!file.exists(mecabLibsLoc)) {
       con <- file(mecabLibsLoc, "w")
       tryCatch({
@@ -88,20 +91,19 @@ regist_mecab_ko <- function(mecabLocation) {
         close(con)
       })
     }
-      
+    
     options(list(mecab.libpath = mecabLocation))
   } else {
-    stop(glue::glue("Could not find mecab.exe in {mecabLocation}. Check the installation path.")) 
+    stop(glue::glue("Could not find mecab.exe in '{mecabLocation}'. Install mecab-ko with install_mecab_ko().")) 
   }
 }  
-  
+
 
 #' Installation of Eunjeonhan morpheme analyzer and dic
 #' @description 은전한닢 형태소분석기인 mecab-ko와 은전한닢 형태소분석기 사전인 
 #' mecab-ko-dic을 사용자 환경에 설치한다.
-#' @param mecabLocation mecab-ko-msvc와 mecab-ko-dic-msvc를 설치할 디렉토리. 
-#' 기본값은 "c:/mecab"로 이를 권장한다.
 #' @details Linux와 Mac은 소스를 가져다 컴파일하며, Windows는 바이너리를 가져다 복사한다.
+#' Windows는 "c:/mecab" 경로에 설치된다. 만약이 다른 경로에 이미 설치하였다면, 이 경로로 옮겨 놓아야 한다.
 #' @examples
 #' \dontrun{
 #' # install_mecab_ko()
@@ -109,7 +111,7 @@ regist_mecab_ko <- function(mecabLocation) {
 #' @export
 #' @importFrom glue glue
 #' @importFrom rstudioapi askForPassword
-install_mecab_ko <- function(mecabLocation = "c:/mecab") {
+install_mecab_ko <- function() {
   if (is_mecab_installed()) {
     stop("mecab-ko is already installed.")
   }
@@ -129,6 +131,8 @@ install_mecab_ko <- function(mecabLocation = "c:/mecab") {
   } else if (is_windows()) {
     ## Modify install_mecab() of RmecabKo package created by Kim Junhewk to install mecab-ko on Windows
     ## https://github.com/junhewk/RmecabKo/blob/master/R/install.R
+    mecabLocation <- "c:/mecab"
+    
     dir.create(mecabLocation, recursive = TRUE, showWarnings = FALSE)
     
     if (file.exists(file.path(mecabLocation, "mecab.exe"))) {
