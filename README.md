@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# bitTA <a href='https://r2bit.com/bitTA/' target='_blank'><img src="man/figures/r2bit.png" align="right" height="120" width="130"/></a>
+# bitTA <a href='https://r2bit.com/bitTA/' target='_blank'><img src="man/figures/bitTA_logo.png" align="right" height="120" width="110"/></a>
 
 ## bitTA 개요
 

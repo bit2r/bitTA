@@ -2,7 +2,7 @@ CHANGES IN R VERSION 1.3.0.9003:
   NEW FEATURES:
     * 토크나이즈한 명사를 묶어서 문서로 만들어주는 함수 (#8)
       - collapse_noun()
-    * 한글 명사 n-grams 토크나이저 (#8, #10) 
+    * 한글 명사 n-grams 토크나이저 (#8, #10)
       - tokenize_noun_ngrams()
     * 한글 명사 n-grams 토큰을 tibble에 붙여주는 함수 (#10)
       - unnest_noun_ngrams()
@@ -12,6 +12,7 @@ CHANGES IN R VERSION 1.3.0.9003:
       - Explore Docs
       - Morphological Analysis   
       - Manipulate Documents
+    * bitTA 로고 개발 및 등록 (thanks to @statkclee-이광춘, #16)  
       
   BUG FIXES:
     * 대통령 연설문 데이터인 president_speech의 한글 인코딩 오류 수정
