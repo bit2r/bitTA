@@ -62,6 +62,7 @@
 #' @import dplyr
 #' @importFrom purrr map
 #' @importFrom stringr str_detect
+#' @importFrom stringi stri_enc_detect
 #' 
 morpho_mecab <- function(x, type = c("noun", "noun2", "verb", "adj", "morpheme"),
                          indiv = TRUE, user_dic = NULL) {
@@ -77,8 +78,10 @@ morpho_mecab <- function(x, type = c("noun", "noun2", "verb", "adj", "morpheme")
   
   type <- match.arg(type)
   
-  if (is_windows()) {
-    x <- iconv(x, "cp949", "utf-8")
+  encoding <- unlist(stringi::stri_enc_detect(x))[1] 
+
+  if (encoding != "UTF-8") {
+    x <- iconv(x, encoding, "UTF-8")
   }
   
   if (is.null(user_dic)) {

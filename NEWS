@@ -26,6 +26,8 @@ CHANGES IN R VERSION 1.3.0.9003:
       동시에 발생하는 에러 수정 (#13)  
     * MS-Windows에서 기존에 mecab-ko가 설치되어 있을 경우에, 이를 인식하지 못하고
       에러가 발생하는 오류 수정 (thanks to Kwangchun Lee, #15)        
+    * 인코딩 처리 오류로 morpho_mecab()에서 형태소 분석을 잘못 처리한는 
+      문제의 해결 (thanks to @csh01470, #17)          
       
   MINOR CHANGES:
     * 함수 이름으로 기능을 명확이 유추할 수 있도록 doc_quality()의 이름을 
