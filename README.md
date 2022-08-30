@@ -139,7 +139,9 @@ morpho_mecab(docs, indiv = FALSE)
 추출 후 워드클라우드를 그려 봅니다.
 
 ``` r
-president_speech$contents[1:100] %>% 
+library(dplyr)
+
+president_speech$doc[1:100] %>% 
   morpho_mecab(indiv = FALSE) %>% 
   table() %>% 
   wordcloud2::wordcloud2(fontFamily = "NanumSquare")

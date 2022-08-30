@@ -13,7 +13,7 @@
   \item{\code{type}}{character 연설문 유형}
   \item{\code{title}}{character 연설문 제목}
   \item{\code{speech_date}}{double 연설 일자}
-  \item{\code{contents}}{character 연설문 내용}
+  \item{\code{doc}}{character 연설문 내용}
 }
 }
 \source{

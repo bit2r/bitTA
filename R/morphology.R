@@ -49,7 +49,7 @@
 #' 
 #' nho_noun_indiv <- president_speech %>%
 #'   filter(president %in% "노무현") %>%
-#'   filter(str_detect(category, "^외교")) %>%
+#'   filter(stringr::str_detect(category, "^외교")) %>%
 #'   tidytext::unnest_tokens(
 #'     out = "speech_noun",
 #'     input = "doc",

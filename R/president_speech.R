@@ -11,7 +11,7 @@
 #'   \item{\code{type}}{character 연설문 유형}
 #'   \item{\code{title}}{character 연설문 제목}
 #'   \item{\code{speech_date}}{double 연설 일자}
-#'   \item{\code{contents}}{character 연설문 내용}
+#'   \item{\code{doc}}{character 연설문 내용}
 #'}
 #' @details 역대 대통령 중 김대중, 노무현, 이명박 3명의 대통령 연설문만 수록되어 있음
 #' @docType data
