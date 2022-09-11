@@ -1,0 +1,147 @@
+---
+title: "Install bitTA in RStudio Cloud"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Install bitTA in RStudio Cloud}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r environment, echo = FALSE, message = FALSE, warning=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "", out.width = "600px", dpi = 70)
+options(tibble.print_min = 4L, tibble.print_max = 4L)
+```
+
+## Install bitTA in RStudio Cloud
+
+RStudio Cloud 환경은 `RStudio사`[^posit]가 제공하는, Cloud 환경에서 RStudio를 사용할 수 있게 제공하는 서비스입니다. 작은 리소스로 제공하는 이 서비스는, 인터넷만 있으면 어디서든 R Studio 환경으로 코드를 실행해볼 수있기 때문에 R 교육 환경으로 활용하기에 안성맞춤입니다.
+
+RStudio Cloud는 여러 제약 사항이 있기 때문에 bitTA를 설치하기 쉽지 않습니다. RStudio Cloud 환경에 맞는 별도의 작업이 필요합니다. 여기서는 별도의 작업을 통해서 RStudio Cloud에 bitTA를 설치하는 방법을 다룹니다.
+
+[^posit]:  2022-10월에 RStudio는 Posit으로 회사이름을 바꿉니다.
+
+## Install mecab-ko in Rstudio Cloud
+
+RStudio Cloud에서 사용자는 시스템 디렉토리인 /usr/local 디렉터리에 접근할 수 없습니다. 그래서 mecab-ko를 사용자가 접근 가능한 /cloud/lib 경로에 설치하려 합니다.
+
+다음의 스크립트는 **표준 R 서버를 위한 Docker 이미지**인 [docker_rserver](https://github.com/choonghyunryu/docker_rserver){target=_blank}의 mecab-ko 설치 스크립트를 RStudio Cloud 환경에 맞게 수정한 스크립트입니다. 
+
+```{r, eval=FALSE}
+#!/bin/bash
+set -e
+
+# 설치 리소스를 저장할 디렉토리 
+INSTALLD='/cloud/project/install_resources' 
+
+#---------------------------------------------
+# 은전한닙 형태소분석기 설치
+#---------------------------------------------
+mkdir -p ${INSTALLD}
+cd ${INSTALLD}
+wget https://bitbucket.org/eunjeon/mecab-ko/downloads/mecab-0.996-ko-0.9.2.tar.gz 
+tar xzvf mecab-0.996-ko-0.9.2.tar.gz 
+cd ${INSTALLD}/mecab-0.996-ko-0.9.2 
+./configure --prefix=/cloud/lib
+make 
+make install 
+ldconfig 
+
+# 설치파일 삭제
+rm -rf $INSTALLD/mecab-0.996-ko-0.9.2 
+rm -rf $INSTALLD/mecab-0.996-ko-0.9.2.tar.gz
+
+PATH=/cloud/lib/bin:$PATH
+
+#---------------------------------------------
+# 은전한닙 형태소분석기 사전 설치
+#---------------------------------------------
+cd ${INSTALLD}
+wget https://bitbucket.org/eunjeon/mecab-ko-dic/downloads/mecab-ko-dic-2.1.1-20180720.tar.gz 
+tar xvfz mecab-ko-dic-2.1.1-20180720.tar.gz 
+cd ${INSTALLD}/mecab-ko-dic-2.1.1-20180720 
+autoreconf 
+./configure --prefix=/cloud/lib
+make
+make install
+
+# 설치파일 삭제    
+rm -rf $INSTALLD/mecab-ko-dic-2.1.1-20180720.tar.gz
+```
+
+### Test mecab-ko
+
+Shell 환경에서 mecab-ko의 설치 여부를 테스트하기 위해서 다음 명령어를 수행합니다.
+
+```{bash}
+echo "아버지가 방에 들어가신다." | mecab
+```
+
+## Install RcppMeCab
+
+bitTA 패키지의 형태소 토크나이징은 RcppMeCab 패키지를 이용합니다. 그래서 RcppMeCab 패키지를 설치합니다.
+
+RcppMeCab 패키지는 mecab-ko의 동적 라이브러리인 libmecab.so.2를 사용합니다. 그래서 패키지를 설치하기 전에 이 동적 라이브러리를 접근할 수 있도록 설정해야 합니다.
+
+RStduo Server는 /etc/rstudio/rserver.conf 파일에 다음처럼 동적라이브러리의 경로를 설정합니다.
+
+```{r, eval=FALSE}
+rsession-ld-library-path=/cloud/lib/lib
+```
+
+그러나 RStudio Cloud에서는 해당 파일을 수정할 수 있는 권한이 없기 때문에, dyn.load()로 동적 라이브러리를 로드해야 합니다.
+
+```{r, eval=FALSE}
+# for binary
+Sys.setenv(PATH=paste("/cloud/lib/bin", Sys.getenv("PATH"), sep = ":"))
+
+# for ld library
+dyn.load("/cloud/lib/lib/libmecab.so.2")
+
+install.packages('RcppMeCab')
+```
+
+## Install bitTA
+
+현재 bitTA는 CRAN에 등록되어 있지 않습니다. 그래서 다음과 같이 Github의 개발버전을 설치합니다.
+
+```{r, eval=FALSE}
+remotes::install_github('bit2r/bitTA')
+```
+
+### Test bitTA
+
+bitTA의 설치를 확인하기 위해서다음과 같이 명사의 토큰을 추출해 봅니다. 라이브러리를 로드한 후에 동적 라이브러리인 `libmecab.so.2`를 로드해야됩니다.
+
+```{r, eval=FALSE}
+library("bitTA")
+dyn.load("/cloud/lib/lib/libmecab.so.2")
+
+morpho_mecab("아버지가 방에 들어가신다.")
+```
+
+````
+     NNG      NNG 
+"아버지"     "방" 
+```
+
+## Set environments
+
+앞에서 bitTA를 설치했지만, 세션이 종료되고 다시 RStudio 환경에서 bitTA를 RStudio Cloud에서 사용하기 위해서는 몇 가지 설정이 필요합니다. 
+
+### Set PATH
+
+.Renviron 파일을 통해서 PATH에 다음과 같이 mecab이 포함된 경로를 추가합니다. 아쉽게도 LD_LIBRARY_PATH 환경변수는 RStudio Cloud 환경에서 적용되지 않았습니다. 그래서 .Rprofile 파일을 이용해서 설정해야 합니다. 
+
+```{r, eval=FALSE}
+PATH=/cloud/lib/bin:${PATH}
+LD_LIBRARY_PATH=/cloud/lib/lib:${LD_LIBRARY_PATH}
+```
+
+### Set LD_PATH_PATH
+
+.Rprofile 파일에 다음과 같이 libmecab.so.2를 로드하는 스크립트를 기술합니다.
+
+```{r, eval=FALSE}
+dyn.load("/cloud/lib/lib/libmecab.so.2")
+```
+
