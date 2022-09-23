@@ -463,7 +463,7 @@ shinyServer(function(input, output, session) {
                     label = "",
                     value = sprintf("%d/%d/%d", 1, n, N))
 
-    ngm <- get_ngram(curr_doc, n = input$N, type = "table")
+    ngm <- bitTA::get_ngrams(curr_doc, n = input$N, type = "table")
 
     curr_doc <- gsub(sprintf("(%s)", input$pattern4),
                      "<font color=\"#FF0000\"><b>\\1</b></font>\\2",
@@ -488,7 +488,7 @@ shinyServer(function(input, output, session) {
 
     curr_doc <- docs[idx[next_idx]]
 
-    ngm <- get_ngram(curr_doc, n = input$N, type = "table")
+    ngm <- get_ngrams(curr_doc, n = input$N, type = "table")
 
     curr_doc <- gsub(sprintf("(%s)", input$pattern4),
                      "<font color=\"#FF0000\"><b>\\1</b></font>\\2",
@@ -517,7 +517,7 @@ shinyServer(function(input, output, session) {
 
     curr_doc <- docs[idx[prev_idx]]
 
-    ngm <- get_ngram(curr_doc, n = input$N, type = "table")
+    ngm <- get_ngrams(curr_doc, n = input$N, type = "table")
 
     updateTextInput(session, "cnt4",
                     label = "",
@@ -544,7 +544,7 @@ shinyServer(function(input, output, session) {
     curr_idx <- as.integer(strsplit(input$cnt4, "/")[[1]][1])
     curr_doc <- docs[idx[curr_idx]]
 
-    ngm <- get_ngram(curr_doc, n = input$N, type = "table")
+    ngm <- bitTA::get_ngrams(curr_doc, n = input$N, type = "table")
 
     output$ntable <-  renderDataTable({
       ngm
