@@ -9,3 +9,5 @@ inst/doc
 hexsticker.pptx
 *.bak
 renv/
+renv.lock
+.Rprofile
