@@ -127,6 +127,8 @@ get_ngrams <- function(x, n = 2L, token = c("noun", "noun2", "word"),
   token <- rlang::arg_match(token)
   type <- rlang::arg_match(type)
   
+  ngram_delim <- " "
+  
   if (token %in% "word") {
     ng <- ngram::ngram(str, n = n, sep = ngram_delim)
   } else {
