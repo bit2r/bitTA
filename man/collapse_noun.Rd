@@ -35,6 +35,9 @@ character. 명사로만 구성된 텍스트
 묶어서 텍스트 문서를 만듦
 조회한다.
 }
+\details{
+MS-Windows에서는 병렬처리를 지원하지 않음
+}
 \examples{
 \donttest{
 collapse_noun(president_speech$doc[1:7])
@@ -44,7 +47,7 @@ library(dplyr)
 
 nho_noun <- president_speech \%>\%
   filter(president \%in\% "노무현") \%>\%
-  filter(str_detect(category, "^외교")) \%>\%
+  filter(stringr::str_detect(category, "^외교")) \%>\%
   mutate(doc_noun = collapse_noun(doc)) \%>\%
     tidytext::unnest_ngrams(
       noun_bigram,

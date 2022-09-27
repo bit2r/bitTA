@@ -11,6 +11,7 @@
 #' 사용자 사전 파일은 mecab-dict-index 명령어로 생성되며, 확장자가 "dic"임.
 #' @param chunk integer. 병렬 작업 수행 시 처리 단위인 chunk
 #' @param mc.cores integer. 병렬 작업 수행 시 사용할 코어의 개수
+#' @details MS-Windows에서는 병렬처리를 지원하지 않음
 #' @return character. 명사로만 구성된 텍스트
 #' @examples
 #' \donttest{
@@ -21,7 +22,7 @@
 #' 
 #' nho_noun <- president_speech %>%
 #'   filter(president %in% "노무현") %>%
-#'   filter(str_detect(category, "^외교")) %>%
+#'   filter(stringr::str_detect(category, "^외교")) %>%
 #'   mutate(doc_noun = collapse_noun(doc)) %>%
 #'     tidytext::unnest_ngrams(
 #'       noun_bigram,
@@ -44,11 +45,29 @@ collapse_noun <- function(doc, user_dic = NULL, type = c("noun", "noun2"),
   
   type <- rlang::arg_match(type)
   
+  
   if (tibble::is_tibble(doc)) {
     doc <- pull(doc)
   }
   
   chunk_idx <- get_chunk_id(N = length(doc), chunk = chunk)
+  
+  get_os <- function() {
+    system_info <- Sys.info()
+    if (!is.null(system_info)) {
+      os <- system_info["sysname"]
+      if (os == "Darwin") 
+        os <- "osx"
+    }
+    else {
+      os <- .Platform$OS.type
+      if (grepl("^darwin", R.version$os)) 
+        os <- "osx"
+      if (grepl("linux-gnu", R.version$os)) 
+        os <- "linux"
+    }
+    tolower(os)
+  }
   
   get_collapse_noun <- function(chunk_id, doc) {
     start <- chunk_idx$idx_start[chunk_id]
@@ -65,12 +84,19 @@ collapse_noun <- function(doc, user_dic = NULL, type = c("noun", "noun2"),
       )
   }
   
-  collapsed <- parallel::mclapply(
-    seq(chunk_idx$idx_start), 
-    get_collapse_noun, 
-    doc = doc, 
-    mc.cores = mc.cores
-  )
+  if (get_os() %in% "windows") {
+    collapsed <- seq(chunk_idx$idx_start) %>% 
+      purrr::map(function(x) {
+        get_collapse_noun(x, doc = doc)
+      })
+  } else {
+    collapsed <- parallel::mclapply(
+      seq(chunk_idx$idx_start), 
+      get_collapse_noun, 
+      doc = doc, 
+      mc.cores = mc.cores
+    )  
+  }
   
   do.call("c", lapply(collapsed, function(x) x))
 }

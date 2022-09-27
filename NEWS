@@ -34,7 +34,11 @@ CHANGES IN R VERSION 1.3.0.9007:
     * get_ngrams()에서 "객체 'ngram_delim'를 찾을 수 없습니다" 오류 수정
       (thanks to @statkclee-이광춘, #23)
     * explore_docs()에서 "객체 'ngram_delim'를 찾을 수 없습니다" 오류 수정
-      (thanks to @statkclee-이광춘, #23)      
+      (thanks to @statkclee-이광춘, #23)   
+    * collapse_noun()에서 MS-Windows에서 병렬처리가 불가하다는 오류 수정
+      (thanks to @statkclee-이광춘, #22) 
+    * tokenize_noun_ngrams()에서 MS-Windows에서 병렬처리가 불가하다는 오류 수정
+      (thanks to @statkclee-이광춘, #22)         
       
   MINOR CHANGES:
     * 함수 이름으로 기능을 명확이 유추할 수 있도록 doc_quality()의 이름을 
