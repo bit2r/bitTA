@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bitTA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.0.9007</span>
       </span>
     </div>
 
@@ -32,6 +32,9 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/Install_in_RstudioCloud.html">Install bitTA in RStudio Cloud</a>
+    </li>
+    <li>
       <a href="../articles/Install_mecab.html">Install mecab-ko</a>
     </li>
     <li>
@@ -154,19 +157,19 @@ x가 단일값일 때에는 character 벡터</p>
 <span class="r-in">    drop <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span class="r-in">  <span class="op">)</span>   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 222 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    title                              doc                           noun_bigram</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막… 우정:해    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막… 해:개막식  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막… 개막식:축하</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막… 축하:행사  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막… 행사:축하  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막… 축하:참석  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막… 참석:모두  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막… 모두:환영  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막… 환영:감사  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막… 감사:인사  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 212 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    title                              doc                                noun_…¹</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막식을 … 우정:해</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막식을 … 해:개… </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막식을 … 개막식…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막식을 … 축하:… </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막식을 … 행사:… </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막식을 … 축하:… </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막식을 … 참석:… </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막식을 … 모두:… </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막식을 … 환영:… </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">"</span>2005 한일 우정의 해 개막식 축사 <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>  먼저 한,일 우정의 해 개막식을 … 감사:… </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 212 more rows, and abbreviated variable name ¹​noun_bigram</span></span>
 <span class="r-in"> </span>
 <span class="r-in"><span class="co"># grouping using group_by() function</span></span>
 <span class="r-in"><span class="va">president_speech</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>

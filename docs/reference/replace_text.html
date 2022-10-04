@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bitTA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.0.9007</span>
       </span>
     </div>
 
@@ -33,6 +33,9 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/Install_in_RstudioCloud.html">Install bitTA in RStudio Cloud</a>
+    </li>
+    <li>
       <a href="../articles/Install_mecab.html">Install mecab-ko</a>
     </li>
     <li>
@@ -261,7 +264,7 @@
 <span class="r-in"><span class="va">meta_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"meta"</span>, package <span class="op">=</span> <span class="st">"bitTA"</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">fname</span> <span class="op">&lt;-</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{meta_path}/preparation_remove.csv"</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="get_meta.html">set_meta</a></span><span class="op">(</span><span class="st">"remove"</span>, <span class="va">fname</span>, fileEncoding <span class="op">=</span> <span class="st">"utf8"</span><span class="op">)</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>incomplete final line found by readTableHeader on '/private/var/folders/2g/sk4df3sn3bdbxh2rb9kdt_5c0000gn/T/RtmpZSR09I/temp_libpath54d7794f6584/bitTA/meta/preparation_remove.csv'</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>incomplete final line found by readTableHeader on '/private/var/folders/2g/sk4df3sn3bdbxh2rb9kdt_5c0000gn/T/Rtmp6Wbem3/temp_libpath11e541d401a05/bitTA/meta/preparation_remove.csv'</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># 등록된 문자열 제거 룰 확인하기</span></span>
 <span class="r-in"><span class="fu"><a href="get_meta.html">get_meta</a></span><span class="op">(</span><span class="st">"remove"</span><span class="op">)</span></span>

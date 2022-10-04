@@ -10,6 +10,9 @@
     <loc>/LICENSE-text.html</loc>
   </url>
   <url>
+    <loc>/articles/Install_in_RstudioCloud.html</loc>
+  </url>
+  <url>
     <loc>/articles/Install_mecab.html</loc>
   </url>
   <url>
@@ -89,6 +92,9 @@
   </url>
   <url>
     <loc>/reference/president_speech.html</loc>
+  </url>
+  <url>
+    <loc>/reference/regist_mecab_ko.html</loc>
   </url>
   <url>
     <loc>/reference/replace_text.html</loc>

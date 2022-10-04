@@ -2,11 +2,12 @@ pandoc: '2.18'
 pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
+  Install_in_RstudioCloud: Install_in_RstudioCloud.html
   Install_mecab: Install_mecab.html
   Introduce: Introduce.html
   explore_docs: explore_docs.html
   manipulate_docs: manipulate_docs.html
   morphology: morphology.html
   with_tidytext: with_tidytext.html
-last_built: 2022-08-07T14:26Z
+last_built: 2022-10-04T15:00Z
 

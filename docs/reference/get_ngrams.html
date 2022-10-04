@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bitTA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.0.9007</span>
       </span>
     </div>
 
@@ -32,6 +32,9 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/Install_in_RstudioCloud.html">Install bitTA in RStudio Cloud</a>
+    </li>
+    <li>
       <a href="../articles/Install_mecab.html">Install mecab-ko</a>
     </li>
     <li>
@@ -114,11 +117,13 @@
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># bi-gram</span></span>
 <span class="r-in"><span class="fu">get_ngrams</span><span class="op">(</span><span class="va">str</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in is.string(x):</span> object 'ngram_delim' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "신혼 부부"     "부부 주말"     "주말 부부"     "부부 놀이공원"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5] "놀이공원 자유" "자유 이용"     "이용 구매"    </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># tri-gram</span></span>
 <span class="r-in"><span class="fu">get_ngrams</span><span class="op">(</span><span class="va">str</span>, n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in is.string(x):</span> object 'ngram_delim' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "신혼 부부 주말"     "부부 주말 부부"     "주말 부부 놀이공원"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4] "부부 놀이공원 자유" "놀이공원 자유 이용" "자유 이용 구매"    </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># 워드(띄어쓰기) 기반 토큰화</span></span>
 <span class="r-in"><span class="fu">get_ngrams</span><span class="op">(</span><span class="va">str</span>, token <span class="op">=</span> <span class="st">"word"</span><span class="op">)</span></span>
@@ -126,13 +131,21 @@
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># 집계정보</span></span>
 <span class="r-in"><span class="fu">get_ngrams</span><span class="op">(</span><span class="va">str</span>, type <span class="op">=</span> <span class="st">"table"</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in is.string(x):</span> object 'ngram_delim' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           ngrams freq      prop</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     신혼 부부     1 0.1428571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     주말 부부     1 0.1428571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     부부 주말     1 0.1428571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 놀이공원 자유     1 0.1428571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     이용 구매     1 0.1428571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 부부 놀이공원     1 0.1428571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7     자유 이용     1 0.1428571</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># 사용자 정의 사전 사용</span></span>
 <span class="r-in"><span class="va">dic_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"dic"</span>, package <span class="op">=</span> <span class="st">"bitTA"</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">dic_file</span> <span class="op">&lt;-</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{dic_path}/buzz_dic.dic"</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">get_ngrams</span><span class="op">(</span><span class="va">str</span>, user_dic <span class="op">=</span> <span class="va">dic_file</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in is.string(x):</span> object 'ngram_delim' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "신혼부부 주말부부"   "주말부부 놀이공원"   "놀이공원 자유이용권"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4] "자유이용권 구매"    </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># }</span></span>
 <span class="r-in"></span>
