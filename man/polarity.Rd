@@ -5,7 +5,7 @@
 \alias{polarity}
 \title{KOSAC(Korean Sentiment Analysis Corpus) sentiment dictionary}
 \format{
-9개의 변수와 15,736개의 관측치로 구성된 데이터 프레임.:
+10개의 변수와 15,736개의 관측치로 구성된 데이터 프레임.:
 \describe{
   \item{ngram}{character. N-GRAM}
   \item{freq}{integer. 빈도수}
