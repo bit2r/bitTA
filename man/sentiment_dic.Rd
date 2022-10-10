@@ -5,7 +5,7 @@
 \alias{sentiment_dic}
 \title{KNU Korean Sentiment Dictionary}
 \format{
-4개의 변수와 14,844개의 관측치로 구성된 데이터 프레임.:
+4개의 변수와 14,841개의 관측치로 구성된 데이터 프레임.:
 \describe{
   \item{word}{character. 사전 단어}
   \item{word_root}{character. 어근}
@@ -21,8 +21,11 @@ data(sentiment_dic)
 }
 \description{
 2018년도 군산대학교 소프트웨어융합공학과 Data Intelligence Lab에서 개발한 
-한국어 감성사전으로 총 14,844개의 1-gram, 2-gram, 관용구, 문형, 축약어, 
+한국어 감성사전으로 총 14,841개의 1-gram, 2-gram, ..., 8-gram, 관용구, 문형, 축약어, 
 이모티콘 등에 대한 긍정, 중립, 부정 판별 및 정도(degree)값 계산
+}
+\details{
+표준국어대사전을 구성하는 각 단어의 뜻풀이를 분석하여 긍부정어를 추출하였으며, 표준국어대사전을 구성하는 형용사, 부사, 동사, 명사의 모든 뜻풀이에 대한 긍정, 중립, 부정으로 분류하기 위해 Bi-LSTM 딥 러닝 모델 사용
 }
 \examples{
 \dontrun{

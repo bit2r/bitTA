@@ -1,4 +1,15 @@
-CHANGES IN R VERSION 1.3.0.9007:
+CHANGES IN R VERSION 1.3.1.9000:
+  NEW FEATURES:
+    * KNU Korean Sentiment Dictionary를 이용한 감성분석 (#25)
+      - get_polarity()
+    * tidytext와 궁합이 맞도록 morpho_mecab() 함수 기능 보완 (#27)
+      - as_list 인수 추가      
+      
+  BUG FIXES:
+    * 내장 데이터셋 sentiment_dic의 중복 데이터 제거 (#26)    
+
+      
+CHANGES IN R VERSION 1.3.0:
   NEW FEATURES:
     * 토크나이즈한 명사를 묶어서 문서로 만들어주는 함수 (#8)
       - collapse_noun()

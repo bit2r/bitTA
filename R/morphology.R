@@ -12,6 +12,10 @@
 #' 기본값은 NULL로 사용자 사전파일을 지정하지 않음.
 #' 시스템 사전인 "/usr/local/lib/mecab/dic/mecab-ko-dic"(Linux, Mac)를 보완하여 사용됨.
 #' 사용자 사전 파일은 mecab-dict-index 명령어로 생성되며, 확장자가 "dic"임.
+#' @param as_list logical. 문서의 개수가 한 개일 때, 결과를 리스트로 반환할지의 여부를 선택함.
+#' TRUE일 경우에는 리스트 객체로, FALSE일 경우에는 문자 벡터로 결과를 반환함
+#' tidytext 패키지와 함께 사용할 경우에는 TRUE를 사용하는 것이 좋음. 
+#' 문서 개수가 1개인 경우, 즉 행(관측치)의 개수가 1개인 경우에 데이터프레임 연산에서의 오류를 방지하기 위한 목적의 인수임
 #' @details
 #' type 인수에 따라 토큰화되는 품사의 종류는 다음과 같다.:
 #' \itemize{
@@ -65,7 +69,7 @@
 #' @importFrom stringi stri_enc_detect
 #' 
 morpho_mecab <- function(x, type = c("noun", "noun2", "verb", "adj", "morpheme"),
-                         indiv = TRUE, user_dic = NULL) {
+                         indiv = TRUE, user_dic = NULL, as_list = FALSE) {
   if (!is_mecab_installed()) {
     stop("To use morpho_mecab(), you need to install mecab-ko and mecab-ko-dic.\nYou can install it with install_mecab_ko().")
   }
@@ -130,6 +134,10 @@ morpho_mecab <- function(x, type = c("noun", "noun2", "verb", "adj", "morpheme")
   
   if (length(tokens) == 1) {
     tokens <- unlist(tokens)
+  }
+  
+  if (as_list & length(x) == 1) {
+    tokens <- list(tokens)
   }
   
   tokens

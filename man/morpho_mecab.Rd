@@ -8,7 +8,8 @@ morpho_mecab(
   x,
   type = c("noun", "noun2", "verb", "adj", "morpheme"),
   indiv = TRUE,
-  user_dic = NULL
+  user_dic = NULL,
+  as_list = FALSE
 )
 }
 \arguments{
@@ -27,6 +28,11 @@ TRUE이면 개별 리스트로 반환하고, FALSE이면 하나의 문자 벡터
 기본값은 NULL로 사용자 사전파일을 지정하지 않음.
 시스템 사전인 "/usr/local/lib/mecab/dic/mecab-ko-dic"(Linux, Mac)를 보완하여 사용됨.
 사용자 사전 파일은 mecab-dict-index 명령어로 생성되며, 확장자가 "dic"임.}
+
+\item{as_list}{logical. 문서의 개수가 한 개일 때, 결과를 리스트로 반환할지의 여부를 선택함.
+TRUE일 경우에는 리스트 객체로, FALSE일 경우에는 문자 벡터로 결과를 반환함
+tidytext 패키지와 함께 사용할 경우에는 TRUE를 사용하는 것이 좋음. 
+문서 개수가 1개인 경우, 즉 행(관측치)의 개수가 1개인 경우에 데이터프레임 연산에서의 오류를 방지하기 위한 목적의 인수임}
 }
 \value{
 Mecab 형태소 분석기 결과 구조의 character 벡터 혹은 character 벡터를
