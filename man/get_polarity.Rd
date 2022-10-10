@@ -7,7 +7,7 @@
 get_polarity(doc, n = 1, indiv = TRUE)
 }
 \arguments{
-\item{doc}{character. KOSAC를 이용해서 감성분석을 수행할 문자열 벡터}
+\item{doc}{character. 군산대학교 한국어 감성 사전을 이용해서 감성분석을 수행할 문자열 벡터}
 
 \item{n}{integer. n-gram 토큰화 계수}
 

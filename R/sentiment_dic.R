@@ -35,14 +35,15 @@ NULL
 # sentiment_dic <- jsonlite::fromJSON(fname_sentiword) %>% 
 #   filter(!duplicated(word)) %>%  
 #   mutate(n_gram = stringr::str_count(word, pattern = "\\s+") + 1L) %>%
-#   mutate(polarity = as.integer(polarity))
+#   mutate(polarity = as.integer(polarity)) %>%
+#   tibble::as_tibble()
 # 
 # save(sentiment_dic, file = glue::glue("data/sentiment_dic.rda"))
 
 
 #' KNU Korean Sentiment Dictionary Sentiment Analysis
 #' @description 군산대학교 한국어 감성 사전을 활용하여 문서의 감성분석 결과를 반환
-#' @param doc	character. KOSAC를 이용해서 감성분석을 수행할 문자열 벡터
+#' @param doc	character. 군산대학교 한국어 감성 사전을 이용해서 감성분석을 수행할 문자열 벡터
 #' @param n	integer. n-gram 토큰화 계수
 #' @param indiv logical. 복수개의 문서일 때 개별 문서의 결과를 반환할 지를 선택함.
 #' TRUE이면 데이터프레임에서 개별 문서의 결과를 관측치(observations)로 반환하고, FALSE이면 하나의 관측치로 반환함.
