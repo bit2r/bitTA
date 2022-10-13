@@ -45,8 +45,8 @@ Mecab 형태소 분석기 기반 형태소분석/품사 태깅을 통한 토큰�
 type 인수에 따라 토큰화되는 품사의 종류는 다음과 같다.:
 \itemize{
 \item "morpheme" : 모든 품사 토큰화
-\item "moun" : 일반명사(NNG) 토큰화
-\item "moun" : 모든 명사 토큰화
+\item "noun" : 일반명사(NNG) 토큰화
+\item "noun2" : 모든 명사 토큰화
 \item "verb" : 동사 토큰화
 \item "adj" : 형용사 토큰화
 }
