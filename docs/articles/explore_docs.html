@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bitTA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.0.9007</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.1.9000</span>
       </span>
     </div>
 
@@ -111,7 +111,7 @@ Analysis)하는 것처럼 텍스트 데이터 분석 역시 데이터의 탐색�
 </h4>
 <p>bitTA에는 <code>buzz</code>라는 데이터를 제공하는데 다음과 같은
 변수를 가지고 있습니다. 변수 <code>CONTENT</code>를 대상으로 데이터를
-탐색하여 합니다.</p>
+탐색해야 합니다.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(bitTA<span class="sc">::</span>buzz)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>] <span class="st">"KEYWORD"</span>        <span class="st">"SRC"</span>            <span class="st">"SECTION"</span>        <span class="st">"CRAWL_DT"</span>      </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> [<span class="dv">5</span>] <span class="st">"PUBLISH_DT"</span>     <span class="st">"URL"</span>            <span class="st">"TITLE"</span>          <span class="st">"CONTENT"</span>       </span>
@@ -211,9 +211,10 @@ Analysis)하는 것처럼 텍스트 데이터 분석 역시 데이터의 탐색�
 <h5 id="대체">대체<a class="anchor" aria-label="anchor" href="#%EB%8C%80%EC%B2%B4"></a>
 </h5>
 <p>검색한 패턴을 다른 문자열로 대체할 수도 있습니다. 텍스트 데이터의
-정제를 위한 기능입니다. 다음은 <code>전업주부</code>라는
-복합명사(compound noun)가 <code>전업 주부</code>로 분리되어 있는 사례를
-보정하는 예시입니다.</p>
+정제를 위한 기능입니다. 다음은
+<strong><code>전업주부</code></strong>라는 복합명사(compound noun)가
+<strong><code>전업 주부</code></strong>로 분리되어 있는 사례를 보정하는
+예시입니다.</p>
 <p><img src="images/replace.jpg" width="95%" style="display: block; margin: auto;"></p>
 <blockquote>
 <p>만약에 대체 기능으로 텍스트 데이터를 수정(정제)하였다면, “데이터 구조

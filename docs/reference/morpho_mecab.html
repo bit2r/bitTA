@@ -113,8 +113,8 @@ tidytext 패키지와 함께 사용할 경우에는 TRUE를 사용하는 것이 
     <div id="details">
     <h2>Details</h2>
     <p>type 인수에 따라 토큰화되는 품사의 종류는 다음과 같다.:</p><ul><li><p>"morpheme" : 모든 품사 토큰화</p></li>
-<li><p>"moun" : 일반명사(NNG) 토큰화</p></li>
-<li><p>"moun" : 모든 명사 토큰화</p></li>
+<li><p>"noun" : 일반명사(NNG) 토큰화</p></li>
+<li><p>"noun2" : 모든 명사 토큰화</p></li>
 <li><p>"verb" : 동사 토큰화</p></li>
 <li><p>"adj" : 형용사 토큰화</p></li>
 </ul><p>Mecab 형태소 분석기의 시스템 사전의 경로는 "/usr/local/lib/mecab/dic/mecab-ko-dic"이며,
@@ -164,6 +164,14 @@ NIADic이 포함되어 있지 않음. 이것은 bitTA 패키지에서는 참조�
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Using morpho_mecab with tidytext package</span></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘dplyr’</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:stats’:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     filter, lag</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:base’:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">nho_noun_indiv</span> <span class="op">&lt;-</span> <span class="va">president_speech</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">president</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="st">"노무현"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
