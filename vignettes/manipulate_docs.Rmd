@@ -15,7 +15,7 @@ options(tibble.print_min = 4L, tibble.print_max = 4L)
 
 ## Manipulate Documents
 
-`Manipulate Documents`라 쓰고 텍스트 `**텍스트 데이터 정제**`라 이야기 합니다.
+`Manipulate Documents`라 쓰고 텍스트 **`텍스트 데이터 정제`**라 이야기 합니다.
 
 ### 텍스트 데이터 정제
 
