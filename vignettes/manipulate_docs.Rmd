@@ -187,40 +187,6 @@ stringr::str_detect(doc_content, "신랑") %>%
   sum(na.rm = TRUE)
 ```
 
-문서들에서 몇 개의 룰이 적용되는지 결과를 보면서 텍스트를 대체합니다.
-
-```{r, message=TRUE}
-buzz %>% 
-  mutate(CONTENT = replace_text(CONTENT, verbos = TRUE)) %>% 
-  select(KEYWORD, SRC, CONTENT)
-```
- 
-
-### replace_text()를 이용한 텍스트 대체
-
-문서 안에 포함된 특정 텍스트를 다른 텍스트로 대체하기 위해서는 `replace_text()`를 사용합니다. `as_logical` 인수만 없을 뿐 사용 방법은 `filter_text()`와 유사합니다.
-
-```{r}
-meta_path <- system.file("meta", package = "bitTA")
-fname <- glue::glue("{meta_path}/preparation_replace.csv")
-set_meta("replace", fname, fileEncoding = "utf8")
-
-# 등록된 문자열 대체 룰 확인하기
-get_meta("replace")
-```
-
-`남편`이라는 단어와 `신랑`이라는 단어를 포함한 문장의 수는 각각 175개와 177개입니다. 그러나 이 두 단어는 동의어입니다. 그래서 텍스트 대체 룰에는 이 두 단어를 `남편`이라는 하나의 단어로 표준화했습니다.
-
-```{r}
-doc_content <- buzz$CONTENT
-
-stringr::str_detect(doc_content, "남편") %>% 
-  sum(na.rm = TRUE)
-
-stringr::str_detect(doc_content, "신랑") %>% 
-  sum(na.rm = TRUE)
-```
-
 문서들에서 몇 개의 룰이 적용되는지 결과를 보면서 텍스트를 대체합니다. `신랑`이라는 단어가 `남편`으로 대체되었음을 알 수 있습니다.
 
 ```{r, message=TRUE}

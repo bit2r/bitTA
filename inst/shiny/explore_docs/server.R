@@ -125,8 +125,16 @@ shinyServer(function(input, output, session) {
   })
 
   observeEvent(input$replace, {
+    print(input$cname)
+    print(input$cvalue)
     docs <<- gsub(input$pattern, input$replacement, docs)
-    .docData[, input$vname] <<- docs
+    
+    if (is.null(input$cvalue)) {
+      .docData[, input$vname] <<- docs
+    } else {
+      idx <- .docData[, input$cname] %in% input$cvalue
+      .docData[idx, input$vname] <<- docs
+    }
 
     updateTextInput(session, "pattern",
                     label = "",
