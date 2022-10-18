@@ -125,8 +125,6 @@ shinyServer(function(input, output, session) {
   })
 
   observeEvent(input$replace, {
-    print(input$cname)
-    print(input$cvalue)
     docs <<- gsub(input$pattern, input$replacement, docs)
     
     if (is.null(input$cvalue)) {
