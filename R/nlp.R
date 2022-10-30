@@ -124,7 +124,7 @@ set_meta <-function(id = c("filter", "replace", "remove", "concat", "split"),
 #' @import parallel
 #' @importFrom purrr walk
 #' @importFrom stringr str_detect
-#' @importFrom cli cli_rule
+#' @importFrom cli cli_rule  cli_alert_info
 #' @importFrom tibble is_tibble
 filter_text <- function(
     doc,
@@ -285,7 +285,7 @@ filter_text <- function(
 #' @import parallel
 #' @importFrom purrr walk
 #' @importFrom stringr str_detect str_replace_all
-#' @importFrom cli cli_rule
+#' @importFrom cli cli_rule cli_alert_info
 #' @importFrom tibble is_tibble
 replace_text <- function(
     doc,
@@ -308,7 +308,7 @@ replace_text <- function(
     mc.cores <- 1
     
     msg <- "Window 운영체제에서는 병렬처리를 지원하지 않기 때문에 mc.cores = 1이 적용됩니다."
-    cli_alert_info(msg)
+    cli::cli_alert_info(msg)
   }
   
   chunk_idx <- get_chunk_id(N = length(doc), chunk = chunk)
@@ -422,7 +422,7 @@ concat_text <- function(
     mc.cores <- 1
     
     msg <- "Window 운영체제에서는 병렬처리를 지원하지 않기 때문에 mc.cores = 1이 적용됩니다."
-    cli_alert_info(msg)
+    cli::cli_alert_info(msg)
   }
   
   chunk_idx <- get_chunk_id(N = length(doc), chunk = chunk)
@@ -532,7 +532,7 @@ split_text <- function(
     mc.cores <- 1
     
     msg <- "Window 운영체제에서는 병렬처리를 지원하지 않기 때문에 mc.cores = 1이 적용됩니다."
-    cli_alert_info(msg)
+    cli::cli_alert_info(msg)
   }
   
   if (tibble::is_tibble(doc)) {
@@ -649,7 +649,7 @@ remove_text <- function(
     mc.cores <- 1
     
     msg <- "Window 운영체제에서는 병렬처리를 지원하지 않기 때문에 mc.cores = 1이 적용됩니다."
-    cli_alert_info(msg)
+    cli::cli_alert_info(msg)
   }
 
   chunk_idx <- get_chunk_id(N = length(doc), chunk = chunk)
