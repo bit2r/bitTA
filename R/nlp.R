@@ -84,6 +84,7 @@ set_meta <-function(id = c("filter", "replace", "remove", "concat", "split"),
 #' @param mc.cores integer. 병렬 작업 수행 시 사용할 코어의 개수
 #' @param verbos logical. 메타의 Rule 당 처리된 건수를 화면에 출력할 지의 여부
 #' @return character. 문자열 필터링이 수행된 문자열 벡터.
+#' @details Windows 운영체제에서는 병력작업이 지원되지 않기 때문에, 사용자의 설정과는 무관하게 mc.cores의 값이 1로 적용됩니다.
 #' @examples
 #' \donttest{
 #' ##======================================================
@@ -143,6 +144,13 @@ filter_text <- function(
     doc <- pull(doc)
   }
 
+  if (get_os() %in% "windows") {
+    mc.cores <- 1
+    
+    msg <- "Window 운영체제에서는 병렬처리를 지원하지 않기 때문에 mc.cores = 1이 적용됩니다."
+    cli_alert_info(msg)
+  }
+  
   chunk_idx <- get_chunk_id(N = length(doc), chunk = chunk)
 
   filtering <- function(chunk_id, data, pattern, as_logical) {
@@ -249,6 +257,7 @@ filter_text <- function(
 #' @param mc.cores integer. 병렬 작업 수행 시 사용할 코어의 개수
 #' @param verbos logical. 메타의 Rule 당 처리된 건수를 화면에 출력할 지의 여부
 #' @return character. 문자열 대체/제거/결합이 수행된 문자열 벡터.
+#' @details Windows 운영체제에서는 병력작업이 지원되지 않기 때문에, 사용자의 설정과는 무관하게 mc.cores의 값이 1로 적용됩니다.
 #' @examples
 #' \donttest{
 #' ##======================================================
@@ -295,6 +304,13 @@ replace_text <- function(
     doc <- pull(doc)
   }
 
+  if (get_os() %in% "windows") {
+    mc.cores <- 1
+    
+    msg <- "Window 운영체제에서는 병렬처리를 지원하지 않기 때문에 mc.cores = 1이 적용됩니다."
+    cli_alert_info(msg)
+  }
+  
   chunk_idx <- get_chunk_id(N = length(doc), chunk = chunk)
 
   replace <- function(chunk_id, data, pattern) {
@@ -402,6 +418,13 @@ concat_text <- function(
     doc <- pull(doc)
   }
 
+  if (get_os() %in% "windows") {
+    mc.cores <- 1
+    
+    msg <- "Window 운영체제에서는 병렬처리를 지원하지 않기 때문에 mc.cores = 1이 적용됩니다."
+    cli_alert_info(msg)
+  }
+  
   chunk_idx <- get_chunk_id(N = length(doc), chunk = chunk)
 
   replace <- function(chunk_id, data, pattern) {
@@ -505,6 +528,13 @@ split_text <- function(
     stop("문자열 분리 메타 정보를 등록하지 않았습니다.")
   }
 
+  if (get_os() %in% "windows") {
+    mc.cores <- 1
+    
+    msg <- "Window 운영체제에서는 병렬처리를 지원하지 않기 때문에 mc.cores = 1이 적용됩니다."
+    cli_alert_info(msg)
+  }
+  
   if (tibble::is_tibble(doc)) {
     doc <- dplyr::pull(doc)
   }
@@ -613,6 +643,13 @@ remove_text <- function(
 
   if (tibble::is_tibble(doc)) {
     doc <- pull(doc)
+  }
+  
+  if (get_os() %in% "windows") {
+    mc.cores <- 1
+    
+    msg <- "Window 운영체제에서는 병렬처리를 지원하지 않기 때문에 mc.cores = 1이 적용됩니다."
+    cli_alert_info(msg)
   }
 
   chunk_idx <- get_chunk_id(N = length(doc), chunk = chunk)

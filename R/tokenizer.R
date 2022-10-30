@@ -52,23 +52,6 @@ collapse_noun <- function(doc, user_dic = NULL, type = c("noun", "noun2"),
   
   chunk_idx <- get_chunk_id(N = length(doc), chunk = chunk)
   
-  get_os <- function() {
-    system_info <- Sys.info()
-    if (!is.null(system_info)) {
-      os <- system_info["sysname"]
-      if (os == "Darwin") 
-        os <- "osx"
-    }
-    else {
-      os <- .Platform$OS.type
-      if (grepl("^darwin", R.version$os)) 
-        os <- "osx"
-      if (grepl("linux-gnu", R.version$os)) 
-        os <- "linux"
-    }
-    tolower(os)
-  }
-  
   get_collapse_noun <- function(chunk_id, doc) {
     start <- chunk_idx$idx_start[chunk_id]
     end <- chunk_idx$idx_end[chunk_id]

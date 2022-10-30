@@ -1,4 +1,16 @@
-CHANGES IN R VERSION 1.3.1.9000:
+CHANGES IN R VERSION 1.3.2.9000:
+  BUG FIXES:
+    * MS-Windows에서 문자열 조작함수의 에러 발생 오류 수정 
+      (#31, thanks to 송치호 선생님)    
+      - filter_text()
+      - replace_text()
+      - concat_text()
+      - split_text()
+      - remove_text()
+    
+    
+    
+CHANGES IN R VERSION 1.3.1:
   NEW FEATURES:
     * KNU Korean Sentiment Dictionary를 이용한 감성분석 (#25)
       - get_polarity()
