@@ -196,8 +196,8 @@ tokenize_noun_ngrams <- function (x, n = 3L, n_min = n,
                                  stopwords = character(), 
                                  ngram_delim = " ", simplify = FALSE,
                                  type = c("noun", "noun2"),
-                                 user_dic = NULL) {
-  words <- collapse_noun(x, type = type, user_dic = user_dic)
+                                 user_dic = NULL, mc.cores = parallel::detectCores()) {
+  words <- collapse_noun(x, type = type, user_dic = user_dic, mc.cores = mc.cores)
   tokenizers::tokenize_ngrams(
     words, n = n, n_min = n_min, stopwords = stopwords,
     ngram_delim = ngram_delim, simplify = simplify)
