@@ -1,4 +1,13 @@
-CHANGES IN R VERSION 1.3.2.9000:
+CHANGES IN R VERSION 1.3.3.9000:
+  MINOR CHANGES:
+    * tokenize_noun_ngrams() 함수에 mc.cores 인수를 추가하여 사용자가 연산에 
+      사용할 코어를 선택할 수 있도록함 (#32)
+      - RStudio Cloud 무료 환경은 CPU 자원으로 Core를 1개만 지원하면서 에러가 
+        발생하였는데, mc.cores 인수를 1로 지정하여 에러를 회피할 수 있음
+
+
+      
+CHANGES IN R VERSION 1.3.2:
   BUG FIXES:
     * MS-Windows에서 문자열 조작함수의 에러 발생 오류 수정 
       (#31, thanks to 송치호 선생님)    

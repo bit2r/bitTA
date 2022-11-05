@@ -162,6 +162,11 @@ get_ngrams <- function(x, n = 2L, token = c("noun", "noun2", "word"),
 #' @param ngram_delim character. 생성된 n-gram에서 단어 사이의 구분 기호
 #' @param simplify logical. 기본값은 FALSE로 입력 길이에 관계없이 일관된 값이 
 #' 반환되도록 list 객체로 반환. TRUE인 경우 x가 단일 값일경우에는 문자 벡터를 반환
+#' @param mc.cores integer. 병렬 작업 수행 시 사용할 코어의 개수
+#' @details MS-Windows에서는 병렬처리를 지원하지 않음
+#' CPU 자원으로 1개의 core만 지원하는 무료 RStudio Cloud 환경에서는 mc.cores의 값을 1로 설정해야 합니다.
+#' 만약 이 설정을 누락하면 에러가 발생합니다.
+#' MS-Windows 환경에서는 mc.cores의 값을 1로 설정하지 않아도 정상적으로 동작합니다.
 #' @return 토큰화된 character 벡터를 성분으로 갖는 list. simplify값이 TRUE이고 
 #' x가 단일값일 때에는 character 벡터   
 #' @examples

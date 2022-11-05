@@ -12,7 +12,8 @@ tokenize_noun_ngrams(
   ngram_delim = " ",
   simplify = FALSE,
   type = c("noun", "noun2"),
-  user_dic = NULL
+  user_dic = NULL,
+  mc.cores = parallel::detectCores()
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ tokenize_noun_ngrams(
 
 \item{simplify}{logical. 기본값은 FALSE로 입력 길이에 관계없이 일관된 값이 
 반환되도록 list 객체로 반환. TRUE인 경우 x가 단일 값일경우에는 문자 벡터를 반환}
+
+\item{mc.cores}{integer. 병렬 작업 수행 시 사용할 코어의 개수}
 }
 \value{
 토큰화된 character 벡터를 성분으로 갖는 list. simplify값이 TRUE이고 
@@ -35,6 +38,12 @@ x가 단일값일 때에는 character 벡터
 }
 \description{
 명사를 추출하여 n-gram으로 토큰화합니다.
+}
+\details{
+MS-Windows에서는 병렬처리를 지원하지 않음
+CPU 자원으로 1개의 core만 지원하는 무료 RStudio Cloud 환경에서는 mc.cores의 값을 1로 설정해야 합니다.
+만약 이 설정을 누락하면 에러가 발생합니다.
+MS-Windows 환경에서는 mc.cores의 값을 1로 설정하지 않아도 정상적으로 동작합니다.
 }
 \examples{
 \donttest{
