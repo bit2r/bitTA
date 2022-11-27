@@ -8,7 +8,7 @@ unnest_noun_ngrams(
   tbl,
   output,
   input,
-  n = 3L,
+  n = 2L,
   n_min = n,
   ngram_delim = " ",
   drop = TRUE,
@@ -23,7 +23,7 @@ unnest_noun_ngrams(
 
 \item{input}{character or symbol. 입력으로 사용할 변수 이름}
 
-\item{n}{integer. n-gram의 단어 수입니다. 1 이상의 정수.}
+\item{n}{integer. n-gram의 단어 수입니다. 1 이상의 정수. 기본값은 2.}
 
 \item{n_min}{integer. 이것은 1보다 크거나 같고 n보다 작거나 같은 정수여야 함}
 

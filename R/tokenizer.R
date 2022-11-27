@@ -88,7 +88,7 @@ collapse_noun <- function(doc, user_dic = NULL, type = c("noun", "noun2"),
 #' Tokenization with N-gram 
 #' @description n-gram 토큰화 및 n-gram 토큰화 집계.
 #' @param x character. n-gram 토큰화에 사용할 document.
-#' @param n integer. n-gram 토큰화에서의 n.
+#' @param n integer. n-gram 토큰화에서의 n. 기본값은 2.
 #' @param token character. n-gram 토큰화에서 토큰의 종류. "noun", "noun2", "word"
 #' 에서 선택. 기본값은 "noun"로 일반명사, "noun2"는 명사, "word"는 단어를 의미함.
 #' @param type character. 반환하는 결과물의 종류. "raw"는 토큰화된 n-gram 자체를 반환하며,
@@ -156,7 +156,7 @@ get_ngrams <- function(x, n = 2L, token = c("noun", "noun2", "word"),
 #' N-gram Tokenizer
 #' @description 명사를 추출하여 n-gram으로 토큰화합니다. 
 #' @param x character. 토큰화할 문자열 벡터
-#' @param n integer. n-gram의 단어 수입니다. 1 이상의 정수.
+#' @param n integer. n-gram의 단어 수입니다. 1 이상의 정수. 기본값은 2.
 #' @param n_min integer. 이것은 1보다 크거나 같고 n보다 작거나 같은 정수여야 함
 #' @param stopwords character. n-그램에서 제외할 불용어의 문자형 벡터
 #' @param ngram_delim character. 생성된 n-gram에서 단어 사이의 구분 기호
@@ -197,7 +197,7 @@ get_ngrams <- function(x, n = 2L, token = c("noun", "noun2", "word"),
 #' 
 #' @export
 #' @importFrom tokenizers tokenize_ngrams
-tokenize_noun_ngrams <- function (x, n = 3L, n_min = n, 
+tokenize_noun_ngrams <- function (x, n = 2L, n_min = n, 
                                  stopwords = character(), 
                                  ngram_delim = " ", simplify = FALSE,
                                  type = c("noun", "noun2"),
@@ -214,7 +214,7 @@ tokenize_noun_ngrams <- function (x, n = 3L, n_min = n,
 #' @param tbl A data frame. 
 #' @param output character or symbol. 출력열로 새로 만들 변수 이름
 #' @param input character or symbol. 입력으로 사용할 변수 이름
-#' @param n integer. n-gram의 단어 수입니다. 1 이상의 정수.
+#' @param n integer. n-gram의 단어 수입니다. 1 이상의 정수. 기본값은 2.
 #' @param n_min integer. 이것은 1보다 크거나 같고 n보다 작거나 같은 정수여야 함
 #' @param stopwords character. n-그램에서 제외할 불용어의 문자형 벡터
 #' @param ngram_delim character. 생성된 n-gram에서 단어 사이의 구분 기호
@@ -280,7 +280,7 @@ tokenize_noun_ngrams <- function (x, n = 3L, n_min = n,
 #' 
 #' @export
 #' @importFrom tidytext unnest_tokens
-unnest_noun_ngrams <- function (tbl, output, input, n = 3L, n_min = n, 
+unnest_noun_ngrams <- function (tbl, output, input, n = 2L, n_min = n, 
                                 ngram_delim = " ", drop = TRUE, collapse = NULL, 
                                 ...) {
   tidytext::unnest_tokens(

@@ -6,7 +6,7 @@
 \usage{
 tokenize_noun_ngrams(
   x,
-  n = 3L,
+  n = 2L,
   n_min = n,
   stopwords = character(),
   ngram_delim = " ",
@@ -19,7 +19,7 @@ tokenize_noun_ngrams(
 \arguments{
 \item{x}{character. 토큰화할 문자열 벡터}
 
-\item{n}{integer. n-gram의 단어 수입니다. 1 이상의 정수.}
+\item{n}{integer. n-gram의 단어 수입니다. 1 이상의 정수. 기본값은 2.}
 
 \item{n_min}{integer. 이것은 1보다 크거나 같고 n보다 작거나 같은 정수여야 함}
 

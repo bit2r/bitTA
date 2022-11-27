@@ -1,8 +1,8 @@
 Package: bitTA
 Type: Package
 Title: Tools for Text Analytics
-Version: 1.3.3.9000
-Date: 2022-11-06
+Version: 1.3.3.9001
+Date: 2022-11-28
 Description: Tools that support "Natural Language Processing" for text analytics.
 License: GPL-2 | file LICENSE
 Encoding: UTF-8
@@ -35,5 +35,5 @@ Authors@R: c(
   )  
 Maintainer: Choonghyun Ryu <choonghyun.ryu@gmail.com>   
 LazyData: true
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.2
 VignetteBuilder: knitr

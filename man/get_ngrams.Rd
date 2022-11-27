@@ -15,7 +15,7 @@ get_ngrams(
 \arguments{
 \item{x}{character. n-gram 토큰화에 사용할 document.}
 
-\item{n}{integer. n-gram 토큰화에서의 n.}
+\item{n}{integer. n-gram 토큰화에서의 n. 기본값은 2.}
 
 \item{token}{character. n-gram 토큰화에서 토큰의 종류. "noun", "noun2", "word"
 에서 선택. 기본값은 "noun"로 일반명사, "noun2"는 명사, "word"는 단어를 의미함.}
