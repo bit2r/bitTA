@@ -32,13 +32,13 @@ NULL
 # 
 # fname_sentiword <- here::here("inst", "data", "KnuSentiLex", "SentiWord_info.json")
 # 
-# sentiment_dic <- jsonlite::fromJSON(fname_sentiword) %>% 
-#   filter(!duplicated(word)) %>%  
+# sentiment_dic <- jsonlite::fromJSON(fname_sentiword) %>%
+#   filter(!duplicated(word)) %>%
 #   mutate(n_gram = stringr::str_count(word, pattern = "\\s+") + 1L) %>%
 #   mutate(polarity = as.integer(polarity)) %>%
 #   tibble::as_tibble()
 # 
-# save(sentiment_dic, file = glue::glue("data/sentiment_dic.rda"))
+# save(sentiment_dic, file = glue::glue("data/sentiment_dic.rda"), version = 2)
 
 
 #' KNU Korean Sentiment Dictionary Sentiment Analysis
