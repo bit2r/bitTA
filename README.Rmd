@@ -15,7 +15,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-# bitTA <a href='https://r2bit.com/bitTA/' target='_blank'><img src="man/figures/bitTA_logo.png" align="right" height="120" width="110"/></a>
+# bitTA 
+
+# 공지: 이전됨 - https://r2bit.com/bitNLP
+프로젝트가 bitNLP라는 이름으로 변경, 하나의 GitHub 리포지토리로 통합되었습니다. 다음 링크를 방문해 주세요.
+
+https://r2bit.com/bitNLP
 
 ## bitTA 개요
 

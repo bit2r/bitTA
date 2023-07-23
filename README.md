@@ -1,7 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# bitTA <a href='https://r2bit.com/bitTA/' target='_blank'><img src="man/figures/bitTA_logo.png" align="right" height="120" width="110"/></a>
+# bitTA
+
+# 공지: 이전됨 - <https://r2bit.com/bitNLP>
+
+프로젝트가 bitNLP라는 이름으로 변경, 하나의 GitHub 리포지토리로
+통합되었습니다. 다음 링크를 방문해 주세요.
+
+<https://r2bit.com/bitNLP>
 
 ## bitTA 개요
 
@@ -13,10 +20,10 @@
 <a href="https://r2bit.com/bitTA/articles/Introduce.html"
 target="_blank">Introduce bitTA</a>에 소개되어 있습니다.
 
--   텍스트 데이터 전처리 기능
--   텍스트 데이터 탐색 기능
--   형태소분석 기능
--   감성분석 기능
+- 텍스트 데이터 전처리 기능
+- 텍스트 데이터 탐색 기능
+- 형태소분석 기능
+- 감성분석 기능
 
 ## bitTA 설치
 
@@ -32,11 +39,11 @@ remotes::install_github("bit2r/bitTA")
 
 bitTA를 사용하기 위해서는 다음의 두 리소스를 설치해야 합니다.
 
--   은전한닢 형태소분석기 시스템과 사전
-    -   mecab-ko 혹은 mecab-ko-msvc
-    -   mecab-ko-dic
--   RcppMeCab 패키지
-    -   R에서 mecab-ko 연동을 위한 R 패키지
+- 은전한닢 형태소분석기 시스템과 사전
+  - mecab-ko 혹은 mecab-ko-msvc
+  - mecab-ko-dic
+- RcppMeCab 패키지
+  - R에서 mecab-ko 연동을 위한 R 패키지
 
 은전한닢 형태소분석기 시스템과 사전은 bitTA 패키지의 비네트인
 <a href="https://r2bit.com/bitTA/articles/Install_mecab.html"
@@ -72,7 +79,7 @@ get_spacing("최근음성인식정확도가높아짐에따라많은음성데이�
 #> [1] "최근 음성 인식 정확도가 높아 짐에 따라 많은 음성 데이터가 텍스트로 변환되고 분석되기 시작했는데, 이를 위해 잘 동작하는 띄어쓰기 엔진은 거의 필수적인 게 되어 버렸다"
 str <- "글쓰기에서맞춤법과띄어쓰기를올바르게하는것은좋은글이될수있는요건중하나이다.하지만요즘학생들은부족한어문규정지식으로인해맞춤법과띄어쓰기에서많은오류를범하기도한다.본연구는그중띄어쓰기가글을인식하는데중요한역할을하는것으로판단하여,대학생들이띄어쓰기에대해서어느정도정확하게인식하고있는지,실제오류실태는어떠한지에대해살펴서그오류를개선할수있는교육방안을마련할필요가있다고판단하였다."
 get_spacing(str)
-#> [1] "글쓰기에서 맞춤법과 띄어쓰기를 올바르게 하는 것은 좋은 글이 될 수 있는 요건 중 하나이다. 하지만 요즘 학생들은 부족한 어문 규정 지식으로 인해 맞춤법과 띄어쓰기에서 많은 오류를 범하기도 한다. 본 연구는 그중 띄어쓰기가 글을 인식하는 데 중요한 역할을 하는 것으로 판단하여, 대학생들이 띄어쓰기에 대해서 어느 정도 정확하게 인식하고 있는지, 실제 오류 실태는 어떠한지에 대해 살펴서 그 오류를 개선할 수 있는 교육 방안을 마련할 필요가 있다고 판단하였다."
+#> [1] "글쓰기에서 맞춤법과 띄어쓰기를 올바르게 하는 것은 좋은 글이 될 수 있는 요건 중 하나이다. 하지만 요즘 학생들은 부족한 어문 규정 지식으로 인해 맞춤법과 띄어쓰기에서 많은 오류를 범하기도 한다. 본 연구는 그 중 띄어쓰기가 글을 인식하는 데 중요한 역할을 하는 것으로 판단하여, 대학생들이 띄어쓰기에 대해서 어느 정도 정확하게 인식하고 있는지, 실제 오류 실태는 어떠한지에 대해 살펴서 그 오류를 개선할 수 있는 교육 방안을 마련할 필요가 있다고 판단하였다."
 ```
 
 ### 형태소 분석
@@ -160,20 +167,27 @@ target="_blank">Explore Documents</a>에 설명되어 있습니다.
 텍스트 데이터 탐색 기능은 **Text Data Explorer**라는 이름의 Shiny 앱이
 제공합니다. 그리고 그 기능은 다음과 같습니다.
 
--   데이터 구조 파악하기
--   데이터 탐색과 정제하기
--   패턴검색과 문자열 대체
--   형태소분석을 이용한 데이터 탐색
--   공동발생분석을 이용한 데이터 탐색
--   n-grams를 이용한 데이터 탐색
--   R 명령어 실행
+- 데이터 구조 파악하기
+- 데이터 탐색과 정제하기
+- 패턴검색과 문자열 대체
+- 형태소분석을 이용한 데이터 탐색
+- 공동발생분석을 이용한 데이터 탐색
+- n-grams를 이용한 데이터 탐색
+- R 명령어 실행
 
 #### Text Data Explorer 예시 화면
 
--   Text Data Explorer 기능 중에서 탐색 및 치환 기능 화면에 대한 예시는
-    다음과 같습니다.:
+- Text Data Explorer 기능 중에서 탐색 및 치환 기능 화면에 대한 예시는
+  다음과 같습니다.:
 
-<img src="vignettes/images/replace.jpg" title="탐색 및 치환 기능 화면" alt="탐색 및 치환 기능 화면" width="80%" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+
+<img src="vignettes/images/replace.jpg" alt="탐색 및 치환 기능 화면" width="80%" />
+<p class="caption">
+탐색 및 치환 기능 화면
+</p>
+
+</div>
 
 ### tidytext와의 협업
 
@@ -186,11 +200,11 @@ target="_blank">Collaboration with tidytext package</a>에 설명되어
 
 bitTA는 토크나이저로 다음과 같은 함수를 지원합니다.
 
--   형태소 토크나이저
-    -   morpho_mecab()
-    -   part-of-speech tagger 단위의 토크나이저
--   명사 n-grams 토크나이저
-    -   **tokenize_noun_ngrams()**
+- 형태소 토크나이저
+  - morpho_mecab()
+  - part-of-speech tagger 단위의 토크나이저
+- 명사 n-grams 토크나이저
+  - **tokenize_noun_ngrams()**
 
 ``` r
 docs <- c("님은 갔습니다. 아아, 사랑하는 나의 님은 갔습니다.",
@@ -198,56 +212,54 @@ docs <- c("님은 갔습니다. 아아, 사랑하는 나의 님은 갔습니다.
 
 tokenize_noun_ngrams(docs)
 #> [[1]]
-#> [1] "님 사랑 님"
+#> [1] "님 사랑" "사랑 님"
 #> 
 #> [[2]]
-#> [1] "산 빛 단풍나무" "빛 단풍나무 숲" "단풍나무 숲 길"
+#> [1] "산 빛"       "빛 단풍나무" "단풍나무 숲" "숲 길"
 
 # simplify = TRUE
 tokenize_noun_ngrams(docs[1], simplify = TRUE)
-#> [1] "님 사랑 님"
+#> [1] "님 사랑" "사랑 님"
 
 str <- "신혼부부나 주말부부는 놀이공원 자유이용권을 즐겨 구매합니다."
 
 tokenize_noun_ngrams(str)
 #> [[1]]
-#> [1] "신혼 부부 주말"     "부부 주말 부부"     "주말 부부 놀이공원"
-#> [4] "부부 놀이공원 자유" "놀이공원 자유 이용" "자유 이용 구매"
+#> [1] "신혼 부부" "부부 주말" "주말 부부" "부부 놀이" "놀이 공원" "공원 자유"
+#> [7] "자유 이용" "이용 구매"
 
 # 불용어 처리
 tokenize_noun_ngrams(str, stopwords = "구매")
 #> [[1]]
-#> [1] "신혼 부부 주말"     "부부 주말 부부"     "주말 부부 놀이공원"
-#> [4] "부부 놀이공원 자유" "놀이공원 자유 이용"
+#> [1] "신혼 부부" "부부 주말" "주말 부부" "부부 놀이" "놀이 공원" "공원 자유"
+#> [7] "자유 이용"
  
 # 사용자 정의 사전 사용
 dic_path <- system.file("dic", package = "bitTA")
 dic_file <- glue::glue("{dic_path}/buzz_dic.dic")
 tokenize_noun_ngrams(str, simplify = TRUE, user_dic = dic_file)
-#> [1] "신혼부부 주말부부 놀이공원"   "주말부부 놀이공원 자유이용권"
-#> [3] "놀이공원 자유이용권 구매"
+#> [1] "신혼부부 주말부부" "주말부부 놀이"     "놀이 공원"        
+#> [4] "공원 자유이용권"   "자유이용권 구매"
 
 # n_min
 tokenize_noun_ngrams(str, n_min = 1, user_dic = dic_file)
 #> [[1]]
-#>  [1] "신혼부부"                     "신혼부부 주말부부"           
-#>  [3] "신혼부부 주말부부 놀이공원"   "주말부부"                    
-#>  [5] "주말부부 놀이공원"            "주말부부 놀이공원 자유이용권"
-#>  [7] "놀이공원"                     "놀이공원 자유이용권"         
-#>  [9] "놀이공원 자유이용권 구매"     "자유이용권"                  
-#> [11] "자유이용권 구매"              "구매"
+#>  [1] "신혼부부"          "신혼부부 주말부부" "주말부부"         
+#>  [4] "주말부부 놀이"     "놀이"              "놀이 공원"        
+#>  [7] "공원"              "공원 자유이용권"   "자유이용권"       
+#> [10] "자유이용권 구매"   "구매"
 
 # ngram_delim
 tokenize_noun_ngrams(str, ngram_delim = ":", user_dic = dic_file)
 #> [[1]]
-#> [1] "신혼부부:주말부부:놀이공원"   "주말부부:놀이공원:자유이용권"
-#> [3] "놀이공원:자유이용권:구매"
+#> [1] "신혼부부:주말부부" "주말부부:놀이"     "놀이:공원"        
+#> [4] "공원:자유이용권"   "자유이용권:구매"
 
 # bi-grams
 tokenize_noun_ngrams(str, n = 2, ngram_delim = ":", user_dic = dic_file)
 #> [[1]]
-#> [1] "신혼부부:주말부부"   "주말부부:놀이공원"   "놀이공원:자유이용권"
-#> [4] "자유이용권:구매"
+#> [1] "신혼부부:주말부부" "주말부부:놀이"     "놀이:공원"        
+#> [4] "공원:자유이용권"   "자유이용권:구매"
 ```
 
 #### 한글 unnest_tokens
@@ -269,7 +281,7 @@ president_speech %>%
     ngram_delim = ":",
     type = "noun2"
   )
-#> # A tibble: 271 × 2
+#> # A tibble: 264 × 2
 #>    title                              noun_bigram
 #>    <chr>                              <chr>      
 #>  1 "2005 한일 우정의 해 개막식 축사 " 일:우정    
@@ -282,7 +294,7 @@ president_speech %>%
 #>  8 "2005 한일 우정의 해 개막식 축사 " 참석:여러분
 #>  9 "2005 한일 우정의 해 개막식 축사 " 여러분:모두
 #> 10 "2005 한일 우정의 해 개막식 축사 " 모두:환영  
-#> # … with 261 more rows
+#> # ℹ 254 more rows
 ```
 
 ### 텍스트 데이터 정제
@@ -295,19 +307,19 @@ target="_blank">Manipulate Documents</a>에 설명되어 있습니다.
 
 bitTA의 텍스트 데이터 조작 기능을 정리하면 다음과 같습니다.
 
--   문서 단위의 전처리
-    -   문서 필터링 (Filter Documents)
--   텍스트 단위의 전처리
-    -   텍스트 대체 (Replace Texts)
-    -   텍스트 연결 (Concatenate Texts)
-    -   텍스트 분리 (Split Texts)
-    -   텍스트 제거 (Remove Texts)
+- 문서 단위의 전처리
+  - 문서 필터링 (Filter Documents)
+- 텍스트 단위의 전처리
+  - 텍스트 대체 (Replace Texts)
+  - 텍스트 연결 (Concatenate Texts)
+  - 텍스트 분리 (Split Texts)
+  - 텍스트 제거 (Remove Texts)
 
 bitTA는 대용량의 텍스트 데이터에서 상기 데이터 조작을 수행할 수 있도록
 도와줍니다. 그래서 다음과 같은 방법으로 작업합니다.
 
--   병렬 처리를 통한 속도의 개선
--   데이터 조작 룰을 등록한 메타(meta) 파일 활용
+- 병렬 처리를 통한 속도의 개선
+- 데이터 조작 룰을 등록한 메타(meta) 파일 활용
 
 본 소개글에서는 문서 필터링에 대한 사례만 소개합니다. 다른 텍스트 조작은
 비네트를 참고하십시요.
@@ -427,24 +439,24 @@ buzz %>%
 #>  8 맞벌이  20대 수다방      "못가지니까 기분이 안좋아요 다른것도아니고 여유가 … 
 #>  9 맞벌이  20대 수다방      "남편이랑 저랑 동갑에 둘 다 맞벌이에요. 저는 현재 … 
 #> 10 맞벌이  20대 수다방      "요즘 퇴근하고 남편이 데리러 오는데요 살빼려고 하는…
-#> # … with 975 more rows
+#> # ℹ 975 more rows
 ```
 
 ## 고마운 분들
 
 bitTA는 다음 오픈소스 기여자의 리소스를 사용하거나 참조하였습니다.:
 
--   은전한닢 프로젝트 관계자
-    -   <a href="http://eunjeon.blogspot.com/" target="_blank">은전한닢
-        프로젝트</a>
--   김준혁
-    -   <a href="https://github.com/junhewk/RcppMeCab"
-        target="_blank">RcppMeCab</a>
-    -   <a href="https://github.com/junhewk/RmecabKo"
-        target="_blank">RmecabKo</a>  
--   윤원섭
-    -   <a href="https://github.com/Pusnow/mecab-ko-msvc"
-        target="_blank">mecab-ko-msvc</a>
+- 은전한닢 프로젝트 관계자
+  - <a href="http://eunjeon.blogspot.com/" target="_blank">은전한닢
+    프로젝트</a>
+- 김준혁
+  - <a href="https://github.com/junhewk/RcppMeCab"
+    target="_blank">RcppMeCab</a>
+  - <a href="https://github.com/junhewk/RmecabKo"
+    target="_blank">RmecabKo</a>  
+- 윤원섭
+  - <a href="https://github.com/Pusnow/mecab-ko-msvc"
+    target="_blank">mecab-ko-msvc</a>
 
 ## 도움요청
 
